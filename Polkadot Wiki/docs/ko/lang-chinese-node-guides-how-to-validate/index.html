@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>如何成为验证人 · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="# 如何成为验证人"/><meta name="docsearch:language" content="ko"/><meta property="og:title" content="如何成为验证人 · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://wiki.polkadot.network/"/><meta property="og:description" content="# 如何成为验证人"/><meta property="og:image" content="https://wiki.polkadot.network/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://wiki.polkadot.network/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/ko"><img class="logo" src="/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/ko/polkadot-build-index" target="_self">Build</a></li><li class=""><a href="/docs/ko/polkadot-learn-index" target="_self">Learn</a></li><li class=""><a href="/docs/ko/polkadot-node-index" target="_self">Maintainers</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>한국어</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/lang-chinese-node-guides-how-to-validate">English</a></li><li><a href="/docs/ja/lang-chinese-node-guides-how-to-validate">日本語</a></li><li><a href="/docs/es-ES/lang-chinese-node-guides-how-to-validate">Español</a></li><li><a href="/docs/ru/lang-chinese-node-guides-how-to-validate">Русский</a></li><li><a href="/docs/tr/lang-chinese-node-guides-how-to-validate">Türkçe</a></li><li><a href="/docs/zh-CN/lang-chinese-node-guides-how-to-validate">中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">如何成为验证人</h1></header><article><div><span><h1><a class="anchor" aria-hidden="true" id="如何成为验证人"></a><a href="#如何成为验证人" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>如何成为验证人</h1>
+<p>!!! info <em>这个教程将更新到最新测试网</em></p>
+<p>想成为一个好验证人，你需要留意以下几点:</p>
+<ul>
+<li>拥有DOTs作抵押(<strong>基本要求</strong>）</li>
+<li>确保节点运行最新版本</li>
+<li>拥有网络保安知识</li>
+<li>使用HSM保护私钥(<strong>推荐</strong>）</li>
+</ul>
+<p>如果你有DOT但是没有足够技术知识，你最好也不要当验证人，反而提议把你的DOTs提名到其它你信任的验证人身上去帮你做这个工作。</p>
+<p>TODO:你仍然能成为提名人提名多个验证人从而获得奖励。你可以在<a href="../../../../../polkadot/node/nominator/">这裹</a>了解更多关于提名人的操作。</p>
+<p>这个教程我们使用Ubuntu 18.04并将在PoC-4测试网运行，不论你使用那个操作系统，大部份设定也不会有太大区别。另外这里有些<a href="#vps">VPS服务器</a>给大家选择。</p>
+<p>!!! attention <em>请大家确保不要在主网上使用以下设定。 这个教程将会一步一步教大家如何设定验证人节点，如果你想在主网上线后当验证人，你必须对私钥管理、抵抗DDOS和高可用性(High Availability)有一定了解。</em></p>
+<h2><a class="anchor" aria-hidden="true" id="安裝-rust"></a><a href="#安裝-rust" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>安裝 Rust</h2>
+<pre><code class="hljs css language-bash">curl https://sh.rustup.rs -sSf | sh
+sudo apt install make clang pkg-config libssl-dev
+</code></pre>
+<p>以上指令将会下载最新Rust版本并安装，第二个指令是安装其它所需要的程序。</p>
+<pre><code class="hljs css language-bash">rustup update
+</code></pre>
+<p>假如你经已安装好Rust，执行以上指令检查一下是否有新版本。</p>
+<h2><a class="anchor" aria-hidden="true" id="安装-polkadot-poc-4"></a><a href="#安装-polkadot-poc-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>安装 <code>Polkadot</code> PoC-4</h2>
+<p>在没有一键安装之前，你需要从源代码编译Polkadot。</p>
+<pre><code class="hljs css language-bash">git <span class="hljs-built_in">clone</span> https://github.com/paritytech/polkadot.git
+<span class="hljs-comment"># 如果你是更新节点，可以从这一步开始。</span>
+<span class="hljs-built_in">cd</span> polkadot
+cargo clean
+git checkout v0.4
+git pull origin v0.4
+./scripts/init.sh
+./scripts/build.sh
+cargo install --path ./ --force
+</code></pre>
+<p>编译需要一段时间，具体取决于你的硬件。</p>
+<h2><a class="anchor" aria-hidden="true" id="同步链数据"></a><a href="#同步链数据" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>同步链数据</h2>
+<pre><code class="hljs css language-bash">polkadot --chain alex
+</code></pre>
+<p>同步将会需要数小时。 你可以通过<a href="https://telemetry.polkadot.io/#/Alexander">Telemetry</a>或<a href="https://polkadot.js.org/apps/#/explorer">PolkadotJS区块浏览器</a>查看最新区块。</p>
+<h2><a class="anchor" aria-hidden="true" id="创建帐号"></a><a href="#创建帐号" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>创建帐号</h2>
+<p>第一件事你需要做的是新增三个不同帐号来管理资金和操作验证人:</p>
+<ul>
+<li>Stash</li>
+<li>Controller</li>
+<li>Session (必须是 ed25519)</li>
+</ul>
+<p>TODO:请看<a href="../../../../polkadot/learn/keys.md">这裹</a>如果你想了解更多关于以上三个分别和为什么需要它们。</p>
+<p>TODO:<img src="../../../../img/guides/how-to-validate/polkadot-dashboard-create-account.jpg" alt="create account"></p>
+<p>在PolkadotJS区块浏览器选择 <a href="https://polkadot.js.org/apps/#/accounts"><code>Accounts</code></a>，再按下<code>Create account</code>。</p>
+<p>为了简单容易识别帐号起见，建议大家把<code>Stash</code>、<code>Controller</code>和<code>Session</code>命名为(<code>1337_Stash</code>, <code>1337_Controller</code>, <code>1337_Session</code>)。</p>
+<p>Stash和Controller帐号可以使用预设的<code>sr25519</code>加密算法，但是當创建<strong>Session</strong>密钥時，你必须在<code>Advanced creation options</code>选择<code>ed25519</code>加密算法作为<code>Key pair crypto type</code>。另外确保你选择<code>Raw Seed</code>并储存在本地某个地方，因为当你运行验证人时，那个指令需要使用到它。</p>
+<p>每个帐号，输入密码加密种子(Seed)并按下<code>Save</code>。</p>
+<p>接下来选择<em>Create and backup account</em>储存你的密匙为JSON格式。连同密码一起，这是能够恢复帐户的方法。</p>
+<p>重复以上步骤创建其它帐号之后，你应该看到三个全新帐号。</p>
+<h2><a class="anchor" aria-hidden="true" id="获取测试币"></a><a href="#获取测试币" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>获取测试币</h2>
+<p>接下来<code>Stash</code>和<code>Controller</code>帐号也需要有测试币才能提交交易和参与抵押。而<code>Session</code>帐号不需要有DOTs及不建议发送任何币到<code>Session</code>，而<code>Stash</code>和<code>Controller</code>需要有最少100 mDOTs(即0.1 DOTs)的最低金额，另外有多些DOTs允许你作支付交易费用。</p>
+<p>现在有二个方法你可以获取测试币。</p>
+<ul>
+<li><a href="https://faucet.polkadot.network">Polkadot Faucet</a> - 在推特发布Tweet附带你的地址，注意每24小时最多能获取300 mDOTs。</li>
+<li><a href="https://faucets.blockxlabs.com/polkadot">Blockxlabs Faucet</a> - 需要电邮登录。</li>
+</ul>
+<p>如果以上二个方法不行，你需要在<a href="https://riot.im/app/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler聊天室</a>贴下你的地址并请求其它人发给你。只需要贴下一个地址并将接收回来的DOTs发送到其它帐号。</p>
+<h2><a class="anchor" aria-hidden="true" id="绑定-dots"></a><a href="#绑定-dots" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>绑定 DOTS</h2>
+<p>现在可以开始设定验证人，首先我们将会做以下步骤：</p>
+<ul>
+<li><p>绑定<code>Stash</code>帐号内的DOTs，这里的抵押将会是网络上的安全指标，并会随时因为做了些损害网络的行为被惩罚</p></li>
+<li><p><code>Controller</code>，这会负责决定什么时候开始或停止运作验证</p></li>
+<li><p><code>Session</code>，这个当你运行节点时需要使用他的Seed</p></li>
+</ul>
+<p>首先前往这里的 <a href="https://polkadot.js.org/apps/#/staking/actions"><code>Staking</code></a> 页面，你应该会看到你之前所创建的帐号。</p>
+<p>选择 <code>Stash</code> 帐号，应该有200 mDOTs，之后按<code>Bond Funds</code>，我们选择绑定100 mDOTs。</p>
+<p>TODO:<img src="../../../../img/guides/how-to-validate/polkadot-dashboard-bonding.jpg" alt="dashboard bonding"></p>
+<ul>
+<li><strong>Controller account</strong> - 选择你之前创建的<code>Controller</code>帐号。</li>
+<li><strong>Value bonded</strong> - 选择从<code>Stash</code>帐号绑定/抵押DOTs数量，因为你需要支付交易费，所以不能够使用全部DOTs作押抵，你之后还可以充值更多，但是提取经已绑定了的DOTs是需要等待一段时间（现在是600个区块）。 TODO:- <strong>Payment destination</strong> - 把奖励发送到那个帐号，详情请看<a href="../../../../polkadot/learn/staking.md#reward-distribution">这里</a>.</li>
+</ul>
+<p>当所有资料填写好后，利用<code>Stash</code>帐号按<code>Bond</code>并签署交易。</p>
+<h2><a class="anchor" aria-hidden="true" id="设定-session-key"></a><a href="#设定-session-key" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>设定 Session Key</h2>
+<p>现在你应该看到 <code>Controller</code> 帐号有 <code>Set Session Key</code> 和 <code>Nominate</code> 选项。</p>
+<p>TODO:<img src="../../../../img/guides/how-to-validate/polkadot-dashboard-set-session-key.jpg" alt="dashboard validate"></p>
+<p>选择 <code>Set Session Key</code>。</p>
+<p>TODO:<img src="../../../../img/guides/how-to-validate/polkadot-dashboard-set-session-key-modal.jpg" alt="dashboard staking"></p>
+<p>选择之前建立的 <code>Session</code> 帐号并按下 <code>Set Session Key</code>。</p>
+<h2><a class="anchor" aria-hidden="true" id="抵押"></a><a href="#抵押" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>抵押</h2>
+<p>现在你应该看到<code>Controller</code>帐号有<code>Validate</code>和<code>Nominate</code>选项，按下<code>Validate</code>。</p>
+<p>TODO:<img src="../../../../img/guides/how-to-validate/polkadot-dashboard-validate.jpg" alt="dashboard validate"> TODO:<img src="../../../../img/guides/how-to-validate/polkadot-dashboard-validate-modal.jpg" alt="dashboard validate"></p>
+<ul>
+<li><strong>Unstake threshold</strong> - 设置被发现多少次离线后，取消验証人资格。</li>
+<li><strong>Payment preferences</strong> - 验证人会先取下这里设定的奖励，余下那些将会跟提名你的人分享。</li>
+</ul>
+<p>按下 <code>Stake</code></p>
+<p>打开终端(Terminal)，如果你的节点经已完全同步，利用<code>Session</code>帐号的Seed和执行以下指令。</p>
+<pre><code class="hljs css language-bash">polkadot \
+--chain alex \
+--validator \
+--key &lt;SESSION_ACCOUNT_SEED&gt; \
+--name &lt;在TELEMETRY显示的名称&gt; \
+--telemetry-url ws://telemetry.polkadot.io:1024
+</code></pre>
+<p>之后前往 <a href="https://telemetry.polkadot.io/#/Alexander">Telemetry</a>，经过数秒后，你的节点资料将会显示出来。</p>
+<p>前往 <a href="https://polkadot.js.org/apps/#/staking">Staking apps</a> 选择 &quot;Staking Overview&quot;，你应该看到所有运行中的验证人。在最顶部份，你会看到有多少验证人位置空缺和有多少人有意成为验证人。</p>
+<p>TODO:<img src="../../../../img/guides/how-to-validate/polkadot-dashboard-staking-queue.jpg" alt="staking queue"></p>
+<p>有意成为验证人的节点将会在<em>next up</em>队列显示，每过一小时后，如果有位置空缺或你背后支持的抵押大过排最后那一位验证人，你的节点将会成为验证人。</p>
+<p><strong>恭喜你！</strong></p>
+<p>TODO:&gt; 如果你想把你验证人程序变成系统程序，你可以看<a href="../../../../polkadot/node/guides/how-to-systemd.md">这个</a>教学。</p>
+<p><strong>注意:</strong> 当主网愈近，你可以预计将会有更多验证人位置给大家参与测试。</p>
+<h2><a class="anchor" aria-hidden="true" id="vps-服务器"></a><a href="#vps-服务器" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VPS 服务器</h2>
+<ul>
+<li><a href="https://www.ovh.com.au/">OVH</a></li>
+<li><a href="https://www.digitalocean.com/">Digital Ocean</a></li>
+<li><a href="https://www.vultr.com/">Vultr</a></li>
+<li><a href="https://www.linode.com/">Linode</a></li>
+<li><a href="https://contabo.com/">Contabo</a></li>
+<li><a href="https://www.scaleway.com/">Scaleway</a></li>
+</ul>
+</span></div></article></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#安裝-rust">安裝 Rust</a></li><li><a href="#安装-polkadot-poc-4">安装 <code>Polkadot</code> PoC-4</a></li><li><a href="#同步链数据">同步链数据</a></li><li><a href="#创建帐号">创建帐号</a></li><li><a href="#获取测试币">获取测试币</a></li><li><a href="#绑定-dots">绑定 DOTS</a></li><li><a href="#设定-session-key">设定 Session Key</a></li><li><a href="#抵押">抵押</a></li><li><a href="#vps-服务器">VPS 服务器</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a href="https://github.com/paritytech/polkadot">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="copyright">Copyright © 2019 Web3 Foundation</section></footer></div></body></html>
