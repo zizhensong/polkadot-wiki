@@ -1,0 +1,173 @@
+<!DOCTYPE html><html lang="ja"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Style Guide for Rust in Polkadot · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="- Indent using tabs"/><meta name="docsearch:language" content="ja"/><meta property="og:title" content="Style Guide for Rust in Polkadot · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://w3f.github.io/index"/><meta property="og:description" content="- Indent using tabs"/><meta property="og:image" content="https://w3f.github.io/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://w3f.github.io/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="js/scrollSpy.js"></script><link rel="stylesheet" href="css/main.css"/><script src="js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="ja"><img class="logo" src="img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="docs/ja/polkadot-build-index" target="_self">Build</a></li><li class="siteNavGroupActive"><a href="docs/ja/polkadot-learn-index" target="_self">Learn</a></li><li class="siteNavGroupActive"><a href="docs/ja/polkadot-node-index" target="_self">Maintainers</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="img/language.svg" alt="Languages icon"/>日本語</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="docs/en/polkadot-build-rust-style-guide">English</a></li><li><a href="docs/es-ES/polkadot-build-rust-style-guide">Español</a></li><li><a href="docs/ko/polkadot-build-rust-style-guide">한국어</a></li><li><a href="docs/ru/polkadot-build-rust-style-guide">Русский</a></li><li><a href="docs/tr/polkadot-build-rust-style-guide">Türkçe</a></li><li><a href="docs/zh-CN/polkadot-build-rust-style-guide">中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Build</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Main<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="docs/ja/community">Community</a></li><li class="navListItem"><a class="navItem" href="docs/ja/contributing">Contributing</a></li><li class="navListItem"><a class="navItem" href="docs/ja/glossary">Terms and Definitions</a></li><li class="navListItem"><a class="navItem" href="docs/ja/">Polkadot Wiki</a></li><li class="navListItem"><a class="navItem" href="docs/ja/news">This Week in Polkadot</a></li><li class="navListItem"><a class="navItem" href="docs/ja/research">Polkadot Research</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Build<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-build-with-polkadot">Polkadot Builders Starter&#x27;s Guide</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-cumulus">Cumulus</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-deploy-parachains">How to view and deploy parachains</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-dev-roadmap">Roadmap For Developers</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-examples-index">Examples</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-exchange-integration">Exchange integration</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-extrinsic-format">Polkadot Extrinsic Format aka Transaction Format</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-hackathon">Hackathon</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-index">Builders Portal</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-networks">Networks</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-pdk">Parachain Development Kits (PDKs)</a></li><li class="navListItem navListItemActive"><a class="navItem" href="docs/ja/polkadot-build-rust-style-guide">Style Guide for Rust in Polkadot</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-smart-contracts">Smart Contracts</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-tools-index">Tools</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-build-tools-subkey">Subkey</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-DOT">DOT</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-PRE">Polkadot Runtime Environment (PRE)</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-UI">Polkadot UI</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-architecture">Architecture</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-auction">Parachain Slots Auction</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-basics">Basics</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-bridges">Bridges</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-comparisons-cosmos">Polkadot vs. Cosmos: Design Comparison</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-comparisons">Polkadot comparisons</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-consensus">Polkadot Consensus</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-cryptography">Cryptography Explainer</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-faq">Frequently Asked Questions (FAQs)</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-governance">Governance</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-grandpa">GRANDPA</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-implementations">Polkadot Implementations</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-index">Learn about Polkadot</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-interchain">Interchain Message Passing (ICMP)</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-introduction">Polkadot</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-keys">Polkadot Keys</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-parachains">Parachains</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-parathreads">Parathreads</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-phragmen">What is Phragmen and what does it mean for node operators?</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-randomness">Randomness</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-relevant-links">Links</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-roadmap">Roadmap</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-security">Security of the network</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-spree">SPREE</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-staking">Staking</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-treasury">Treasury</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-learn-wasm">WebAssembly (Wasm)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Maintaining<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-node-collator">Collator</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-node-governance-index">Governance</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-node-guides-how-to-nominate">How to nominate</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-node-guides-how-to-systemd">How to run your node as a `systemd` process</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-node-guides-how-to-validate">How to validate</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-node-guides-validator-payout">Validator Payout Overview</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-node-index">Network Maintainers</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-node-node-operator">Node Operator / Validator</a></li><li class="navListItem"><a class="navItem" href="docs/ja/polkadot-node-nominator">Nominator</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Style Guide for Rust in Polkadot</h1></header><article><div><span><ul>
+<li>Indent using tabs</li>
+<li>Lines should be longer than 80 characters long only in exceptional circumstances and certainly no longer than 120. For this purpose, tabs are considered 4 characters wide.</li>
+<li>Indent levels should be greater than 5 only in exceptional circumstances and certainly no greater than 8. If they are greater than 5, then consider using <code>let</code> or auxiliary functions in order to strip out complex inline expressions.</li>
+<li>Never have spaces on a line prior to a non-whitespace character</li>
+<li>Follow-on lines are only ever a single indent from the original line.</li>
+</ul>
+<pre><code class="hljs css language-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">calculation</span></span>(some_long_variable_a: <span class="hljs-built_in">i8</span>, some_long_variable_b: <span class="hljs-built_in">i8</span>) -&gt; <span class="hljs-built_in">bool</span> {
+    <span class="hljs-keyword">let</span> x = some_long_variable_a * some_long_variable_b
+        - some_long_variable_b / some_long_variable_a
+        + sqrt(some_long_variable_a) - sqrt(some_long_variable_b);
+    x &gt; <span class="hljs-number">10</span>
+}
+</code></pre>
+<ul>
+<li>Indent level should follow open parens/brackets, but should be collapsed to the smallest number of levels actually used:</li>
+</ul>
+<pre><code class="hljs css language-rust"><span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">calculate</span></span>(
+    some_long_variable_a: <span class="hljs-built_in">f32</span>,
+    some_long_variable_b: <span class="hljs-built_in">f32</span>,
+    some_long_variable_c: <span class="hljs-built_in">f32</span>,
+) -&gt; <span class="hljs-built_in">f32</span> {
+    (-some_long_variable_b + sqrt(
+        <span class="hljs-comment">// two parens open, but since we open &amp; close them both on the</span>
+        <span class="hljs-comment">// same line, only one indent level is used</span>
+        some_long_variable_b * some_long_variable_b
+        - <span class="hljs-number">4</span> * some_long_variable_a * some_long_variable_c
+    <span class="hljs-comment">// both closed here at beginning of line, so back to the original indent</span>
+    <span class="hljs-comment">// level</span>
+    )) / (<span class="hljs-number">2</span> * some_long_variable_a)
+}
+</code></pre>
+<ul>
+<li><code>where</code> is indented, and its items are indented one further</li>
+<li>Argument lists or function invocations too long to fit on one line are indented similarly to code blocks, and once one param is indented in such a way, all others should be, too. Run-on parameter lists are also acceptable for single-line run-ons of basic function calls.</li>
+</ul>
+<pre><code class="hljs css language-rust"><span class="hljs-comment">// OK</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">foo</span></span>(
+    really_long_parameter_name_1: SomeLongTypeName,
+    really_long_parameter_name_2: SomeLongTypeName,
+    shrt_nm_1: <span class="hljs-built_in">u8</span>,
+    shrt_nm_2: <span class="hljs-built_in">u8</span>,
+) {
+   ...
+}
+
+<span class="hljs-comment">// NOT OK</span>
+<span class="hljs-function"><span class="hljs-keyword">fn</span> <span class="hljs-title">foo</span></span>(really_long_parameter_name_1: SomeLongTypeName, really_long_parameter_name_2: SomeLongTypeName,
+    shrt_nm_1: <span class="hljs-built_in">u8</span>, shrt_nm_2: <span class="hljs-built_in">u8</span>) {
+   ...
+}
+
+</code></pre>
+<pre><code class="hljs css language-rust">{
+    <span class="hljs-comment">// Complex line (not just a function call, also a let statement). Full</span>
+    <span class="hljs-comment">// structure.</span>
+    <span class="hljs-keyword">let</span> (a, b) = bar(
+        really_long_parameter_name_1,
+        really_long_parameter_name_2,
+        shrt_nm_1,
+        shrt_nm_2,
+    );
+
+    <span class="hljs-comment">// Long, simple function call.</span>
+    waz(
+        really_long_parameter_name_1,
+        really_long_parameter_name_2,
+        shrt_nm_1,
+        shrt_nm_2,
+    );
+
+    <span class="hljs-comment">// Short function call. Inline.</span>
+    baz(a, b);
+}
+</code></pre>
+<ul>
+<li>Always end last item of a multi-line comma-delimited set with <code>,</code> when legal:</li>
+</ul>
+<pre><code class="hljs css language-rust"><span class="hljs-class"><span class="hljs-keyword">struct</span> <span class="hljs-title">Point</span></span>&lt;T&gt; {
+    x: T,
+    y: T,    <span class="hljs-comment">// &lt;-- Multiline comma-delimited lists end with a trailing ,</span>
+}
+
+<span class="hljs-comment">// Single line comma-delimited items do not have a trailing `,`</span>
+<span class="hljs-class"><span class="hljs-keyword">enum</span> <span class="hljs-title">Meal</span></span> { Breakfast, Lunch, Dinner };
+</code></pre>
+<ul>
+<li>Avoid trailing <code>;</code>s where unneeded.</li>
+</ul>
+<pre><code class="hljs css language-rust"><span class="hljs-keyword">if</span> condition {
+    <span class="hljs-keyword">return</span> <span class="hljs-number">1</span>    <span class="hljs-comment">// &lt;-- no ; here</span>
+}
+</code></pre>
+<ul>
+<li><code>match</code> arms may be either blocks or have a trailing <code>,</code> but not both.</li>
+<li>Blocks should not be used unnecessarily.</li>
+</ul>
+<pre><code class="hljs css language-rust"><span class="hljs-keyword">match</span> meal {
+    Meal::Breakfast =&gt; <span class="hljs-string">"eggs"</span>,
+    Meal::Lunch =&gt; { check_diet(); recipe() },
+<span class="hljs-comment">//  Meal::Dinner =&gt; { return Err("Fasting") }   // WRONG</span>
+    Meal::Dinner =&gt; <span class="hljs-keyword">return</span> <span class="hljs-literal">Err</span>(<span class="hljs-string">"Fasting"</span>),
+}
+</code></pre>
+</span></div></article></div><div class="docs-prevnext"><a class="docs-prev button" href="docs/ja/polkadot-build-pdk"><span class="arrow-prev">← </span><span>Parachain Development Kits (PDKs)</span></a><a class="docs-next button" href="docs/ja/polkadot-build-smart-contracts"><span>Smart Contracts</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="" class="nav-home"><img src="img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a href="https://github.com/paritytech/polkadot">GitHub</a><a class="github-button" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="copyright">Copyright © 2019 Web3 Foundation</section></footer></div></body></html>
