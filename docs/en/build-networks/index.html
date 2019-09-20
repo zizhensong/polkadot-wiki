@@ -1,0 +1,109 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Networks · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="The following commands can be used to connect to the different networks."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Networks · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://w3f.github.io/polkadot-wiki-i18n/"/><meta property="og:description" content="The following commands can be used to connect to the different networks."/><meta property="og:image" content="https://w3f.github.io/polkadot-wiki-i18n/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://w3f.github.io/polkadot-wiki-i18n/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/polkadot-wiki-i18n/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/polkadot-wiki-i18n/js/scrollSpy.js"></script><link rel="stylesheet" href="/polkadot-wiki-i18n/css/main.css"/><script src="/polkadot-wiki-i18n/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/polkadot-wiki-i18n/en"><img class="logo" src="/polkadot-wiki-i18n/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/polkadot-wiki-i18n/docs/en/build-index" target="_self">Build</a></li><li class="siteNavGroupActive"><a href="/polkadot-wiki-i18n/docs/en/learn-index" target="_self">Learn</a></li><li class="siteNavGroupActive"><a href="/polkadot-wiki-i18n/docs/en/maintain-index" target="_self">Maintain</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/polkadot-wiki-i18n/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/polkadot-wiki-i18n/docs/zh-CN/build-networks">中文</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Build</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Main<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/community">Community</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/contributing">Contributing</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/glossary">Terms and Definitions</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/">Polkadot Wiki</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/news">This Week in Polkadot</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/research">Polkadot Research</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Build<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-build-with-polkadot">Polkadot Builders Starter&#x27;s Guide</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-cumulus">Cumulus</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-deploy-parachains">How to view and deploy parachains</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-dev-roadmap">Roadmap For Developers</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-examples-index">Examples</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-exchange-integration">Exchange integration</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-extrinsic-format">Polkadot Extrinsic Format aka Transaction Format</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-hackathon">Hackathon</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-index">Builders Portal</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-networks">Networks</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-pdk">Parachain Development Kits (PDKs)</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-rust-style-guide">Style Guide for Rust in Polkadot</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-smart-contracts">Smart Contracts</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-tools-index">Tools</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/build-tools-subkey">Subkey</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-DOT">DOT</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-PRE">Polkadot Runtime Environment (PRE)</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-UI">Polkadot UI</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-architecture">Architecture</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-auction">Parachain Slots Auction</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-basics">Basics</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-bridges">Bridges</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-comparisons-cosmos">Polkadot vs. Cosmos: Design Comparison</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-comparisons">Polkadot comparisons</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-consensus">Polkadot Consensus</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-cryptography">Cryptography Explainer</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-faq">Frequently Asked Questions (FAQs)</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-grandpa">GRANDPA</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-implementations">Polkadot Implementations</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-index">Learn about Polkadot</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-interchain">Interchain Message Passing (ICMP)</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-introduction">Polkadot</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-keys">Polkadot Keys</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-parachains">Parachains</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-parathreads">Parathreads</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-phragmen">What is Phragmen and what does it mean for node operators?</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-randomness">Randomness</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-relevant-links">Links</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-roadmap">Roadmap</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-security">Security of the network</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-spree">SPREE</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-staking">Staking</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-treasury">Treasury</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/learn-wasm">WebAssembly (Wasm)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Maintain<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/maintain-collator">Collator</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/maintain-governance-index">Governance</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/maintain-guides-how-to-nominate">How to nominate</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/maintain-guides-how-to-systemd">How to run your node as a `systemd` process</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/maintain-guides-how-to-validate">How to validate</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/maintain-guides-validator-payout">Validator Payout Overview</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/maintain-index">Network Maintainers</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/maintain-node-operator">Node Operator / Validator</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/en/maintain-nominator">Nominator</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">Networks</h1></header><article><div><span><p>The following commands can be used to connect to the different networks.</p>
+<h2><a class="anchor" aria-hidden="true" id="development"></a><a href="#development" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Development</h2>
+<p>Install Polkadot and have a <code>polkadot</code> binary install to your <code>PATH</code> with:</p>
+<pre><code class="hljs css language-bash">cargo install --git https://github.com/paritytech/polkadot.git polkadot
+</code></pre>
+<p>You can run a simple single-node development &quot;network&quot; on your machine by running in a terminal:</p>
+<pre><code class="hljs css language-bash">polkadot --dev
+</code></pre>
+<p>You can muck around by cloning and building the <a href="http://github.com/paritytech/polka-ui">http://github.com/paritytech/polka-ui</a> and <a href="http://github.com/paritytech/polkadot-ui">http://github.com/paritytech/polkadot-ui</a> or just heading to <a href="https://polkadot.js.org/apps">https://polkadot.js.org/apps</a>.</p>
+<h2><a class="anchor" aria-hidden="true" id="krumme-lanke"></a><a href="#krumme-lanke" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Krumme Lanke</h2>
+<p>Krumme Lanke is a testnet network used during the development of PoC-2.</p>
+<p>Install Polkadot PoC-2 and have a <code>polkadot</code> binary installed to your <code>PATH</code> with:</p>
+<pre><code class="hljs css language-bash">cargo install --git https://github.com/paritytech/substrate.git --branch v0.2 polkadot
+</code></pre>
+<p>Connect to the global &quot;Krumme Lanke&quot; testnet by default by running:</p>
+<pre><code class="hljs css language-bash">polkadot
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="alexander-poc-4"></a><a href="#alexander-poc-4" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Alexander (PoC-4)</h2>
+<p>Alexander is a testnet network used during the development of PoC-3 and PoC-4.</p>
+<p>Install Polkadot PoC-4 and have a <code>polkadot</code> binary installed to your <code>PATH</code> with:</p>
+<pre><code class="hljs css language-bash">cargo install --git https://github.com/paritytech/polkadot.git --branch v0.4 polkadot
+</code></pre>
+<p>Connect to the global &quot;Alexander&quot; testnet by default by running:</p>
+<pre><code class="hljs css language-bash">polkadot
+</code></pre>
+<h2><a class="anchor" aria-hidden="true" id="local-two-node-testnet"></a><a href="#local-two-node-testnet" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Local Two-Node Testnet</h2>
+<p>If you want to see the multi-node consensus algorithm in action locally, then
+you can create a local testnet. You'll need two terminals open. In one, run:</p>
+<pre><code class="hljs css language-bash">polkadot --chain=<span class="hljs-built_in">local</span> --validator --key Alice -d /tmp/alice
+</code></pre>
+<p>and in the other, run:</p>
+<pre><code class="hljs css language-bash">polkadot --chain=<span class="hljs-built_in">local</span> --validator --key Bob -d /tmp/bob --port 30334 --bootnodes <span class="hljs-string">'/ip4/127.0.0.1/tcp/30333/p2p/ALICE_BOOTNODE_ID_HERE'</span>
+</code></pre>
+<p>Ensure you replace <code>ALICE_BOOTNODE_ID_HERE</code> with the node ID from the output of
+the first terminal.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 9/3/2019 by laboon</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/polkadot-wiki-i18n/docs/en/build-index"><span class="arrow-prev">← </span><span>Builders Portal</span></a><a class="docs-next button" href="/polkadot-wiki-i18n/docs/en/build-pdk"><span>Parachain Development Kits (PDKs)</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#development">Development</a></li><li><a href="#krumme-lanke">Krumme Lanke</a></li><li><a href="#alexander-poc-4">Alexander (PoC-4)</a></li><li><a href="#local-two-node-testnet">Local Two-Node Testnet</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/polkadot-wiki-i18n/" class="nav-home"><img src="/polkadot-wiki-i18n/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2019 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+              var cookieSettings = document.getElementById('cookie-settings');
+              cookieSettings.onclick = function() {
+                return klaro.show();
+              };
+              </script></section></footer></div></body></html>
