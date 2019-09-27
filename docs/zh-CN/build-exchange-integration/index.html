@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>交易所整合 · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="struct Block:"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="交易所整合 · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://w3f.github.io/polkadot-wiki-i18n/"/><meta property="og:description" content="struct Block:"/><meta property="og:image" content="https://w3f.github.io/polkadot-wiki-i18n/img/undraw_online.svg"/><meta name="twitter:card" content="summary"/><meta name="twitter:image" content="https://w3f.github.io/polkadot-wiki-i18n/img/undraw_tweetstorm.svg"/><link rel="shortcut icon" href="/polkadot-wiki-i18n/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script src="/polkadot-wiki-i18n/js/scrollSpy.js"></script><link rel="stylesheet" href="/polkadot-wiki-i18n/css/main.css"/><script src="/polkadot-wiki-i18n/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/polkadot-wiki-i18n/zh-CN"><img class="logo" src="/polkadot-wiki-i18n/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/polkadot-wiki-i18n/docs/zh-CN/build-index" target="_self">建立</a></li><li class="siteNavGroupActive"><a href="/polkadot-wiki-i18n/docs/zh-CN/learn-index" target="_self">学习</a></li><li class="siteNavGroupActive"><a href="/polkadot-wiki-i18n/docs/zh-CN/maintain-index" target="_self">参与</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/polkadot-wiki-i18n/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/polkadot-wiki-i18n/docs/en/build-exchange-integration">English</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>建立</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">主要<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/community">社区</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/contributing">贡献</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/glossary">条款及细则</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/">Polkadot 维基</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/news">Polkadot 周报</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/research">研究专页</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">建立<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-build-with-polkadot">Polkadot 開發者入门指南</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-cumulus">Cumulus</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-deploy-parachains">如何查看及部署平行链</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-dev-roadmap">开发路线图</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-examples-index">例子</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-exchange-integration">交易所整合</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-extrinsic-format">Polkadot Extrinsic 格式(又称交易格式)</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-hackathon">黑客马拉松</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-index">开发者入口</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-networks">网络</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-pdk">平行链开发套件(PDKs)</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-rust-style-guide">Polkadot中的Rust的格式指南</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-smart-contracts">智能合约</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-tools-index">工具</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/build-tools-subkey">Subkey</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">学习<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-DOT">DOT</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-PRE">Polkadot Runtime 环境 (PRE)</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-UI">Polkadot UI</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-architecture">Polkadot 架构</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-auction">平行链插槽拍卖</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-basics">Polkadot 基础</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-bridges">桥接</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-comparisons-cosmos">Polkadot vs. Cosmos: 设计比较</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-comparisons">与其它区块链比较</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-consensus">Polkadot 共识机制</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-cryptography">密码学讲解</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-faq">常见问题</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-governance">治理</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-grandpa">GRANDPA</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-implementations">其它程序语言实现</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-index">了解 Polkadot</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-interchain">跨链消息传递 (ICMP)</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-introduction">Polkadot</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-keys">密匙</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-parachains">平行链</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-parathreads">平行线程</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-phragmen">Phragmen 是什么，它对验证人意味着什么?</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-randomness">随机性</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-relevant-links">相关链接</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-roadmap">路线图</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-security">网络安全</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-spree">SPREE</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-staking">抵押</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-treasury">财政库</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/learn-wasm">WebAssembly (Wasm)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">参与<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/maintain-collator">收集人</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/maintain-governance-index">治理</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/maintain-guides-how-to-nominate">如何成为提名人</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/maintain-guides-how-to-systemd">如何把节点设定为 `systemd` 进程运行</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/maintain-guides-how-to-validate">如何运行验证人节点</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/maintain-guides-validator-payout">验证人付款概述</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/maintain-index">网络维护者</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/maintain-node-operator">验证人</a></li><li class="navListItem"><a class="navItem" href="/polkadot-wiki-i18n/docs/zh-CN/maintain-nominator">提名人</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><h1 class="postHeaderTitle">交易所整合</h1></header><article><div><span><p>struct Block:
+parent_hash: Hash
+number: Compact Number
+state_root: Hash
+extrinsics_root: Hash
+digest: Vec<DigestItem>
+extrinsics: Vec<Extrinsic></p>
+<h2><a class="anchor" aria-hidden="true" id="1-tracking-the-chain-head"></a><a href="#1-tracking-the-chain-head" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Tracking the chain head</h2>
+<p>+--------------------+ | | | Substrate/Polkadot | | | +---------+----------+ | | +--------+---------+ | | | Client interface | | | | +--------------+ | | | Client DB | | | +--------------+ | | | +--------+---------+ | | +--------+---------+ | | | Exchange backend | | | +------------------+</p>
+<p>Track each finalised block by subscribing with the <code>chain_subscribeFinalizedHeads</code> RPC (or polling the <code>chain_getFinalizedHead</code> RPC).</p>
+<p>That will give you a stream of hashes of the most recent finalised headers.</p>
+<p>When a new hash arrives, you can use <code>chain_getBlock</code> to turn that hash into a block.</p>
+<h2><a class="anchor" aria-hidden="true" id="2-decoding-blocks"></a><a href="#2-decoding-blocks" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Decoding blocks</h2>
+<p>If the new block is not an immediate child of the last block you processed, make sure that you iterate over all blocks between them. Because <code>chain_getBlock</code> can accept only hashes, you will need to use <code>chain_getBlockHash</code> to convert numbers into hashes and in this way iterate between any two finalised blocks.</p>
+<p>You will need to decode blocks from the basic data into useful fields.</p>
+<p>All block data is encoded using the basic SCALE codec described in detail <a href="https://substrate.dev/docs/en/overview/low-level-data-format">here</a>. SCALE provides only the low-level underlying format however. Details of its fields and internal structure may alter between different chains and even different blocks of the same chain.</p>
+<pre><code class="hljs">enum DigestItem:
+    ChangesTrieRoot: Hash
+    PreRuntime: ConsensusItem
+    Consensus: ConsensusItem
+    Seal: ConsensusItem
+    Other: Vec&lt;u8&gt;
+struct ConsensusItem:
+    id: [u8; 4]
+    data: Vec&lt;u8&gt;
+</code></pre>
+<p>For Genesis Polkadot, the header format is a five-field structure:</p>
+<pre><code class="hljs">struct Metadata:
+    magic: u32
+    version: u8
+    modules: Vec&lt;Module&gt;
+struct Module:
+    name: String
+    prefix: String
+    storage: Option Vec&lt;Storage&gt;
+    calls: Option Vec&lt;Call&gt;
+    events: Option Vec&lt;Event&gt;
+    constants: Vec&lt;Constant&gt;
+enum StorageHasher:
+    Blake2_128
+    Blake2_256
+    Twox128
+    Twox256
+    Twox64Concat
+struct Constant:
+    name: String
+    type: Type
+    value: Vec&lt;u8&gt;
+    documentation: Vec&lt;String&gt;
+struct Storage:
+    name: String
+    modifier: StorageModifier
+    type: StorageType
+    default: Vec&lt;u8&gt;
+    documentation: Vec&lt;String&gt;
+enum StorageModifier:
+    Optional
+    Default
+enum StorageType:
+    Plain: Type
+    Map: StorageMapType
+    DoubleMap: StorageDoubleMapType
+struct StorageMapType:
+    hasher: StorageHasher
+    key: Type
+    value: Type
+    iterable: bool
+struct StorageDoubleMapType:
+    hasher: StorageHasher
+    first_key: Type
+    second_key: Type
+    value: Type
+    iterable: bool
+struct Call:
+    name: String
+    arguments: Vec&lt;CallArg&gt;
+    documentation: Vec&lt;String&gt;
+struct CallArg:
+    name: String
+    type: Type
+struct Event:
+    name: String
+    arguments: Vec&lt;Type&gt;
+    documentation: Vec&lt;String&gt;
+</code></pre>
+<p>This relies on <code>Hash</code>, which is a fixed length 32-byte value or <code>[u8; 32]</code> in SCALE. It also relies on <code>DigestItem</code>, an enumeration type:</p>
+<p>It also relies on <code>Extrinsic</code>. An <em>extrinsic</em> is a generalisation of a transaction and other (unsigned) external information. It is a highly extensible type which doesn't have a fixed format per se. To ensure future format compatibility, metadata concerning the extrinsic format is provided through an RPC <code>state_getMetadata</code>.</p>
+<pre><code class="hljs">struct Extrinsic:
+    tx: Option TransactionInfo
+    function: Function
+struct TransactionInfo:
+    sender: Address
+    sig: [u8; 64]
+    era: Era
+    nonce: Compact Nonce
+    tip: Compact Balance
+struct TransactionPayload:
+    function: Function
+    era: Era
+    nonce: Nonce
+    tip: Balance
+    checkpoint_hash: Hash
+</code></pre>
+<p>The metadata itself is provided encoded in SCALE. Its format is:</p>
+<p><code>Type</code> is just a <code>String</code>, but the contents of the string are to be interpreted as the name of a type.</p>
+<p>Substrate chains (actually, specifically Substrate chains built using the SRML) such as Polkadot are composed of various <em>modules</em>. Each module can be imagined a little bit like a smart contract, with various kinds of transactions (or, in Substrate terms, <em>extrinsics</em>), data items that persist between transactions and blocks, events and constant parameters. The metadata encodes all of these things, allowing your client code to both create particular transactions or interpret what has happened on the chain, even between different Substrate blockchains or over many different upgrades or forks of the same chain.</p>
+<h2><a class="anchor" aria-hidden="true" id="3-working-with-ss58-and-account-addresses"></a><a href="#3-working-with-ss58-and-account-addresses" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Working with SS58 and account addresses</h2>
+<p>There are two modules an exchange needs to be aware of: Balances and Indices. Balances allows you to send and receive funds between different accounts. Indices allows you to interpret user addresses.</p>
+<p>In Polkadot (and most Substrate chains), user accounts are identified by a 32-byte (256-bit) <em>AccountId</em>. This is simply the public key for the x25519 cryptography used by Substrate.</p>
+<p>However, to keep the addresses small, we index every account with a non-zero balance on Polkadot and use just this <em>index</em> to identify the account. This index is much smaller than the 32-byte <em>AccountId</em>, and can usually be encoded in just a couple of bytes.</p>
+<p>Where Bitcoin has the Check58 address format and Ethereum used the <code>0x...</code> hex format, Polkadot (and Substrate) use the SS58 address format. This is a broad &quot;meta-format&quot; designed to handle many different cryptographies and chains. It has much in common with Bitcoin's Check58 format such as a version prefix, a hash-based checksum suffix and base-58 encoding. Further information on it can be found here [TODO]. Of the many supported &quot;version codes&quot;, only one particular family of subformats is especially important for Polkadot support in exchanges.</p>
+<p><code>0x00 &lt;payload bytes&gt; &lt;checksum bytes&gt;</code></p>
+<p><strong>An address does not have a fixed length.</strong> Depending on the length, the payload may have a different meaning and there could be a different ratio of payload to checksum bytes. Here is a table to consult to determine how to interpret an address of a particular size:</p>
+<table>
+<thead>
+<tr><th>Total bytes</th><th>Version bytes</th><th>Payload bytes</th><th>Checksum bytes</th><th>Payload type</th></tr>
+</thead>
+<tbody>
+<tr><td>3</td><td>1</td><td>1</td><td>1</td><td>Index</td></tr>
+<tr><td>4</td><td>1</td><td>2</td><td>1</td><td>Index</td></tr>
+<tr><td>6</td><td>1</td><td>4</td><td>1</td><td>Index</td></tr>
+<tr><td>35</td><td>1</td><td>32</td><td>2</td><td>AccountId</td></tr>
+</tbody>
+</table>
+<p><strong>An address does not have a fixed length.</strong> Depending on the length, the payload may have a different meaning and there could be a different ratio of payload to checksum bytes. Here is a table to consult to determine how to interpret an address of a particular size:</p>
+<p>NOTE: This table contains only the most common commbinations; SS58 includes several more uncommon ones. For maximum compatibility then implement according to the full SS58 specification.</p>
+<p>Once decoded into the fields, then the version should be checked to be <code>0x00</code>. The checksum should then be verified as being equivalent to the beginning of the Blake2-256 hash of the SS58 data, not including the checksum itself. If the checksum is one byte, then only the first byte of the hash is checked. If it is two bytes, then the first two bytes of the hash are checked.</p>
+<h3><a class="anchor" aria-hidden="true" id="looking-up-an-index"></a><a href="#looking-up-an-index" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Looking up an index</h3>
+<p>Finally, in the case of an indexed address, the index should be decoded into a 32-byte account identifier. This can be done by inspecting the storage of the Indices module.</p>
+<p>Looking up an index is a bit fiddly, since it involves looking up some storage and decoding and interpreting it.</p>
+<p>The specific storage item that we care about is <code>EnumSet</code> in the <code>Indices</code> module. Inspecting the storage is done through the <code>state_getStorage</code> RPC, to which a key must be supplied. The key encodes the entire &quot;query&quot;. In general, the metadata should be consulted on how to generate the key. To do this, we first find the <code>Module</code> whose name is <code>Indices</code>, then find the entry in that module's <code>storage</code> field of the <code>Storage</code> item with the name <code>EnumSet</code>. This item contains all the information we need to construct and interpret the query.</p>
+<p>For Polkadot, we find that the item has a <code>type</code> of <code>Map</code> whose associate value is a <code>StorageMapType</code> whose <code>hasher</code> is <code>Blake2_256</code>, whose <code>key</code> is <code>T::AccountIndex</code> (equivalent to a <code>u32</code> for Polkadot) and whose <code>value</code> is <code>Vec&lt;T::AccountId&gt;</code>.</p>
+<p>This means that if our index, encoded by SCALE as a <code>u32</code>, is <code>&lt;INDEX&gt;</code>, then our storage key is determined through the Blake2 256 hash of the string <code>Indices EnumSet&lt;INDEX&gt;</code>. In fact, accounts are stored in batches of 64, so to look up a particular index, we don't query by the account index but rather the index of its batch. This just means we first need to divide the index by 64 before encoding.</p>
+<p>This will return a SCALE-encoded <code>Vec&lt;T::AccountId&gt;</code> (<code>T::AccountId</code> may be defined in SCALE as <code>[u8; 32]</code> or a 32-byte fixed quantity) of up the batch that contains the account we are interested in. To get the <code>AccountId</code> item, just take the <code>index % 64</code>th item from the vector. If that item doesn't exist (or you get an empty storage item), then the account index is invalid.</p>
+<h2><a class="anchor" aria-hidden="true" id="4-working-with-balances"></a><a href="#4-working-with-balances" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Working with balances</h2>
+<p>Otherwise, you have your account ID and it can be displayed to the user along with its identicon and balance.</p>
+<p>In Polkadot, account balances can be looked up within the <code>Balances</code> module using the metadata in a manner not dissimilar to looking up an account index. In this case, we need to query the <code>FreeBalance</code> item in storage. Here, the <code>StorageMapType</code> is similar, except that the <code>key</code> is of type <code>T::AccountId</code> (the 32-byte quantity) and the <code>value</code> is <code>BalanceOf&lt;T&gt;</code>, which for the purposes of Polkadot is a <code>u128</code> (128-bit value). The hash function is the same Blake2 256, so the full storage key would be given by the Blake2 256 hash of the string <code>Balances FreeBalance&lt;ID&gt;</code> where <code>&lt;ID&gt;</code> is the 32-byte <code>AccountId</code>.</p>
+<p>NOTE: <code>FreeBalance</code> gives the total balance controlled by that account, but does not account for temporarily locked portions of balance, such as those locked for staking, voting or vesting. This information can be queried from the chain, but it is outside the scope of this document.</p>
+<table>
+<thead>
+<tr><th>Balance value</th><th>Name</th></tr>
+</thead>
+<tbody>
+<tr><td></td><td></td></tr>
+<tr><td>1</td><td>Planck 10</td></tr>
+</tbody>
+</table>
+<h3><a class="anchor" aria-hidden="true" id="transferring-balances"></a><a href="#transferring-balances" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Transferring balances</h3>
+<p>The balance encodes the DOT token with 12 decimal places. To get the actual number of DOTs, you need to divide the 128-bit balance by 1,000,000,000,000 (10**12). For completeness, The exact denominations of the Polkadot currency are:</p>
+<p><strong>3 | Point 10</strong>6 | Microdot (UDOT) 10<strong>9 | Millidot (MDOT) 10</strong>12 | Dot (DOT) 10**15 | Blob</p>
+<p>To transfer a balance, a transaction must be constructed and sent. In constructing a transaction, there are two key parts: the general part of the transaction and the module-specific <code>function</code> part of the transaction with the latter generally needing information from the chain's metadata must generally.</p>
+<pre><code class="hljs">struct BalanceTransferFunction:
+    module_index: u8
+    call_index: u8
+    dest: Address
+    value: Compact Balance
+</code></pre>
+<p>In general, Polkadot's transactions are encoded as <em>signed</em> <code>Extrinsic</code>s in SCALE. To facilitate forward compatibility, extrinsics are double-encoded, so the initial encoding is passed back into SCALE (as a <code>Vec&lt;u8&gt;</code>) and the output of that is used. This has the effect of adding a small length prefix onto it allowing systems that cannot interpret the transaction data itself to still be able to pass them around as opaque packets of data.</p>
+<p>The SCALE format is given by <code>Extrinsic</code>:</p>
+<p>For a transaction, the optional <code>tx</code> is always used. The <code>Address</code> type is a specially encoded SCALE type, allowing an account to be presented either as an account index or as a 32-byte account ID, whichever is more convenient. The format is described here in the SCALE [TODO]. Assuming you wish to present a 32-byte account ID, then it can be expressed as an <code>Address</code> merely by prefixing the <code>0xff</code> byte.</p>
+<p>The <code>sig</code> field must contain a 25519-family signature of the SCALE-encoded <code>SigPayload</code>. The key used to sign the payload must correspond to the <code>sender</code> account. Schnorr/Ristretto 25519 (&quot;sr25519&quot;) is the recommended signing format to use.</p>
+<p>Era is a one or two byte item, again with a special SCALE encoding format and it encodes the period (as a range of blocks) for which this transaction should be considered valid. It is an important safeguard against certain transaction replay attacks and should generally be used, however a simple exchange implementation that has no plans to reuse accounts after they become empty should be able to safely ignore it. To ignore it and make the transaction &quot;immortal&quot;, use an encoded <code>Era</code> of just one byte: <code>0x00</code>.</p>
+<p>The nonce is the number of transactions send so far by the sender account, much like in Ethereum. It is of type <code>Nonce</code>, logically equivalent to a <code>u64</code>. To get the correct value, the appropriate storage item must be queried, much like when querying an account's balance. In this case, it is the <code>System</code> module's <code>AccountNonce</code> item; thus the storage key required is the Blake2 256 hash of the string <code>System AccountNonce&lt;ID&gt;</code> where <code>&lt;ID&gt;</code> is the 32-byte <code>AccountId</code>. It will return a <code>Nonce</code> which may be decoded and used here.</p>
+<p>NOTE: The nonce retrieved from storage does not take into account <em>pending</em> transactions. If you are sending more than one transaction from a single account at a time, then you will need to increment and track this value manually.</p>
+<p>The <code>tip</code> is a <code>Balance</code> (logically equivalent to the <code>u128</code> type in SCALE), which denotes some additional fees paid to the block author for prioritized inclusion at busy times. It will typically be zero.</p>
+<p>The <code>checkpoint_hash</code> is the hash of the &quot;checkpoint block&quot;, which is to say the first block of the era specified by the <code>era</code> field. If just making the transaction &quot;immortal&quot;, then the genesis hash of the blockchain should be used. This can be determined through the RPC <code>chain_getBlockHash(0)</code>.</p>
+<ul>
+<li><code>dest</code> with a type of <code>&lt;T::Lookup as StaticLookup&gt;::Source</code> (aka <code>Address</code>); and</li>
+<li><code>value</code> with a type of <code>Compact&lt;T::Balance&gt;</code> (aka <code>Compact Balance</code>).</li>
+</ul>
+<p>Finally, the <code>function</code> is a <code>Function</code> type (sometimes known as a <code>Call</code> or <code>Proposal</code> in certain contexts) which describes what action shall be dispatched. It must be constructed according to metadata. In this case, we want our transaction to effect the <code>transfer</code> function in the <code>Balances</code> module, to transfer a balance from one account to another. It is important to check the index of the Balances module itself in the list of modules. In this case, it is the 6th item, or index 5. It is also necessary to inspect the <code>calls</code> field of the Balances <code>Module</code> in the metadata, and determine what index in the list of calls the transfer function is. As it happens, it is first in the list, and thus has an index of 0.</p>
+<pre><code class="hljs">struct BalanceTransferFunction:
+    module_index: u8
+    call_index: u8
+    dest: Address
+    value: Compact Balance
+</code></pre>
+<p>Finally, we need to know what parameters to this function are expected in order to construct the rest of the transaction. This is provided in the <code>Call</code> item of the metadata that we just located. Two parameters are expected:</p>
+<p>The <code>function</code> <em>in this case</em> (i.e. specifically and only for the Balance transfer transaction on Polkadot as of right now) would be the struct:</p>
+<h3><a class="anchor" aria-hidden="true" id="submitting-and-checking-transactions"></a><a href="#submitting-and-checking-transactions" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Submitting and checking transactions</h3>
+<p>where <code>module_index</code> is <code>0x05</code> and <code>call_index</code> is <code>0x00</code>. <code>dest</code> is similar to <code>sender</code> and may be provided as either an account index or a 32-byte account ID, whichever is more convenient. If providing as an account ID, then it can be formed into an address simply by prefixing the byte <code>0xff</code> to it.</p>
+<p>The amount to be transferred (not including any fees payable to the system) is given by <code>value</code>, and must be a SCALE compact-encoded number.</p>
+<p>Once a transaction has been crafted, you will need to submit it for inclusion in the chain and eventually want to verify that it has indeed been included.</p>
+<h2><a class="anchor" aria-hidden="true" id="conclusion"></a><a href="#conclusion" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Conclusion</h2>
+<p>This can be done in two ways: one is to use the simple RPC <code>author_submitExtrinsic</code>, which will return the transaction's hash. Once submitted, you can keep checking transactions in finalised blocks manually (since you are tracking the finalised heads anyway) until you see the transaction you submitted, at which point you know it is in the chain.</p>
+<p>The other way is to use the pub/sub RPC <code>author_submitAndWatchExtrinsic</code>. Again, you provide the SCALE-encoded transaction, but here you receive a subscription ID. You will be notified over the RPC as the transaction gets validated, broadcast and included in the chain with separate messages that are pushed.</p>
+<p>This concludes the article. Here you should have a good idea of how to interact with a Substrate/Polkadot node in order to track the finalised chain head, to decode SS58 addresses, check account information like balances &amp; nonces and to construct, submit and track transactions. You've also learnt a little about the SCALE codec, the Substrate metadata system and how to build future-proof and generic Substrate-based systems.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 9/27/2019 by Logan Saether</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/polkadot-wiki-i18n/docs/zh-CN/build-examples-index"><span class="arrow-prev">← </span><span>例子</span></a><a class="docs-next button" href="/polkadot-wiki-i18n/docs/zh-CN/build-extrinsic-format"><span>Polkadot Extrinsic 格式(又称交易格式)</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-tracking-the-chain-head">1. Tracking the chain head</a></li><li><a href="#2-decoding-blocks">2. Decoding blocks</a></li><li><a href="#3-working-with-ss58-and-account-addresses">3. Working with SS58 and account addresses</a><ul class="toc-headings"><li><a href="#looking-up-an-index">Looking up an index</a></li></ul></li><li><a href="#4-working-with-balances">4. Working with balances</a><ul class="toc-headings"><li><a href="#transferring-balances">Transferring balances</a></li><li><a href="#submitting-and-checking-transactions">Submitting and checking transactions</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/polkadot-wiki-i18n/" class="nav-home"><img src="/polkadot-wiki-i18n/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2019 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+              var cookieSettings = document.getElementById('cookie-settings');
+              cookieSettings.onclick = function() {
+                return klaro.show();
+              };
+              </script></section></footer></div></body></html>
