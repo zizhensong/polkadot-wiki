@@ -1,0 +1,200 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>治理 · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="Polkadot uses a sophisticated governance mechanism that allows it to evolve gracefully over time at the ultimate behest of its assembled stakeholders."/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="治理 · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://wiki.polkadot.network/"/><meta property="og:description" content="Polkadot uses a sophisticated governance mechanism that allows it to evolve gracefully over time at the ultimate behest of its assembled stakeholders."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://wiki.polkadot.network/js/load.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/zh-CN"><img class="logo" src="/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/zh-CN/build-index" target="_self">建立</a></li><li class="siteNavGroupActive"><a href="/docs/zh-CN/learn-index" target="_self">学习</a></li><li class="siteNavGroupActive"><a href="/docs/zh-CN/maintain-index" target="_self">参与</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/maintain-governance-index">English</a></li><li><a href="https://crowdin.com/project/polkadot-wiki" target="_blank" rel="noreferrer noopener">帮助翻译</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>参与</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">主要<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/community">社区</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/contributing">贡献</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/glossary">条款及细则</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/">Polkadot 维基</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/news">Polkadot 周报</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/research">研究专页</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">建立<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-build-with-polkadot">Polkadot 開發者入门指南</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-cumulus">Cumulus</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-deploy-parachains">如何查看及部署平行链</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-dev-roadmap">开发路线图</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-examples-index">例子</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-exchange-integration">交易所整合</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-extrinsic-format">Polkadot Extrinsic 格式(又称交易格式)</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-hackathon">黑客马拉松</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-index">开发者入口</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-networks">网络</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-pdk">平行链开发套件(PDKs)</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-rust-style-guide">Polkadot中的Rust的格式指南</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-smart-contracts">智能合约</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-tools-index">工具</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-tools-subkey">Subkey</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">学习<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-DOT">DOT</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-PRE">Polkadot Runtime 环境 (PRE)</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-UI">Polkadot UI</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-architecture">Polkadot 架构</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-auction">平行链插槽拍卖</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-basics">Polkadot 基础</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-bridges">桥接</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-comparisons-cosmos">Polkadot vs. Cosmos: 设计比较</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-comparisons">与其它区块链比较</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-consensus">Polkadot 共识机制</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-cryptography">密码学讲解</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-faq">常见问题</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-governance">治理</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-grandpa">GRANDPA</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-implementations">其它程序语言实现</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-index">了解 Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-interchain">跨链消息传递 (ICMP)</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-introduction">Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-keys">密匙</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-parachains">平行链</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-parathreads">平行线程</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-phragmen">Phragmen 是什么，它对验证人意味着什么?</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-randomness">随机性</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-relevant-links">相关链接</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-roadmap">路线图</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-security">网络安全</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-spree">SPREE</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-staking">抵押</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-treasury">财政库</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-wasm">WebAssembly (Wasm)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">参与<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-collator">收集人</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/zh-CN/maintain-governance-index">治理</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-how-to-nominate">如何成为提名人</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-how-to-systemd">如何把节点设定为 `systemd` 进程运行</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-how-to-validate">如何运行验证人节点</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-validator-payout">验证人付款概述</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-index">网络维护者</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-node-operator">验证人</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-nominator">提名人</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://crowdin.com/project/polkadot-wiki/zh-CN" target="_blank" rel="noreferrer noopener">Translate</a><h1 class="postHeaderTitle">治理</h1></header><article><div><span><p>Polkadot uses a sophisticated governance mechanism that allows it to evolve gracefully over time at the ultimate behest of its assembled stakeholders.</p>
+<p>To do this, we bring together various novel mechanisms, including an amorphous state-transition function stored on-chain and defined in a platform-neutral intermediate language (i.e. WebAssembly) and several on-chain voting mechanisms such as referenda with adaptive super-majority thresholds and batch approval voting.</p>
+<p>All changes to the protocol must be agreed upon by stake-weighted referenda; the majority of the stake can always command the network.</p>
+<h2><a class="anchor" aria-hidden="true" id="mechanism"></a><a href="#mechanism" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mechanism</h2>
+<p>In order to make any changes to the network, the idea is to compose active token holders and council together to administrate the network upgrade decision. No matter whether the proposal is proposed by the public (DOT holders) or council, it finally will have to go through the <a href="learn-governance#referenda">referenda</a> to let all DOT holders make the decision.</p>
+<p>The following steps are the governance procedure in the Polkadot network:</p>
+<ul>
+<li><a href="#proposing-referenda">Proposing Referenda</a> (Involved info: <a href="learn-governance#referenda">Referenda</a>)</li>
+<li><a href="#voting-for-a-proposal">Voting for a proposal</a> (Involved info: <a href="#voluntary-locking">Voluntary Locking</a>)</li>
+<li><a href="#tallying">Tallying</a> (Involved info: <a href="#adaptive-quorum-biasing">Adaptive Quorum Biasing</a>)</li>
+</ul>
+<p>To better understand how the council is formed, please read <a href="#council">this section</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="proposing-referenda"></a><a href="#proposing-referenda" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Proposing Referenda</h3>
+<ul>
+<li><p><strong>Public</strong>: Anyone can propose a referenda by depositing the minimum amount of DOTs for a certain period (No. of Blocks). If someone likes the proposal, they may deposit the same amount of tokens to support it. The proposal with the highest number of support bond will be selected to be a referendum. The bonded tokens will be released once the proposal is tabled. At genesis, every two weeks there will be a referendum for the most supported proposal.</p></li>
+<li><p><strong><a href="#council">Council</a></strong>:</p>
+<p>Unanimous Council - When all members of the council agrees on a proposal, it can be moved to a referendum.</p>
+<p>Majority Council - When agreement from only the simple majority of council members is needed. (More Aye votes to Nay votes for acceptance, more Nay votes to Aye votes for rejection.)</p></li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="voting-for-a-proposal"></a><a href="#voting-for-a-proposal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Voting for a proposal</h3>
+<p>To vote, a voter must lock their tokens up for at least the enactment delay period beyond the end of the referendum. This is in order to ensure that some minimal economic buy-in to the result is needed and to dissuade vote selling. At the same time, holding only a small amount of DOT tokens does not mean that they cannot influence the referendum result, you can read more about the <a href="#voluntary-locking">Voluntary Locking</a>.</p>
+<pre><code class="hljs">Example:
+
+Peter: Votes `No` with <span class="hljs-number">10</span> DOTs <span class="hljs-keyword">for</span> a <span class="hljs-number">12</span> week lock period  =&gt; <span class="hljs-number">10</span> * <span class="hljs-number">6</span> = <span class="hljs-number">60</span> Votes
+
+Logan: Votes `Yes` with <span class="hljs-number">20</span> DOTs <span class="hljs-keyword">for</span> a <span class="hljs-number">2</span> week lock period =&gt; <span class="hljs-number">20</span> * <span class="hljs-number">1</span> = <span class="hljs-number">20</span> Votes
+
+Kevin: Votes `Yes` with <span class="hljs-number">15</span> DOTs <span class="hljs-keyword">for</span> a <span class="hljs-number">4</span> week lock period =&gt; <span class="hljs-number">15</span> * <span class="hljs-number">2</span> = <span class="hljs-number">30</span> Votes
+</code></pre>
+<p>According to the above scenario, even though combining both Logan and Kevin's DOTs is more than Peter, the lock period for both of them is far less than Peter, leading to their voting power counting as less.</p>
+<h3><a class="anchor" aria-hidden="true" id="tallying"></a><a href="#tallying" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tallying</h3>
+<p>Depending on which entity proposed the proposal and whether all council members voted yes, there are three different scenarios. We can use following table for reference.</p>
+<table>
+<thead>
+<tr><th style="text-align:center"><strong>Entity</strong></th><th style="text-align:center"><strong>Metric</strong></th></tr>
+</thead>
+<tbody>
+<tr><td style="text-align:center">Public</td><td style="text-align:center">Positive Turnout Bias (Super-Majority Approve)</td></tr>
+<tr><td style="text-align:center">Council (Complete agreement)</td><td style="text-align:center">Negative Turnout Bias (Super-Majority Against)</td></tr>
+<tr><td style="text-align:center">Council (Majority agreement)</td><td style="text-align:center">Simple Majority</td></tr>
+</tbody>
+</table>
+<p>Also, we need the following information and apply one of the formulas listed below to calculate the voting result. For example, let's use the public proposal as an example, so <code>Super-Majority Approve</code> formula will be applied. There is no strict quorum, but super-majority required increases as turnout lowers.</p>
+<pre><code class="hljs">approve - <span class="hljs-keyword">the</span> <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> aye votes
+
+against - <span class="hljs-keyword">the</span> <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> nay votes
+
+voters - <span class="hljs-keyword">the</span> total <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> voting tokens
+
+electorate - <span class="hljs-keyword">the</span> total <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> DOTs tokens issued <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> network
+</code></pre>
+<p><strong>Super-Majority Approve</strong></p>
+<p>A <code>positive turnout bias</code>, whereby a heavy super-majority of aye votes is required to carry at low turnouts, but as turnout increases towards 100%, it becomes a simple-majority-carriers as below. $${against \over \sqrt{voters}} &lt; {approve \over \sqrt{electorate}}$$</p>
+<p><strong>Super-Majority Against</strong></p>
+<p>A <code>negative turnout bias</code>, whereby a heavy super-majority of nay votes is required to reject at low turnouts, but as turnout increases towards 100%, it becomes a simple-majority-carriers as below. $${against \over \sqrt{electorate}} &lt; {approve \over \sqrt{voters}}$$</p>
+<p><strong>Simple-Majority</strong></p>
+<p>Majority-carries, a simple comparison of votes, if there are more aye votes than nay, then the proposal is carried. $${approve} &gt; {against}$$</p>
+<p><em>To know more about where these above formulas come from, please read the <a href="https://github.com/paritytech/substrate/blob/master/srml/democracy/src/vote_threshold.rs">democracy module</a></em>.</p>
+<pre><code class="hljs">Example:
+
+Assume we only have <span class="hljs-number">1</span>,<span class="hljs-number">500</span> DOTs tokens <span class="hljs-keyword">in</span> total.
+
+John  - <span class="hljs-number">500</span> DOTs
+Peter - <span class="hljs-number">100</span> DOTs
+Lilly - <span class="hljs-number">150</span> DOTs
+JJ    - <span class="hljs-number">150</span> DOTs
+Ken   - <span class="hljs-number">600</span> DOTs
+
+John: Votes `Yes`<span class="hljs-keyword">for</span> a <span class="hljs-number">2</span> week lock period  =&gt; <span class="hljs-number">500</span> * <span class="hljs-number">1</span> = <span class="hljs-number">500</span> Votes
+
+Peter: Votes `Yes` <span class="hljs-keyword">for</span> a <span class="hljs-number">2</span> week lock period =&gt; <span class="hljs-number">100</span> * <span class="hljs-number">1</span> = <span class="hljs-number">100</span> Votes
+
+JJ: Votes `No` <span class="hljs-keyword">for</span> a <span class="hljs-number">6</span> week lock period =&gt; <span class="hljs-number">150</span> * <span class="hljs-number">3</span> = <span class="hljs-number">450</span> Votes
+
+approve = <span class="hljs-number">600</span>
+against = <span class="hljs-number">450</span>
+voters = <span class="hljs-number">1050</span>
+electorate = <span class="hljs-number">1500</span>
+</code></pre>
+<p>$${450 \over \sqrt{1050}} &lt; {600 \over \sqrt{1500}}$$</p>
+<p>$${13.887} &lt; {15.492}$$</p>
+<p>Based on the above result, the proposal will be approved. In addition, only the winning voter's tokens are locked, which means if that referendum hurts the network, then those who voted against it can immediately get their locked tokens back. They can exit the network and sell their tokens to the market before the proposal becomes effective. Moreover, winning proposals are autonomously enacted only after some cool-down period.</p>
+<h2><a class="anchor" aria-hidden="true" id="voluntary-locking"></a><a href="#voluntary-locking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Voluntary Locking</h2>
+<p>Polkadot utilizes an idea called <code>Voluntary Locking</code> that allows token holders to increase their voting power by declaring how long they are willing to lock-up their DOTs, hence, the maximum number of votes for each token holder will be calculated by the following formula:</p>
+<pre><code class="hljs"><span class="hljs-built_in">Max</span> votes = tokens * periods
+</code></pre>
+<p>Based on the current testnet setting, the maximum number of lock periods is set to 6.</p>
+<p><strong>Each period takes 2 weeks, which means the longest lock period would be 12 weeks.</strong></p>
+<h2><a class="anchor" aria-hidden="true" id="adaptive-quorum-biasing"></a><a href="#adaptive-quorum-biasing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adaptive Quorum Biasing</h2>
+<p>Polkadot introduces a concept &quot;Adaptive Quorum Biasing&quot;, which functions as a lever that the council can use to alter the effective super-majority required to make it easier or more difficult for a proposal to pass in the case that there is no clear majority of voting power backing it or against it.</p>
+<p><img src="/docs/assets/governance/adaptive-quorum-biasing.png" alt=""></p>
+<p>Let's use the above image as an example.</p>
+<p>If there is publicly submitted referenda only has 25% turnout, the tally of &quot;aye&quot; votes has to reach 66% for it to pass since we applied the <code>Positive Turnout Bias</code>.</p>
+<p>In contrast, when it has 75% turnout, the tally of &quot;aye&quot; votes has to reach 54%, which means that as more token holders vote on referenda, then the super-majority required decreases as the turnout increases.</p>
+<p>Suppose there is a unanimous proposal proposed by the council, <code>Negative Turnout Bias</code> would be used, so that means the proposal is passed by default. Hence, more token holders have to participate in voting to prevent it from passing if they do not like this proposal.</p>
+<p>Referring to the above image, when the referenda only has 25% turnout, the tally of &quot;nay&quot; votes has to reach 34% for it to reject.</p>
+<p>In short, when turnout rate is low, a super-majority is required to pass the proposal, which means a higher threshold of &quot;aye&quot; (yes) votes have to be reached, but as turnout increases towards 100%, it becomes a simple-majority.</p>
+<h2><a class="anchor" aria-hidden="true" id="council"></a><a href="#council" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Council</h2>
+<p>Since not everyone is interested in participating in governance, there is a council entity to represent the passive token holders. To understand more about what the council is responsible for, please read <a href="learn-governance#council">here</a>.</p>
+<h3><a class="anchor" aria-hidden="true" id="how-to-be-a-council-member"></a><a href="#how-to-be-a-council-member" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How to be a council member?</h3>
+<p><img src="/docs/assets/governance/approval-vote.png" alt=""></p>
+<p>At genesis, there will be 6 to 12 seats to start. All stakeholders are free to signal their approval (or not) of any of the registered candidates. For every two weeks, one of those seats is up for election and increase over the course of 9 months to 24 people (roughly one extra individual coming on every two weeks). All members have a fixed term (1 year). Council members can be removed early only by a referenda.</p>
+<p>To elect a new council member, Polkadot employs <code>approval voting</code> method to allow token holders that choose a list of candidates they want to support in equal weight and the one with the most approval votes wins the election, while top-N runners-up remain on the candidates' list for next election.</p>
+<p>Basically, instead of using one person one vote, <a href="https://en.wikipedia.org/wiki/Approval_voting">approval voting</a> is a more expressive way to indicate their views. Token holders can treat it as boolean voting to support as many candidates as they want.</p>
+<p>Let's take a look at the example below.</p>
+<p>||||Round 1||| ||:----:|:---:|:---:|:---:|:---:| |<strong>Token Holders</strong>|||<strong>Candidates</strong>||| ||A|B|C|D|E| |Peter|X||X|X|X|X| |Alice||X||||| |Bob|||X|X|X| |Kelvin|X||X||| |<strong>Total</strong>|2|1|3|2|2|</p>
+<p>The above example shows that candidate C wins the election in round 1, while candidate A, B, D &amp; E keep remaining on the candidates' list for the next round.</p>
+<p>|||Round 2||| ||:----:|:---:|:---:|:---:| |<strong>Token Holders</strong>||<strong>Candidates</strong>|| ||A|B|D|E| |Peter|X|X||| |Alice|X|X||| |Bob|X|X|X|X| |Kelvin|X|X||| |<strong>Total</strong>|4|4|1|1|</p>
+<p>For the top-N (say 4 in this example) runners-up, they can remain and their votes persist until the next election. After round 2, even though candidates A &amp; B get the same number of votes in this round, candidate A gets elected because after adding the older unused approvals, it is higher than B.</p>
+<p>This would be the tentative governance configuration for Polkadot in the initial genesis. It will be changed if any security loopholes have been found after third-party auditing.</p>
+<h3><a class="anchor" aria-hidden="true" id="resources"></a><a href="#resources" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resources</h3>
+<ul>
+<li><a href="learn-governance#referenda">Governance Description</a></li>
+<li><a href="https://github.com/paritytech/substrate/tree/master/srml/democracy/src">Democracy Module</a></li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="usage-of-dot-learn-dot-dots-for-governance"></a><a href="#usage-of-dot-learn-dot-dots-for-governance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="learn-DOT#dots-for-governance">Usage of DOT</a></h2>
+<h2><a class="anchor" aria-hidden="true" id="guides"></a><a href="#guides" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Guides</h2>
+<h3><a class="anchor" aria-hidden="true" id="how-to-create-a-proposal"></a><a href="#how-to-create-a-proposal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="">How to create a proposal</a></h3>
+<h3><a class="anchor" aria-hidden="true" id="how-to-join-the-council"></a><a href="#how-to-join-the-council" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="">How to join the council</a></h3>
+<h3><a class="anchor" aria-hidden="true" id="how-to-propose-a-referenda"></a><a href="#how-to-propose-a-referenda" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="">How to propose a referenda</a></h3>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 9/20/2019 by Logan Saether</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/maintain-collator"><span class="arrow-prev">← </span><span>收集人</span></a><a class="docs-next button" href="/docs/zh-CN/maintain-guides-how-to-nominate"><span>如何成为提名人</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#mechanism">Mechanism</a><ul class="toc-headings"><li><a href="#proposing-referenda">Proposing Referenda</a></li><li><a href="#voting-for-a-proposal">Voting for a proposal</a></li><li><a href="#tallying">Tallying</a></li></ul></li><li><a href="#voluntary-locking">Voluntary Locking</a></li><li><a href="#adaptive-quorum-biasing">Adaptive Quorum Biasing</a></li><li><a href="#council">Council</a><ul class="toc-headings"><li><a href="#how-to-be-a-council-member">How to be a council member?</a></li><li><a href="#resources">Resources</a></li></ul></li><li><a href="#usage-of-dot"><a href="learn-DOT#dots-for-governance">Usage of DOT</a></a></li><li><a href="#guides">Guides</a><ul class="toc-headings"><li><a href="#how-to-create-a-proposal"><a href="">How to create a proposal</a></a></li><li><a href="#how-to-join-the-council"><a href="">How to join the council</a></a></li><li><a href="#how-to-propose-a-referenda"><a href="">How to propose a referenda</a></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2019 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+              var cookieSettings = document.getElementById('cookie-settings');
+              cookieSettings.onclick = function() {
+                return klaro.show();
+              };
+              </script></section></footer></div></body></html>
