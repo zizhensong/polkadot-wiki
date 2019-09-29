@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Roadmap For Developers · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="개발자들에게는 언제 업스트림 팀이 특정 마일스톤에 도달 할지 예상할 수 있는 몇 가지 가이드 포스트가 필요합니다. 우리가 알고있는 정보로 아래 섹션을 최신 상태로 유지하고 가능한 경우 명확한 날짜를 추가하려고 노력할 것입니다."/><meta name="docsearch:language" content="ko"/><meta property="og:title" content="Roadmap For Developers · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://wiki.polkadot.network/"/><meta property="og:description" content="개발자들에게는 언제 업스트림 팀이 특정 마일스톤에 도달 할지 예상할 수 있는 몇 가지 가이드 포스트가 필요합니다. 우리가 알고있는 정보로 아래 섹션을 최신 상태로 유지하고 가능한 경우 명확한 날짜를 추가하려고 노력할 것입니다."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://wiki.polkadot.network/js/load.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/ko"><img class="logo" src="/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/ko/build-index" target="_self">Build</a></li><li class="siteNavGroupActive"><a href="/docs/ko/learn-index" target="_self">Learn</a></li><li class="siteNavGroupActive"><a href="/docs/ko/maintain-index" target="_self">Maintain</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>한국어</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/build-dev-roadmap">English</a></li><li><a href="/docs/es-ES/build-dev-roadmap">Español</a></li><li><a href="/docs/zh-CN/build-dev-roadmap">中文</a></li><li><a href="https://crowdin.com/project/polkadot-wiki" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Build</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Main<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ko/community">Community</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/contributing">Contributing</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/glossary">Terms and Definitions</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/">Polkadot Wiki</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/news">This Week in Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/research">Polkadot Research</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Build<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ko/build-build-with-polkadot">Polkadot Builders Starter&#x27;s Guide</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-cumulus">Cumulus</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-deploy-parachains">How to view and deploy parachains</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/ko/build-dev-roadmap">Roadmap For Developers</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-examples-index">Examples</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-exchange-integration">Exchange integration</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-extrinsic-format">Polkadot Extrinsic Format aka Transaction Format</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-hackathon">Hackathon</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-index">Builders Portal</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-networks">Networks</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-pdk">Parachain Development Kits (PDKs)</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-rust-style-guide">Style Guide for Rust in Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-smart-contracts">Smart Contracts</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-tools-index">Tools</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-tools-subkey">Subkey</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ko/learn-DOT">DOT</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-PRE">Polkadot Runtime Environment (PRE)</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-UI">Polkadot UI</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-architecture">Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-auction">Parachain Slots Auction</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-basics">Basics</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-bridges">Bridges</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-comparisons-cosmos">Polkadot vs. Cosmos: Design Comparison</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-comparisons">Polkadot comparisons</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-consensus">Polkadot Consensus</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-cryptography">Cryptography Explainer</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-faq">Frequently Asked Questions (FAQs)</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-grandpa">GRANDPA</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-implementations">Polkadot Implementations</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-index">Learn about Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-interchain">Interchain Message Passing (ICMP)</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-introduction">Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-keys">Polkadot Keys</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-parachains">Parachains</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-parathreads">Parathreads</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-phragmen">What is Phragmen and what does it mean for node operators?</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-randomness">Randomness</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-relevant-links">Links</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-roadmap">Roadmap</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-security">Security of the network</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-spree">SPREE</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-staking">Staking</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-treasury">Treasury</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-wasm">WebAssembly (Wasm)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Maintain<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-collator">Collator</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-governance-index">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-guides-how-to-nominate">How to nominate</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-guides-how-to-systemd">How to run your node as a `systemd` process</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-guides-how-to-validate">How to validate</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-guides-validator-payout">Validator Payout Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-index">Network Maintainers</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-node-operator">Node Operator / Validator</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-nominator">Nominator</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://crowdin.com/project/polkadot-wiki/ko" target="_blank" rel="noreferrer noopener">Translate</a><h1 class="postHeaderTitle">Roadmap For Developers</h1></header><article><div><span><p>개발자들에게는 언제 업스트림 팀이 특정 마일스톤에 도달 할지 예상할 수 있는 몇 가지 가이드 포스트가 필요합니다. 우리가 알고있는 정보로 아래 섹션을 최신 상태로 유지하고 가능한 경우 명확한 날짜를 추가하려고 노력할 것입니다.</p>
+<h2><a class="anchor" aria-hidden="true" id="서브스트레이트substrate"></a><a href="#서브스트레이트substrate" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>서브스트레이트(Substrate)</h2>
+<h3><a class="anchor" aria-hidden="true" id="10"></a><a href="#10" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.0</h3>
+<p>41% 완료</p>
+<p><a href="https://github.com/paritytech/substrate/milestone/9">마일스톤 트래커</a></p>
+<p>예상되는 기능들:</p>
+<ul>
+<li>확정된 API와 안정된 인터페이스</li>
+<li>Ristretto Crypto</li>
+<li>튼튼한 네트워크</li>
+<li>해결되지 않은 버그 제거</li>
+<li>분리된 잔고 (Decoupled balances)</li>
+<li>인테그레이션 테스트 (Integration tests)</li>
+<li>Wasm/native 실행 휴리스틱스를 통한 향상된 컨트롤 (Enhanced control over Wasm/native execution heuristics)</li>
+<li>런타임에서의 Panics/overflows 스윕 (Panics/overflows sweeps in runtime)</li>
+</ul>
+<h3><a class="anchor" aria-hidden="true" id="11"></a><a href="#11" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1.1</h3>
+<p><a href="https://github.com/paritytech/substrate/milestone/4">마일스톤 트래커</a></p>
+<p>예상되는 기능:</p>
+<ul>
+<li>경제학적 안정 (Economic safety)</li>
+</ul>
+<h2><a class="anchor" aria-hidden="true" id="polkadot"></a><a href="#polkadot" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Polkadot</h2>
+<p>현재 릴리즈: <strong>PoC-4</strong></p>
+<h3><a class="anchor" aria-hidden="true" id="poc-5-6-7"></a><a href="#poc-5-6-7" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>PoC 5,6,7</h3>
+<p>이슈 트래커에서 7% 진척도가 있음.</p>
+<p><a href="https://github.com/paritytech/polkadot/milestone/2">마일스톤 트래커</a></p>
+<p>예상되는 기능들:</p>
+<ul>
+<li>패러체인(parachain) 후보들의 증명을 위한 BLS 시그니처 에그리게이션</li>
+<li><a href="https://github.com/paritytech/polkadot/issues/124">패러체인(parachain) 토큰들을 거버넌스에 통합(Integrate Parachain tokens into governance)</a></li>
+<li>패러체인(parachain) 확인(validation)의 개선</li>
+</ul>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 9/29/2019 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ko/build-deploy-parachains"><span class="arrow-prev">← </span><span>How to view and deploy parachains</span></a><a class="docs-next button" href="/docs/ko/build-examples-index"><span>Examples</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#서브스트레이트substrate">서브스트레이트(Substrate)</a><ul class="toc-headings"><li><a href="#10">1.0</a></li><li><a href="#11">1.1</a></li></ul></li><li><a href="#polkadot">Polkadot</a><ul class="toc-headings"><li><a href="#poc-5-6-7">PoC 5,6,7</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2019 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+              var cookieSettings = document.getElementById('cookie-settings');
+              cookieSettings.onclick = function() {
+                return klaro.show();
+              };
+              </script></section></footer></div></body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html><html lang="ko"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Subkey · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="서브키(subkey, 이하 subkey로 통일 - 역자 주)는 서브스트레이트(Substrate)가 생성한 키(key)나 복원된 서브스트레이트 키(Key)가 포함 되어 있는 커맨드리인 유틸리티입니다."/><meta name="docsearch:language" content="ko"/><meta property="og:title" content="Subkey · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://wiki.polkadot.network/"/><meta property="og:description" content="서브키(subkey, 이하 subkey로 통일 - 역자 주)는 서브스트레이트(Substrate)가 생성한 키(key)나 복원된 서브스트레이트 키(Key)가 포함 되어 있는 커맨드리인 유틸리티입니다."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://wiki.polkadot.network/js/load.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/ko"><img class="logo" src="/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/ko/build-index" target="_self">Build</a></li><li class="siteNavGroupActive"><a href="/docs/ko/learn-index" target="_self">Learn</a></li><li class="siteNavGroupActive"><a href="/docs/ko/maintain-index" target="_self">Maintain</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>한국어</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/build-tools-subkey">English</a></li><li><a href="/docs/es-ES/build-tools-subkey">Español</a></li><li><a href="/docs/zh-CN/build-tools-subkey">中文</a></li><li><a href="https://crowdin.com/project/polkadot-wiki" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Build</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Main<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ko/community">Community</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/contributing">Contributing</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/glossary">Terms and Definitions</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/">Polkadot Wiki</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/news">This Week in Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/research">Polkadot Research</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Build<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ko/build-build-with-polkadot">Polkadot Builders Starter&#x27;s Guide</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-cumulus">Cumulus</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-deploy-parachains">How to view and deploy parachains</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-dev-roadmap">Roadmap For Developers</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-examples-index">Examples</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-exchange-integration">Exchange integration</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-extrinsic-format">Polkadot Extrinsic Format aka Transaction Format</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-hackathon">Hackathon</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-index">Builders Portal</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-networks">Networks</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-pdk">Parachain Development Kits (PDKs)</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-rust-style-guide">Style Guide for Rust in Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-smart-contracts">Smart Contracts</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/build-tools-index">Tools</a></li><li class="navListItem navListItemActive"><a class="navItem" href="/docs/ko/build-tools-subkey">Subkey</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Learn<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ko/learn-DOT">DOT</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-PRE">Polkadot Runtime Environment (PRE)</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-UI">Polkadot UI</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-architecture">Architecture</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-auction">Parachain Slots Auction</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-basics">Basics</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-bridges">Bridges</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-comparisons-cosmos">Polkadot vs. Cosmos: Design Comparison</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-comparisons">Polkadot comparisons</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-consensus">Polkadot Consensus</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-cryptography">Cryptography Explainer</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-faq">Frequently Asked Questions (FAQs)</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-governance">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-grandpa">GRANDPA</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-implementations">Polkadot Implementations</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-index">Learn about Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-interchain">Interchain Message Passing (ICMP)</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-introduction">Polkadot</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-keys">Polkadot Keys</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-parachains">Parachains</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-parathreads">Parathreads</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-phragmen">What is Phragmen and what does it mean for node operators?</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-randomness">Randomness</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-relevant-links">Links</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-roadmap">Roadmap</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-security">Security of the network</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-spree">SPREE</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-staking">Staking</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-treasury">Treasury</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/learn-wasm">WebAssembly (Wasm)</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">Maintain<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-collator">Collator</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-governance-index">Governance</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-guides-how-to-nominate">How to nominate</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-guides-how-to-systemd">How to run your node as a `systemd` process</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-guides-how-to-validate">How to validate</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-guides-validator-payout">Validator Payout Overview</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-index">Network Maintainers</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-node-operator">Node Operator / Validator</a></li><li class="navListItem"><a class="navItem" href="/docs/ko/maintain-nominator">Nominator</a></li></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://crowdin.com/project/polkadot-wiki/ko" target="_blank" rel="noreferrer noopener">Translate</a><h1 class="postHeaderTitle">Subkey</h1></header><article><div><span><p>서브키(subkey, 이하 subkey로 통일 - 역자 주)는 서브스트레이트(Substrate)가 생성한 키(key)나 복원된 서브스트레이트 키(Key)가 포함 되어 있는 커맨드리인 유틸리티입니다.</p>
+<p><code>subkey</code> 는 <a href="http://wiki.polkadot.network/en/latest/polkadot/learn/cryptography/#keypairs-and-signing">sr25519</a> 암호를 기본적으로 사용 할 것입니다.이전 ed25519 암호화를 사용하여 키를 생성하거나 복원해야 할 경우<code>--ed25519</code> 플래그를 커맨드에 입력하세요.</p>
+<h2><a class="anchor" aria-hidden="true" id="사용방법-usage"></a><a href="#사용방법-usage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>사용방법 (Usage)</h2>
+<h3><a class="anchor" aria-hidden="true" id="무작위-계정-생성하기-generate-a-random-account"></a><a href="#무작위-계정-생성하기-generate-a-random-account" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>무작위 계정 생성하기 (Generate a random account)</h3>
+<pre><code class="hljs css language-bash">subkey generate
+</code></pre>
+<p>새 계정의 니모닉(mnemonic phrase)과 시드, 공개 키 및 주소를 제공합니다. 어떤 누구에게도 당신의 니모닉이나 시드를 공유하지 마세요. 만약 공유한다면 당신의 자산에 접속 할 수 있게 됩니다. 누군가 당신에게 이체를 하고 있다면 <strong>Address</strong> 만 필요합니다.</p>
+<p>주어진 URI (니모닉, 시드, 공개키 또는 address)를 검사할 수 있고 공개키와 address를 복원할 수 있습니다.</p>
+<h3><a class="anchor" aria-hidden="true" id="key-검사하기inspecting-a-key"></a><a href="#key-검사하기inspecting-a-key" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Key 검사하기(Inspecting a key)</h3>
+<p><code>subkey</code>는 STDIN에서 오는 메시지를 기다립니다. 메시지에 서명하는 한 가지 방법은 다음과 같습니다.</p>
+<pre><code class="hljs css language-bash">subkey inspect &lt;mnemonic,seed,pubkey,address&gt;
+
+OUTPUT:
+  Public key (hex): 0x461edcf1ba99e43f50dec4bdeb3d1a2cf521ad7c3cd0eeee5cd3314e50fd424c
+  Address (SS58): 5DeeNqcAcaHDSed2HYnqMDK7JHcvxZ5QUE9EKmjc5snvU6wF
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="서명하기-signing"></a><a href="#서명하기-signing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>서명하기 (Signing)</h3>
+<p>Vanity generator를 사용하여 사용자가 원하는 패턴을 가진 address를 주는 시드를 찾을 수 있습니다. 그러나 하드웨어에 따라 다소 시간이 걸릴 수 있습니다.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">echo</span> &lt;msg&gt; | subkey sign &lt;seed,mnemonic&gt;
+
+OUTPUT:
+a69da4a6ccbf81dbbbfad235fa12cf8528c18012b991ae89214de8d20d29c1280576ced6eb38b7406d1b7e03231df6dd4a5257546ddad13259356e1c3adfb509
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="서명-증명하기-verifying-a-signature"></a><a href="#서명-증명하기-verifying-a-signature" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>서명 증명하기 (Verifying a signature)</h3>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">echo</span> &lt;msg&gt; | subkey verify &lt;sig&gt; &lt;address&gt;
+
+OUTPUT:
+Signature verifies correctly.
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="vanity-generator-사용하기"></a><a href="#vanity-generator-사용하기" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>vanity generator 사용하기</h3>
+<p>You can use the included vanity generator to find a seed that provides an address which includes the desired pattern. Be warned, depending on your hardware this may take a while.</p>
+<pre><code class="hljs css language-bash">subkey vanity 1337
+</code></pre>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 9/29/2019 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ko/build-tools-index"><span class="arrow-prev">← </span><span>Tools</span></a><a class="docs-next button" href="/docs/ko/learn-DOT"><span>DOT</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#사용방법-usage">사용방법 (Usage)</a><ul class="toc-headings"><li><a href="#무작위-계정-생성하기-generate-a-random-account">무작위 계정 생성하기 (Generate a random account)</a></li><li><a href="#key-검사하기inspecting-a-key">Key 검사하기(Inspecting a key)</a></li><li><a href="#서명하기-signing">서명하기 (Signing)</a></li><li><a href="#서명-증명하기-verifying-a-signature">서명 증명하기 (Verifying a signature)</a></li><li><a href="#vanity-generator-사용하기">vanity generator 사용하기</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2019 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+              var cookieSettings = document.getElementById('cookie-settings');
+              cookieSettings.onclick = function() {
+                return klaro.show();
+              };
+              </script></section></footer></div></body></html>

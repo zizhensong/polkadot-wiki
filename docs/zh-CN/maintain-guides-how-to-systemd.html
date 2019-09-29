@@ -4,7 +4,7 @@
             {"zIndex":100}
           )
         });
-        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/zh-CN"><img class="logo" src="/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/zh-CN/build-index" target="_self">建立</a></li><li class="siteNavGroupActive"><a href="/docs/zh-CN/learn-index" target="_self">学习</a></li><li class="siteNavGroupActive"><a href="/docs/zh-CN/maintain-index" target="_self">参与</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/maintain-guides-how-to-systemd">English</a></li><li><a href="/docs/es-ES/maintain-guides-how-to-systemd">Español</a></li><li><a href="https://crowdin.com/project/polkadot-wiki" target="_blank" rel="noreferrer noopener">帮助翻译</a></li></ul></div></li><script>
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/zh-CN"><img class="logo" src="/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/zh-CN/build-index" target="_self">建立</a></li><li class="siteNavGroupActive"><a href="/docs/zh-CN/learn-index" target="_self">学习</a></li><li class="siteNavGroupActive"><a href="/docs/zh-CN/maintain-index" target="_self">参与</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/maintain-guides-how-to-systemd">English</a></li><li><a href="/docs/es-ES/maintain-guides-how-to-systemd">Español</a></li><li><a href="/docs/ko/maintain-guides-how-to-systemd">한국어</a></li><li><a href="https://crowdin.com/project/polkadot-wiki" target="_blank" rel="noreferrer noopener">帮助翻译</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(event) {
@@ -78,15 +78,15 @@
 <pre><code class="hljs css language-bash">touch /etc/systemd/system/polkadot-validator.service
 </code></pre>
 <p>In this unit file you will write the commands that you want to run on server boot / restart.</p>
-<pre><code class="hljs">[Unit]
-Description=Polkadot Validator
-
-[Service]
-ExecStart=PATH_TO_POLKADOT_BIN --validator --key YOUR_SEED --name SHOW_ON_TELEMETRY
-Restart=always
-
-[Install]
-WantedBy=multi-user.target
+<pre><code class="hljs"><span class="hljs-section">[Unit]</span>
+<span class="hljs-attr">Description</span>=Polkadot Validator
+<span class="hljs-section">
+[Service]</span>
+<span class="hljs-attr">ExecStart</span>=PATH_TO_POLKADOT_BIN --validator --key YOUR_SEED --name SHOW_ON_TELEMETRY
+<span class="hljs-attr">Restart</span>=always
+<span class="hljs-section">
+[Install]</span>
+<span class="hljs-attr">WantedBy</span>=multi-user.target
 </code></pre>
 <p>To enable this to autostart on bootup run:</p>
 <pre><code class="hljs css language-bash">systemctl <span class="hljs-built_in">enable</span> polkadot-validator.service
@@ -100,7 +100,7 @@ WantedBy=multi-user.target
 <p>You can tail the logs with <code>journalctl</code> like so:</p>
 <pre><code class="hljs css language-bash">journalctl -f -u polkadot-validator
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 9/3/2019 by laboon</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/maintain-guides-how-to-nominate"><span class="arrow-prev">← </span><span>如何成为提名人</span></a><a class="docs-next button" href="/docs/zh-CN/maintain-guides-how-to-validate"><span>如何运行验证人节点</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2019 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 9/29/2019 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/maintain-guides-how-to-nominate"><span class="arrow-prev">← </span><span>如何成为提名人</span></a><a class="docs-next button" href="/docs/zh-CN/maintain-guides-how-to-validate"><span>如何运行验证人节点</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2019 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();

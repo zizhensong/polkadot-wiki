@@ -4,7 +4,7 @@
             {"zIndex":100}
           )
         });
-        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/es-ES"><img class="logo" src="/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/es-ES/build-index" target="_self">Build</a></li><li class="siteNavGroupActive"><a href="/docs/es-ES/learn-index" target="_self">Learn</a></li><li class="siteNavGroupActive"><a href="/docs/es-ES/maintain-index" target="_self">Maintain</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>Español</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/maintain-governance-index">English</a></li><li><a href="/docs/zh-CN/maintain-governance-index">中文</a></li><li><a href="https://crowdin.com/project/polkadot-wiki" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/es-ES"><img class="logo" src="/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/es-ES/build-index" target="_self">Build</a></li><li class="siteNavGroupActive"><a href="/docs/es-ES/learn-index" target="_self">Learn</a></li><li class="siteNavGroupActive"><a href="/docs/es-ES/maintain-index" target="_self">Maintain</a></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>Español</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/maintain-governance-index">English</a></li><li><a href="/docs/ko/maintain-governance-index">한국어</a></li><li><a href="/docs/zh-CN/maintain-governance-index">中文</a></li><li><a href="https://crowdin.com/project/polkadot-wiki" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
         const languagesMenuItem = document.getElementById("languages-menu");
         const languagesDropDown = document.getElementById("languages-dropdown");
         languagesMenuItem.addEventListener("click", function(event) {
@@ -95,11 +95,11 @@
 <p>To vote, a voter must lock their tokens up for at least the enactment delay period beyond the end of the referendum. This is in order to ensure that some minimal economic buy-in to the result is needed and to dissuade vote selling. At the same time, holding only a small amount of DOT tokens does not mean that they cannot influence the referendum result, you can read more about the <a href="#voluntary-locking">Voluntary Locking</a>.</p>
 <pre><code class="hljs">Example:
 
-Peter: Votes `No` with 10 DOTs for a 12 week lock period  =&gt; 10 * 6 = 60 Votes
+Peter: Votes `No` with <span class="hljs-number">10</span> DOTs <span class="hljs-keyword">for</span> a <span class="hljs-number">12</span> week lock period  =&gt; <span class="hljs-number">10</span> * <span class="hljs-number">6</span> = <span class="hljs-number">60</span> Votes
 
-Logan: Votes `Yes` with 20 DOTs for a 2 week lock period =&gt; 20 * 1 = 20 Votes
+Logan: Votes `Yes` with <span class="hljs-number">20</span> DOTs <span class="hljs-keyword">for</span> a <span class="hljs-number">2</span> week lock period =&gt; <span class="hljs-number">20</span> * <span class="hljs-number">1</span> = <span class="hljs-number">20</span> Votes
 
-Kevin: Votes `Yes` with 15 DOTs for a 4 week lock period =&gt; 15 * 2 = 30 Votes
+Kevin: Votes `Yes` with <span class="hljs-number">15</span> DOTs <span class="hljs-keyword">for</span> a <span class="hljs-number">4</span> week lock period =&gt; <span class="hljs-number">15</span> * <span class="hljs-number">2</span> = <span class="hljs-number">30</span> Votes
 </code></pre>
 <p>According to the above scenario, even though combining both Logan and Kevin's DOTs is more than Peter, the lock period for both of them is far less than Peter, leading to their voting power counting as less.</p>
 <h3><a class="anchor" aria-hidden="true" id="tallying"></a><a href="#tallying" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tallying</h3>
@@ -115,13 +115,13 @@ Kevin: Votes `Yes` with 15 DOTs for a 4 week lock period =&gt; 15 * 2 = 30 Votes
 </tbody>
 </table>
 <p>Also, we need the following information and apply one of the formulas listed below to calculate the voting result. For example, let's use the public proposal as an example, so <code>Super-Majority Approve</code> formula will be applied. There is no strict quorum, but super-majority required increases as turnout lowers.</p>
-<pre><code class="hljs">approve - the number of aye votes
+<pre><code class="hljs">approve - <span class="hljs-keyword">the</span> <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> aye votes
 
-against - the number of nay votes
+against - <span class="hljs-keyword">the</span> <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> nay votes
 
-voters - the total number of voting tokens
+voters - <span class="hljs-keyword">the</span> total <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> voting tokens
 
-electorate - the total number of DOTs tokens issued in the network
+electorate - <span class="hljs-keyword">the</span> total <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> DOTs tokens issued <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> network
 </code></pre>
 <p><strong>Super-Majority Approve</strong></p>
 <p>A <code>positive turnout bias</code>, whereby a heavy super-majority of aye votes is required to carry at low turnouts, but as turnout increases towards 100%, it becomes a simple-majority-carriers as below. $${against \over \sqrt{voters}} &lt; {approve \over \sqrt{electorate}}$$</p>
@@ -132,31 +132,31 @@ electorate - the total number of DOTs tokens issued in the network
 <p><em>To know more about where these above formulas come from, please read the <a href="https://github.com/paritytech/substrate/blob/master/srml/democracy/src/vote_threshold.rs">democracy module</a></em>.</p>
 <pre><code class="hljs">Example:
 
-Assume we only have 1,500 DOTs tokens in total.
+Assume we only have <span class="hljs-number">1</span>,<span class="hljs-number">500</span> DOTs tokens <span class="hljs-keyword">in</span> total.
 
-John  - 500 DOTs
-Peter - 100 DOTs
-Lilly - 150 DOTs
-JJ    - 150 DOTs
-Ken   - 600 DOTs
+John  - <span class="hljs-number">500</span> DOTs
+Peter - <span class="hljs-number">100</span> DOTs
+Lilly - <span class="hljs-number">150</span> DOTs
+JJ    - <span class="hljs-number">150</span> DOTs
+Ken   - <span class="hljs-number">600</span> DOTs
 
-John: Votes `Yes`for a 2 week lock period  =&gt; 500 * 1 = 500 Votes
+John: Votes `Yes`<span class="hljs-keyword">for</span> a <span class="hljs-number">2</span> week lock period  =&gt; <span class="hljs-number">500</span> * <span class="hljs-number">1</span> = <span class="hljs-number">500</span> Votes
 
-Peter: Votes `Yes` for a 2 week lock period =&gt; 100 * 1 = 100 Votes
+Peter: Votes `Yes` <span class="hljs-keyword">for</span> a <span class="hljs-number">2</span> week lock period =&gt; <span class="hljs-number">100</span> * <span class="hljs-number">1</span> = <span class="hljs-number">100</span> Votes
 
-JJ: Votes `No` for a 6 week lock period =&gt; 150 * 3 = 450 Votes
+JJ: Votes `No` <span class="hljs-keyword">for</span> a <span class="hljs-number">6</span> week lock period =&gt; <span class="hljs-number">150</span> * <span class="hljs-number">3</span> = <span class="hljs-number">450</span> Votes
 
-approve = 600
-against = 450
-voters = 1050
-electorate = 1500
+approve = <span class="hljs-number">600</span>
+against = <span class="hljs-number">450</span>
+voters = <span class="hljs-number">1050</span>
+electorate = <span class="hljs-number">1500</span>
 </code></pre>
 <p>$${450 \over \sqrt{1050}} &lt; {600 \over \sqrt{1500}}$$</p>
 <p>$${13.887} &lt; {15.492}$$</p>
 <p>Based on the above result, the proposal will be approved. In addition, only the winning voter's tokens are locked, which means if that referendum hurts the network, then those who voted against it can immediately get their locked tokens back. They can exit the network and sell their tokens to the market before the proposal becomes effective. Moreover, winning proposals are autonomously enacted only after some cool-down period.</p>
 <h2><a class="anchor" aria-hidden="true" id="voluntary-locking"></a><a href="#voluntary-locking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Voluntary Locking</h2>
 <p>Polkadot utilizes an idea called <code>Voluntary Locking</code> that allows token holders to increase their voting power by declaring how long they are willing to lock-up their DOTs, hence, the maximum number of votes for each token holder will be calculated by the following formula:</p>
-<pre><code class="hljs">Max votes = tokens * periods
+<pre><code class="hljs"><span class="hljs-built_in">Max</span> votes = tokens * periods
 </code></pre>
 <p>Based on the current testnet setting, the maximum number of lock periods is set to 6.</p>
 <p><strong>Each period takes 2 weeks, which means the longest lock period would be 12 weeks.</strong></p>
@@ -192,7 +192,7 @@ electorate = 1500
 <h3><a class="anchor" aria-hidden="true" id="how-to-create-a-proposal"></a><a href="#how-to-create-a-proposal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="">How to create a proposal</a></h3>
 <h3><a class="anchor" aria-hidden="true" id="how-to-join-the-council"></a><a href="#how-to-join-the-council" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="">How to join the council</a></h3>
 <h3><a class="anchor" aria-hidden="true" id="how-to-propose-a-referenda"></a><a href="#how-to-propose-a-referenda" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="">How to propose a referenda</a></h3>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 9/20/2019 by Logan Saether</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/es-ES/maintain-collator"><span class="arrow-prev">← </span><span>Collator</span></a><a class="docs-next button" href="/docs/es-ES/maintain-guides-how-to-nominate"><span>How to nominate</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#mechanism">Mechanism</a><ul class="toc-headings"><li><a href="#proposing-referenda">Proposing Referenda</a></li><li><a href="#voting-for-a-proposal">Voting for a proposal</a></li><li><a href="#tallying">Tallying</a></li></ul></li><li><a href="#voluntary-locking">Voluntary Locking</a></li><li><a href="#adaptive-quorum-biasing">Adaptive Quorum Biasing</a></li><li><a href="#council">Council</a><ul class="toc-headings"><li><a href="#how-to-be-a-council-member">How to be a council member?</a></li><li><a href="#resources">Resources</a></li></ul></li><li><a href="#usage-of-dot"><a href="learn-DOT#dots-for-governance">Usage of DOT</a></a></li><li><a href="#guides">Guides</a><ul class="toc-headings"><li><a href="#how-to-create-a-proposal"><a href="">How to create a proposal</a></a></li><li><a href="#how-to-join-the-council"><a href="">How to join the council</a></a></li><li><a href="#how-to-propose-a-referenda"><a href="">How to propose a referenda</a></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2019 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 9/29/2019 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/es-ES/maintain-collator"><span class="arrow-prev">← </span><span>Collator</span></a><a class="docs-next button" href="/docs/es-ES/maintain-guides-how-to-nominate"><span>How to nominate</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#mechanism">Mechanism</a><ul class="toc-headings"><li><a href="#proposing-referenda">Proposing Referenda</a></li><li><a href="#voting-for-a-proposal">Voting for a proposal</a></li><li><a href="#tallying">Tallying</a></li></ul></li><li><a href="#voluntary-locking">Voluntary Locking</a></li><li><a href="#adaptive-quorum-biasing">Adaptive Quorum Biasing</a></li><li><a href="#council">Council</a><ul class="toc-headings"><li><a href="#how-to-be-a-council-member">How to be a council member?</a></li><li><a href="#resources">Resources</a></li></ul></li><li><a href="#usage-of-dot"><a href="learn-DOT#dots-for-governance">Usage of DOT</a></a></li><li><a href="#guides">Guides</a><ul class="toc-headings"><li><a href="#how-to-create-a-proposal"><a href="">How to create a proposal</a></a></li><li><a href="#how-to-join-the-council"><a href="">How to join the council</a></a></li><li><a href="#how-to-propose-a-referenda"><a href="">How to propose a referenda</a></a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2019 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();
