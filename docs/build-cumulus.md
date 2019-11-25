@@ -30,4 +30,5 @@ A planned Polkadot collator for a parachain.
 
 ## Resources
 
+- [Cumulus Demo](https://github.com/paritytech/cumulus#running-a-collator)
 - [Rob's talk from EthCC introducing Cumulus](https://www.youtube.com/watch?v=thgtXq5YMOo)

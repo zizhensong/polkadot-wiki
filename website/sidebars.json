@@ -30,6 +30,13 @@
       },
       {
         "type": "subcategory",
+        "label": "Parachains",
+        "ids": [
+          "build-token-migration"
+        ]
+      },
+      {
+        "type": "subcategory",
         "label": "Resources",
         "ids": [
           "build-exchange-integration",
