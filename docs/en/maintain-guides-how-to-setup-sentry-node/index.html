@@ -1,0 +1,199 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Setup a Sentry Node - Public Node · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This guide assumes you have already set-up a validator and would like to make it more resillient and protect against sybil attack or DDoS. It has same configuration of the [polkadot secure validator](https://github.com/w3f/polkadot-secure-validator)."/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Setup a Sentry Node - Public Node · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://wiki.polkadot.network/"/><meta property="og:description" content="This guide assumes you have already set-up a validator and would like to make it more resillient and protect against sybil attack or DDoS. It has same configuration of the [polkadot secure validator](https://github.com/w3f/polkadot-secure-validator)."/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli&amp;display=swap"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://wiki.polkadot.network/js/load.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/en"><img class="logo" src="/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class=""><a href="/docs/en/build-index" target="_self">Build</a></li><li class=""><a href="/docs/en/learn-introduction" target="_self">Learn</a></li><li class=""><a href="/docs/en/maintain-index" target="_self">Maintain</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>English</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/es-ES/maintain-guides-how-to-setup-sentry-node">Español</a></li><li><a href="/docs/ko/maintain-guides-how-to-setup-sentry-node">한국어</a></li><li><a href="/docs/zh-CN/maintain-guides-how-to-setup-sentry-node">中文</a></li><li><a href="https://crowdin.com/project/polkadot-wiki" target="_blank" rel="noreferrer noopener">Help Translate</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/w3f/polkadot-wiki/edit/master/docs/maintain-guides-how-to-setup-sentry-node.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 class="postHeaderTitle">Setup a Sentry Node - Public Node</h1></header><article><div><span><p>This guide assumes you have already set-up a validator and would like to make it more resillient and protect against sybil attack or DDoS. It has same configuration of the <a href="https://github.com/w3f/polkadot-secure-validator">polkadot secure validator</a>.</p>
+<p>In this guide, we will walk you through how to configure a validator that sits inside a VPN. The validator only talks to the public facing nodes to isolate it from the Internet and reduce the chance of your validator being hacked.</p>
+<h2><a class="anchor" aria-hidden="true" id="vpn-installation-configuration"></a><a href="#vpn-installation-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>VPN Installation &amp; Configuration</h2>
+<p>We will use Wireguard to configure the VPN. Wireguard is a fast and secure VPN that uses state-of-the-art cryptography. If you want to learn more about Wireguard, please go <a href="https://www.wireguard.com/">here</a>. Before we move on to the next step, configure the firewall to open the required ports.</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># ssh port</span>
+ufw allow 22/tcp
+<span class="hljs-comment"># wireguard port</span>
+ufw allow 51820/udp
+<span class="hljs-comment"># libp2p port (Note: Only public node is required))</span>
+ufw allow 30333/tcp
+ufw <span class="hljs-built_in">enable</span>
+<span class="hljs-comment"># double check the firewall rules</span>
+ufw verbose
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="1-install-wireguard"></a><a href="#1-install-wireguard" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>1. Install Wireguard</h3>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># install linux headers</span>
+apt install linux-headers-$(uname -r)
+add-apt-repository ppa:wireguard/wireguard
+apt-get update <span class="hljs-comment"># you can skip this on Ubuntu 18.04</span>
+apt-get install wireguard
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="2-generating-keys"></a><a href="#2-generating-keys" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>2. Generating Keys</h3>
+<p>There are two commands you will use quite a bit when setting up Wireguard; <code>wg</code> is the configuration utility for managing Wireguard tunnel interfaces; <code>wg-quick</code> is a utility  for starting and stopping the interface.</p>
+<p>To generate the public / private keypair, execute the following commands:</p>
+<pre><code class="hljs css language-bash"><span class="hljs-built_in">cd</span> /etc/wireguard
+<span class="hljs-built_in">umask</span> 077
+wg genkey | sudo tee privatekey | wg pubkey | sudo tee publickey
+</code></pre>
+<p>You will see two files, <code>publickey</code> and <code>privatekey</code>, have been created.  As may be guessed from their names, <code>publickey</code> contains the public key and <code>privatekey</code> contains the private key of the keypair.</p>
+<h3><a class="anchor" aria-hidden="true" id="3-configuration"></a><a href="#3-configuration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. Configuration</h3>
+<p>Now create a <code>wg0.conf</code> file under the <code>/etc/wireguard/</code> directory.  This file will be used to configure the interface.</p>
+<p>Here is a <code>wg0.conf</code> configuration template for the <strong>validator</strong>.</p>
+<pre><code class="hljs css language-bash">[Interface]
+<span class="hljs-comment"># specify the address you want to assign for this machine.</span>
+Address = 10.0.0.1/32
+<span class="hljs-comment"># the private key you just generated</span>
+PrivateKey = 8MeWtQjBrmYazzwni7s/9Ow37U8eECAfAs0AIuffFng=
+<span class="hljs-comment"># listening port of your server</span>
+ListenPort = 51820
+<span class="hljs-comment"># if you use wg to add a new peer when running, it will automatically </span>
+<span class="hljs-comment"># save the newly added peers to your configuration file</span>
+<span class="hljs-comment"># without requiring a restart</span>
+SaveConfig = <span class="hljs-literal">true</span>
+
+<span class="hljs-comment"># Public Node A   </span>
+[Peer]
+<span class="hljs-comment"># replace it to the public node A public key</span>
+PublicKey = Vdepw3JhRKDytCwjwA0nePLFiNsfB4KxGewl4YwAFRg=
+<span class="hljs-comment"># public ip address for your public node machine</span>
+Endpoint = 112.223.334.445:51820
+<span class="hljs-comment"># replace it to the public node A interface address</span>
+AllowedIPs = 10.0.0.2/32
+<span class="hljs-comment"># keep the connection alive by sending a handshake every 21 seconds</span>
+PersistentKeepalive = 21
+
+<span class="hljs-comment"># Note: In this guide, we only set up 1 peer (public node)</span>
+
+You need to <span class="hljs-keyword">do</span> the previous steps (1 and 2) again <span class="hljs-keyword">in</span> your **public node** but the `wg0.conf` configuration file will look like this:
+
+```bash
+[Interface]
+Address = 10.0.0.2/32
+PrivateKey = eCii0j3IWi4w0hScc8myUj5QjXjjt5rp1VVuqlEmM24=
+ListenPort = 51820
+SaveConfig = <span class="hljs-literal">true</span>
+
+<span class="hljs-comment"># Validator</span>
+[Peer]
+<span class="hljs-comment"># replace this with the validator public key</span>
+PublicKey = iZeq+jm4baF3pTWR1K1YEyLPhrfpIckGjY/DfwCoKns=
+<span class="hljs-comment"># public ip address of the validator</span>
+Endpoint = 55.321.234.4:51820
+<span class="hljs-comment"># replace it with the validator interface address</span>
+AllowedIPs = 10.0.0.1/32
+PersistentKeepalive = 21
+</code></pre>
+<h3><a class="anchor" aria-hidden="true" id="4-test-connection"></a><a href="#4-test-connection" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>4. Test-Connection</h3>
+<p>If everything goes well, you are ready to test the connection.</p>
+<p>To start the tunnel interface, execute the following command in both your <code>validator</code> and <code>public node</code>.</p>
+<pre><code class="hljs css language-bash">wg-quick up wg0
+
+<span class="hljs-comment"># The console would output something like this</span>
+<span class="hljs-comment">#[#] ip link add wg0 type wireguard</span>
+<span class="hljs-comment">#[#] wg setconf wg0 /dev/fd/63</span>
+<span class="hljs-comment">#[#] ip -4 address add 10.0.0.1/24 dev wg0</span>
+<span class="hljs-comment">#[#] ip link set mtu 1420 up dev wg0</span>
+</code></pre>
+<p>You can check the status of the interface by running <code>wg</code> :</p>
+<pre><code class="hljs css language-bash"><span class="hljs-comment"># Output</span>
+ interface: wg0
+  public key: iZeq+jm4baF3pTWR1K1YEyLPhrfpIckGjY/DfwCoKns=
+  private key: (hidden)
+  listening port: 51820
+
+peer: Vdepw3JhRKDytCwjwA0nePLFiNsfB4KxGewl4YwAFRg=
+  endpoint: 112.223.334.445:51820
+  allowed ips: 10.0.0.2/32
+  latest handshake: 18 seconds ago
+  transfer: 580 B received, 460 B sent
+  persistent keepalive: every 25 seconds
+</code></pre>
+<p>You can then use <code>ping</code> to verify the connectivity between each other.</p>
+<p>In case you want to update <code>wg0.conf</code>, run <code>wg-quick down wg0</code> to stop the interface first.</p>
+<h3><a class="anchor" aria-hidden="true" id="5-start-your-sentry-node-and-validator"></a><a href="#5-start-your-sentry-node-and-validator" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>5. Start your Sentry Node and Validator</h3>
+<p>After you have started the <code>wg0</code> interface on your public node and validator, do spend a little bit of time to take a briefly look at the following description of those flags you are going to use.</p>
+<p><code>--sentry</code> - This would be required for your public node to be a authority as a observer that means it actually same as validator node but without holding keys / doing signing. And the difference between running a full node versus adding an extra <code>--sentry</code> flag is that running a authority node would have every data the validator is needed available, while full node might not have all the data the validator need to validate properly.</p>
+<p><code>--reserved-nodes</code> - The node will try to connect to these nodes and always accept connections from them, but it will still connect and accept connections from other nodes as well.</p>
+<p><code>--reserved-only</code> - Only allows the connection from reserved nodes you defined</p>
+<p>Since we want to ensure that the sentry node would never reject a connection from our validator and this could happen if all the peer slots were full, <code>--reserved-nodes</code> will be required on the sentry to prevent that happening.</p>
+<p>You need to execute the following command to start your validator and then copy the node's identity first. Then stop it.</p>
+<p><code>./target/release/polkadot --validator</code></p>
+<pre><code class="hljs"><span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span> Parity Polkadot
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span>   version <span class="hljs-number">0.6</span><span class="hljs-number">.17</span><span class="hljs-number">-4</span>b9ed4e1-x86_64-linux-gnu
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span>   by Parity Team &lt;<span class="hljs-symbol">admin@</span>parity.io&gt;, <span class="hljs-number">2017</span><span class="hljs-number">-2019</span>
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span> Chain specification: Kusama CC2
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span> ----------------------------
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span> This chain <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> <span class="hljs-keyword">in</span> any way
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span>       endorsed by the
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span>      KUSAMA FOUNDATION
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span> ----------------------------
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span> Node name: maddening-cabbage<span class="hljs-number">-7688</span>
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span> Roles: AUTHORITY
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span> Highest known block at #<span class="hljs-number">780795</span>
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">18</span>:<span class="hljs-number">44</span>:<span class="hljs-number">45</span> Local node identity <span class="hljs-keyword">is</span>: QmTRSEZVE86Vrx8cHLqZhsQ2UfhMy4zZikvgWKzYBsLJZv
+</code></pre>
+<p>Now start your sentry with <code>--sentry</code> and <code>--reserved-nodes</code>.</p>
+<pre><code class="hljs"><span class="hljs-string">./target/release/polkadot</span> \
+<span class="hljs-params">--name</span> <span class="hljs-string">"Sentry-A"</span> \
+<span class="hljs-params">--sentry</span> \
+<span class="hljs-params">--reserved-nodes</span> <span class="hljs-string">/ip4/VALIDATOR_VPN_ADDRESS/tcp/30333/p2p/VALIDATOR_NODE_IDENTITY</span>
+</code></pre>
+<p>You are also required to use sentry's node identity when starting your validator, so make sure to save it in somewhere else as well.</p>
+<p>Then start your validator.</p>
+<pre><code class="hljs"><span class="hljs-string">./target/release/polkadot</span> \
+<span class="hljs-params">--name</span> <span class="hljs-string">"Validator"</span> \
+<span class="hljs-params">--reserved-only</span> \ 
+<span class="hljs-params">--reserved-nodes</span> <span class="hljs-string">/ip4/SENTRY_VPN_ADDRESS/tcp/30333/p2p/SENTRY_NODE_IDENTITY</span> \
+<span class="hljs-params">--validator</span>
+</code></pre>
+<p>Finally you should see your validator has 1 peers that is a connection from your sentry node. Do the above steps to spin up few more if you think one sentry node is not enough.</p>
+<pre><code class="hljs"><span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">08</span> Idle (<span class="hljs-number">1</span> peers), best: #<span class="hljs-number">781102</span> (<span class="hljs-number">0xcb78</span>…<span class="hljs-number">6913</span>), finalized #<span class="hljs-number">781100</span> (<span class="hljs-number">0xacc8</span>…d7bb), ⬇ <span class="hljs-number">43.4</span>kiB/s ⬆ <span class="hljs-number">34.3</span>kiB/s
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">13</span> Idle (<span class="hljs-number">1</span> peers), best: #<span class="hljs-number">781102</span> (<span class="hljs-number">0xcb78</span>…<span class="hljs-number">6913</span>), finalized #<span class="hljs-number">781101</span> (<span class="hljs-number">0x9323</span>…<span class="hljs-number">0859</span>), ⬇ <span class="hljs-number">35.1</span>kiB/s ⬆ <span class="hljs-number">12.9</span>kiB/s
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">13</span> Imported #<span class="hljs-number">781103</span> (<span class="hljs-number">0x9212</span>…<span class="hljs-number">16f</span>3)
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">13</span> Starting parachain attestation session on top of parent <span class="hljs-number">0x9212f2a6ef33cf87625c86bc2766a28d75f3365d521d37298ba91e32d6af16f3</span>. Local parachain duty <span class="hljs-keyword">is</span> None
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">18</span> Idle (<span class="hljs-number">1</span> peers), best: #<span class="hljs-number">781103</span> (<span class="hljs-number">0x9212</span>…<span class="hljs-number">16f</span>3), finalized #<span class="hljs-number">781102</span> (<span class="hljs-number">0xcb78</span>…<span class="hljs-number">6913</span>), ⬇ <span class="hljs-number">35.6</span>kiB/s ⬆ <span class="hljs-number">35.6</span>kiB/s
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">18</span> Discovered new <span class="hljs-keyword">external</span> address <span class="hljs-keyword">for</span> our node: /ip4/<span class="hljs-number">10.0</span><span class="hljs-number">.1</span><span class="hljs-number">.30</span>/tcp/<span class="hljs-number">30333</span>/p2p/QmTRSEZVE86Vrx8cHLqZhsQ2UfhMy4zZikvgWKzYBsLJZv
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">20</span> Imported #<span class="hljs-number">781104</span> (<span class="hljs-number">0x45ac</span>…<span class="hljs-number">9249</span>)
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">20</span> Starting parachain attestation session on top of parent <span class="hljs-number">0x45acec7ceeaa9994a82a6d9c9ca028b4a26c25b70041a42427cb2ba345529249</span>. Local parachain duty <span class="hljs-keyword">is</span> None
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">23</span> Idle (<span class="hljs-number">1</span> peers), best: #<span class="hljs-number">781104</span> (<span class="hljs-number">0x45ac</span>…<span class="hljs-number">9249</span>), finalized #<span class="hljs-number">781103</span> (<span class="hljs-number">0x9212</span>…<span class="hljs-number">16f</span>3), ⬇ <span class="hljs-number">46.9</span>kiB/s ⬆ <span class="hljs-number">36.7</span>kiB/s
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">25</span> Starting parachain attestation session on top of parent <span class="hljs-number">0x5450c2d923b3877f0864a1cff8db0a93680eb0af585e2e836702392420b73269</span>. Local parachain duty <span class="hljs-keyword">is</span> None
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">25</span> Imported #<span class="hljs-number">781105</span> (<span class="hljs-number">0x5450</span>…<span class="hljs-number">3269</span>)
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">28</span> Idle (<span class="hljs-number">1</span> peers), best: #<span class="hljs-number">781105</span> (<span class="hljs-number">0x5450</span>…<span class="hljs-number">3269</span>), finalized #<span class="hljs-number">781104</span> (<span class="hljs-number">0x45ac</span>…<span class="hljs-number">9249</span>), ⬇ <span class="hljs-number">17.7</span>kiB/s ⬆ <span class="hljs-number">20.1</span>kiB/s
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">31</span> Imported #<span class="hljs-number">781106</span> (<span class="hljs-number">0x0eb1</span>…<span class="hljs-number">5697</span>)
+<span class="hljs-number">2019</span><span class="hljs-number">-11</span><span class="hljs-number">-22</span> <span class="hljs-number">19</span>:<span class="hljs-number">15</span>:<span class="hljs-number">31</span> Starting parachain attestation session on top of parent <span class="hljs-number">0x0eb1a30932beaf676d3853475315bf3e7b5629bb77e2891295f4f9bf45eb5697</span>. Local parachain duty <span class="hljs-keyword">is</span> None
+</code></pre>
+<p>Congratulations! You have successfully set-up a validator with a public facing node and now have a more secure way of running your validator.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 11/25/2019 by Anson Lau</em></div><div class="docs-prevnext"></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#vpn-installation-amp-configuration">VPN Installation &amp; Configuration</a><ul class="toc-headings"><li><a href="#1-install-wireguard">1. Install Wireguard</a></li><li><a href="#2-generating-keys">2. Generating Keys</a></li><li><a href="#3-configuration">3. Configuration</a></li><li><a href="#4-test-connection">4. Test-Connection</a></li><li><a href="#5-start-your-sentry-node-and-validator">5. Start your Sentry Node and Validator</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2019 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+              var cookieSettings = document.getElementById('cookie-settings');
+              cookieSettings.onclick = function() {
+                return klaro.show();
+              };
+              </script></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '8bfa06b56bb8f33e5698c7f40b00b38f',
+                indexName: 'polkadot',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {}
+              });
+            </script></body></html>
