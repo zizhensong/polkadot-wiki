@@ -72,7 +72,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://crowdin.com/project/polkadot-wiki/zh-CN" target="_blank" rel="noreferrer noopener">Translate</a><h1 class="postHeaderTitle">交易所整合</h1></header><article><div><span><pre><code class="hljs">+--------------------+
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://crowdin.com/project/polkadot-wiki/zh-CN" target="_blank" rel="noreferrer noopener">Translate</a><h1 id="__docusaurus" class="postHeaderTitle">交易所整合</h1></header><article><div><span><pre><code class="hljs">+--------------------+
 |<span class="hljs-string">                    </span>|
 |<span class="hljs-string"> Substrate/Polkadot </span>|
 |<span class="hljs-string">                    </span>|
@@ -233,21 +233,21 @@ struct CallArg:
 <p>要转移余额，必须准备和发送交易。在准备交易时，有两个关键部分: 一般交易部分和模块特定的交易<code>功能</code>部分通常需要来自链元数据的信息。</p>
 <p>通常 Polkadot 的交易在 SCALE 中编码为 <em>signed</em><code>Extrinsics</code>。为了便于之后兼容，外在进行双编码，因此初始编码将传回 SCALE（作为<code>Vec&lt;u8&gt;</code>）并输出使用的。这样做的效果是向它添加一个小长度前缀，使无法解释事务数据本身的系统仍然能够将它们传递为不透明的数据包。</p>
 <p>The SCALE format is given by <code>Extrinsic</code>:</p>
-<pre><code class="hljs"><span class="hljs-attr">struct</span> <span class="hljs-string">Extrinsic:</span>
-    <span class="hljs-attr">tx</span>: <span class="hljs-string">Option TransactionInfo</span>
-    <span class="hljs-attr">function</span>: <span class="hljs-string">Function</span>
-<span class="hljs-attr">struct</span> <span class="hljs-string">TransactionInfo:</span>
-    <span class="hljs-attr">sender</span>: <span class="hljs-string">Address</span>
-    <span class="hljs-attr">sig</span>: <span class="hljs-string">[u8; 64]</span>
-    <span class="hljs-attr">era</span>: <span class="hljs-string">Era</span>
-    <span class="hljs-attr">nonce</span>: <span class="hljs-string">Compact Nonce</span>
-    <span class="hljs-attr">tip</span>: <span class="hljs-string">Compact Balance</span>
-<span class="hljs-attr">struct</span> <span class="hljs-string">TransactionPayload:</span>
-    <span class="hljs-attr">function</span>: <span class="hljs-string">Function</span>
-    <span class="hljs-attr">era</span>: <span class="hljs-string">Era</span>
-    <span class="hljs-attr">nonce</span>: <span class="hljs-string">Nonce</span>
-    <span class="hljs-attr">tip</span>: <span class="hljs-string">Balance</span>
-    <span class="hljs-attr">checkpoint_hash</span>: <span class="hljs-string">Hash</span>
+<pre><code class="hljs"><span class="hljs-attr">struct Extrinsic:</span>
+    <span class="hljs-attr">tx:</span> <span class="hljs-string">Option</span> <span class="hljs-string">TransactionInfo</span>
+    <span class="hljs-attr">function:</span> <span class="hljs-string">Function</span>
+<span class="hljs-attr">struct TransactionInfo:</span>
+    <span class="hljs-attr">sender:</span> <span class="hljs-string">Address</span>
+    <span class="hljs-attr">sig:</span> <span class="hljs-string">[u8;</span> <span class="hljs-number">64</span><span class="hljs-string">]</span>
+    <span class="hljs-attr">era:</span> <span class="hljs-string">Era</span>
+    <span class="hljs-attr">nonce:</span> <span class="hljs-string">Compact</span> <span class="hljs-string">Nonce</span>
+    <span class="hljs-attr">tip:</span> <span class="hljs-string">Compact</span> <span class="hljs-string">Balance</span>
+<span class="hljs-attr">struct TransactionPayload:</span>
+    <span class="hljs-attr">function:</span> <span class="hljs-string">Function</span>
+    <span class="hljs-attr">era:</span> <span class="hljs-string">Era</span>
+    <span class="hljs-attr">nonce:</span> <span class="hljs-string">Nonce</span>
+    <span class="hljs-attr">tip:</span> <span class="hljs-string">Balance</span>
+    <span class="hljs-attr">checkpoint_hash:</span> <span class="hljs-string">Hash</span>
 </code></pre>
 <p>对于交易，使用可选的<code>tx</code>。<code>Address</code>类型是经过特殊编码的 SCALE 类型，允许将帐户显示为帐户索引或32字节帐户 ID，以较方便的方式显示。格式在 SCALE [TODO] 中进行了说明。假设您希望提供一个32字节的帐户 ID，则只需在<code>0xff</code>字节前面添加前缀，就可以将其表示为<code>Address</code>。</p>
 <p><code>sig</code>字段必须包含 SCALE 编码的<code>SigPayload</code>的25519系列签名。 用于对负载进行签名的密钥必须与<code>sender</code>帐户相对应。 建议使用 Schnorr / Ristretto 25519(&quot;sr25519&quot;)签名格式。</p>

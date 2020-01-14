@@ -72,7 +72,7 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://crowdin.com/project/polkadot-wiki/es-ES" target="_blank" rel="noreferrer noopener">Translate</a><h1 class="postHeaderTitle">Exchange integration</h1></header><article><div><span><pre><code class="hljs">+--------------------+
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://crowdin.com/project/polkadot-wiki/es-ES" target="_blank" rel="noreferrer noopener">Translate</a><h1 id="__docusaurus" class="postHeaderTitle">Exchange integration</h1></header><article><div><span><pre><code class="hljs">+--------------------+
 |<span class="hljs-string">                    </span>|
 |<span class="hljs-string"> Substrate/Polkadot </span>|
 |<span class="hljs-string">                    </span>|
@@ -233,21 +233,21 @@ struct CallArg:
 <p>To transfer a balance, a transaction must be constructed and sent. In constructing a transaction, there are two key parts: the general part of the transaction and the module-specific <code>function</code> part of the transaction with the latter generally needing information from the chain's metadata must generally.</p>
 <p>In general, Polkadot's transactions are encoded as <em>signed</em> <code>Extrinsic</code>s in SCALE. To facilitate forward compatibility, extrinsics are double-encoded, so the initial encoding is passed back into SCALE (as a <code>Vec&lt;u8&gt;</code>) and the output of that is used. This has the effect of adding a small length prefix onto it allowing systems that cannot interpret the transaction data itself to still be able to pass them around as opaque packets of data.</p>
 <p>The SCALE format is given by <code>Extrinsic</code>:</p>
-<pre><code class="hljs"><span class="hljs-attr">struct</span> <span class="hljs-string">Extrinsic:</span>
-    <span class="hljs-attr">tx</span>: <span class="hljs-string">Option TransactionInfo</span>
-    <span class="hljs-attr">function</span>: <span class="hljs-string">Function</span>
-<span class="hljs-attr">struct</span> <span class="hljs-string">TransactionInfo:</span>
-    <span class="hljs-attr">sender</span>: <span class="hljs-string">Address</span>
-    <span class="hljs-attr">sig</span>: <span class="hljs-string">[u8; 64]</span>
-    <span class="hljs-attr">era</span>: <span class="hljs-string">Era</span>
-    <span class="hljs-attr">nonce</span>: <span class="hljs-string">Compact Nonce</span>
-    <span class="hljs-attr">tip</span>: <span class="hljs-string">Compact Balance</span>
-<span class="hljs-attr">struct</span> <span class="hljs-string">TransactionPayload:</span>
-    <span class="hljs-attr">function</span>: <span class="hljs-string">Function</span>
-    <span class="hljs-attr">era</span>: <span class="hljs-string">Era</span>
-    <span class="hljs-attr">nonce</span>: <span class="hljs-string">Nonce</span>
-    <span class="hljs-attr">tip</span>: <span class="hljs-string">Balance</span>
-    <span class="hljs-attr">checkpoint_hash</span>: <span class="hljs-string">Hash</span>
+<pre><code class="hljs"><span class="hljs-attr">struct Extrinsic:</span>
+    <span class="hljs-attr">tx:</span> <span class="hljs-string">Option</span> <span class="hljs-string">TransactionInfo</span>
+    <span class="hljs-attr">function:</span> <span class="hljs-string">Function</span>
+<span class="hljs-attr">struct TransactionInfo:</span>
+    <span class="hljs-attr">sender:</span> <span class="hljs-string">Address</span>
+    <span class="hljs-attr">sig:</span> <span class="hljs-string">[u8;</span> <span class="hljs-number">64</span><span class="hljs-string">]</span>
+    <span class="hljs-attr">era:</span> <span class="hljs-string">Era</span>
+    <span class="hljs-attr">nonce:</span> <span class="hljs-string">Compact</span> <span class="hljs-string">Nonce</span>
+    <span class="hljs-attr">tip:</span> <span class="hljs-string">Compact</span> <span class="hljs-string">Balance</span>
+<span class="hljs-attr">struct TransactionPayload:</span>
+    <span class="hljs-attr">function:</span> <span class="hljs-string">Function</span>
+    <span class="hljs-attr">era:</span> <span class="hljs-string">Era</span>
+    <span class="hljs-attr">nonce:</span> <span class="hljs-string">Nonce</span>
+    <span class="hljs-attr">tip:</span> <span class="hljs-string">Balance</span>
+    <span class="hljs-attr">checkpoint_hash:</span> <span class="hljs-string">Hash</span>
 </code></pre>
 <p>For a transaction, the optional <code>tx</code> is always used. The <code>Address</code> type is a specially encoded SCALE type, allowing an account to be presented either as an account index or as a 32-byte account ID, whichever is more convenient. The format is described here in the SCALE [TODO]. Assuming you wish to present a 32-byte account ID, then it can be expressed as an <code>Address</code> merely by prefixing the <code>0xff</code> byte.</p>
 <p>The <code>sig</code> field must contain a 25519-family signature of the SCALE-encoded <code>SigPayload</code>. The key used to sign the payload must correspond to the <code>sender</code> account. Schnorr/Ristretto 25519 (&quot;sr25519&quot;) is the recommended signing format to use.</p>
