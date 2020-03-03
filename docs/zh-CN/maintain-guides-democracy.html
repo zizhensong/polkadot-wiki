@@ -1,0 +1,169 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Participate in Democracy · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="公投议院是在 Polkadot 和 Kusama 中实例的三个链上治理机构之一。其它两个机构是[议会](maintain-guides-how-to-join-council)和[技术委员会](learn-governance#technical-committee)。"/><meta name="docsearch:language" content="zh-CN"/><meta property="og:title" content="Participate in Democracy · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://wiki.polkadot.network/"/><meta property="og:description" content="公投议院是在 Polkadot 和 Kusama 中实例的三个链上治理机构之一。其它两个机构是[议会](maintain-guides-how-to-join-council)和[技术委员会](learn-governance#technical-committee)。"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli&amp;display=swap"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://wiki.polkadot.network/js/load.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+        document.addEventListener('DOMContentLoaded', function() {
+          addBackToTop(
+            {"zIndex":100}
+          )
+        });
+        </script><script src="/js/scrollSpy.js"></script><link rel="stylesheet" href="/css/main.css"/><script src="/js/codetabs.js"></script></head><body class="sideNavVisible separateOnPageNav"><div class="fixedHeaderContainer"><div class="headerWrapper wrapper"><header><a href="/zh-CN"><img class="logo" src="/img/favicon.ico" alt="Polkadot Wiki"/><h2 class="headerTitleWithLogo">Polkadot Wiki</h2></a><div class="navigationWrapper navigationSlider"><nav class="slidingNav"><ul class="nav-site nav-site-internal"><li class="siteNavGroupActive"><a href="/docs/zh-CN/build-index" target="_self">建立</a></li><li class="siteNavGroupActive"><a href="/docs/zh-CN/learn-introduction" target="_self">学习</a></li><li class="siteNavGroupActive"><a href="/docs/zh-CN/maintain-index" target="_self">Maintain </a></li><li class=""><a href="/docs/zh-CN/kusama-index" target="_self">Kusama</a></li><li class="navSearchWrapper reactNavSearchWrapper"><input type="text" id="search_input_react" placeholder="Search" title="Search"/></li><span><li><a id="languages-menu" href="#"><img class="languages-icon" src="/img/language.svg" alt="Languages icon"/>中文</a><div id="languages-dropdown" class="hide"><ul id="languages-dropdown-items"><li><a href="/docs/en/maintain-guides-democracy">English</a></li><li><a href="https://crowdin.com/project/polkadot-wiki" target="_blank" rel="noreferrer noopener">参与翻译</a></li></ul></div></li><script>
+        const languagesMenuItem = document.getElementById("languages-menu");
+        const languagesDropDown = document.getElementById("languages-dropdown");
+        languagesMenuItem.addEventListener("click", function(event) {
+          event.preventDefault();
+
+          if (languagesDropDown.className == "hide") {
+            languagesDropDown.className = "visible";
+          } else {
+            languagesDropDown.className = "hide";
+          }
+        });
+      </script></span></ul></nav></div></header></div></div><div class="navPusher"><div class="docMainWrapper wrapper"><div class="docsNavContainer" id="docsNav"><nav class="toc"><div class="toggleNav"><section class="navWrapper wrapper"><div class="navBreadcrumb wrapper"><div class="navToggle" id="navToggler"><div class="hamburger-menu"><div class="line1"></div><div class="line2"></div><div class="line3"></div></div></div><h2><i>›</i><span>Governance Guides</span></h2><div class="tocToggler" id="tocToggler"><i class="icon-toc"></i></div></div><div class="navGroups"><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">主要<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/">维基索引</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/community">社区</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/contributing">贡献</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/glossary">专业术语</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/news">新闻</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/research">研究专页</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/grants">Grants</a></li></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">建立<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-index">开发者专页</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Development Guide</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-dev-roadmap">开发路线图</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-pdk">平行链开发套件(PDKs)</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-cumulus">Cumulus</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-smart-contracts">智能合约</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Tools</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-tools-index">工具索引</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Resources</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-exchange-integration">交易所整合</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-examples-index">例子</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/build-hackathon">黑客马拉松</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">学习<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-introduction">Polkadot</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Basics</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-accounts">Polkadot Accounts</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-architecture">Polkadot 架构</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-security">网络安全</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-consensus">Polkadot 共识机制</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-bridges">桥接</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-parachains">平行链</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-parathreads">平行线程</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-transaction-fees">Transaction Fees</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-polkadot-host">Polkadot Host (PH)</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-treasury">财政库</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Advanced</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-staking">抵押</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-randomness">随机性</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-crosschain">Cross-chain Message Passing (XCMP)</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-spree">SPREE</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-wasm">WebAssembly (Wasm)</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-phragmen">顺序弗拉格曼方法</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Cryptography</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-cryptography">密码学讲解</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-keys">密匙</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Economics</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-DOT">DOT</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-auction">平行链插槽拍卖</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Polkadot Comparisons</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-comparisons-ethereum-2">Ethereum 2.0</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-comparisons-cosmos">Cosmos</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-comparisons-dfinity">Dfinity</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-comparisons">与其它比较</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Miscellaneous</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-roadmap">路线图</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-relevant-links">相关链接</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/learn-faq">常见问题</a></li></ul></div></ul></div><div class="navGroup"><h3 class="navGroupCategoryTitle collapsible">参与<span class="arrow"><svg width="24" height="24" viewBox="0 0 24 24"><path fill="#565656" d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg></span></h3><ul class="hide"><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-index">网络维护者</a></li><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Collator</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-collator">收集人</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Nodes and Dapps</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-sync">Set up a Full Node</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-networks">Networks</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-wss">Set up Secure WebSocket for Remote Connections</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Nominator</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-nominator">提名人</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-how-to-unbond">Stop Being a Nominator</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Validator</h4><ul><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-validator">验证人</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-validator-payout">验证人付款概述</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-how-to-systemd">如何把节点设定为 `systemd` 进程运行</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-secure-validator">安全验证人节点</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-how-to-upgrade">如何升级验证人节点</a></li></ul></div><div class="navGroup subNavGroup"><h4 class="navGroupSubcategoryTitle">Governance Guides</h4><ul><li class="navListItem navListItemActive"><a class="navItem" href="/docs/zh-CN/maintain-guides-democracy">Participate in Democracy</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-how-to-join-council">加入议会</a></li><li class="navListItem"><a class="navItem" href="/docs/zh-CN/maintain-guides-how-to-vote-councillor">投票选举议员</a></li></ul></div></ul></div></div></section></div><script>
+            var coll = document.getElementsByClassName('collapsible');
+            var checkActiveCategory = true;
+            for (var i = 0; i < coll.length; i++) {
+              var links = coll[i].nextElementSibling.getElementsByTagName('*');
+              if (checkActiveCategory){
+                for (var j = 0; j < links.length; j++) {
+                  if (links[j].classList.contains('navListItemActive')){
+                    coll[i].nextElementSibling.classList.toggle('hide');
+                    coll[i].childNodes[1].classList.toggle('rotate');
+                    checkActiveCategory = false;
+                    break;
+                  }
+                }
+              }
+
+              coll[i].addEventListener('click', function() {
+                var arrow = this.childNodes[1];
+                arrow.classList.toggle('rotate');
+                var content = this.nextElementSibling;
+                content.classList.toggle('hide');
+              });
+            }
+
+            document.addEventListener('DOMContentLoaded', function() {
+              createToggler('#navToggler', '#docsNav', 'docsSliderActive');
+              createToggler('#tocToggler', 'body', 'tocActive');
+
+              var headings = document.querySelector('.toc-headings');
+              headings && headings.addEventListener('click', function(event) {
+                var el = event.target;
+                while(el !== headings){
+                  if (el.tagName === 'A') {
+                    document.body.classList.remove('tocActive');
+                    break;
+                  } else{
+                    el = el.parentNode;
+                  }
+                }
+              }, false);
+
+              function createToggler(togglerSelector, targetSelector, className) {
+                var toggler = document.querySelector(togglerSelector);
+                var target = document.querySelector(targetSelector);
+
+                if (!toggler) {
+                  return;
+                }
+
+                toggler.onclick = function(event) {
+                  event.preventDefault();
+
+                  target.classList.toggle(className);
+                };
+              }
+            });
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://crowdin.com/project/polkadot-wiki/zh-CN" target="_blank" rel="noreferrer noopener">Translate</a><h1 id="__docusaurus" class="postHeaderTitle">Participate in Democracy</h1></header><article><div><span><p>公投议院是在 Polkadot 和 Kusama 中实例的三个链上治理机构之一。其它两个机构是<a href="maintain-guides-how-to-join-council">议会</a>和<a href="learn-governance#technical-committee">技术委员会</a>。</p>
+<p>任何代币持有人只要绑定他们的币，他们也可以提出公投和投票。当议案提交后，其它人如果同意，他们可以通过绑定同一数量的币作<em>支持</em>该议案。在经过一段时段后，最多人支持的议案将会进入下一步全民投票。投票人可以把他们的币锁定更长的时间来换取更大的投票权重。详情关于治理系统请看<a href="learn-governance">这里</a>。</p>
+<p>这个指南将会指引代币持有人如何在 Kusama 上实现的民主权利模块提交和在公投上投票。</p>
+<h2><a class="anchor" aria-hidden="true" id="重要参数"></a><a href="#重要参数" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>重要参数</h2>
+<p>使用民主权利模块进行投票时要注意的重要参数如下:</p>
+<p><strong>Launch Period</strong> - 新的公民投票多久才开始。</p>
+<p><strong>Voting Period</strong> - 公投的投票时间。</p>
+<p><strong>Emergency Voting Period</strong> -快速紧急公投的最少投票时间。</p>
+<p><strong>Minimum Deposit</strong> - 公投提案的最低保证金。</p>
+<p><strong>Enactment Period</strong> - 锁定资金的最短期限以<em>及</em>提案被批准和颁布之间的期限。</p>
+<p><strong>Cooloff Period</strong> - 否决之后在一段时间内可能无法重新提交 (以区块为单位)。</p>
+<h2><a class="anchor" aria-hidden="true" id="提出议案"></a><a href="#提出议案" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>提出议案</h2>
+<p>提出议案需要要求您绑定一些代币。为了确保您有足够的代币来提交，您可以在链状态下检查该参数。</p>
+<p>在 Polkadot 程序上，你可以在&quot;民主权利&quot;的标签提交新的议案。为了提交议案，你将会需要提交一个称为 preimage 的哈希。 Preimage 的哈希只是需要执行议案的哈希。最简单取得 preimage 的哈希是通过按下 &quot;Submit preimage&quot; 并且设置你将会提交的议案。</p>
+<p>例如: 你想提交一个议案是 &quot;Dave&quot; 的帐户拥有10个代币，你的议案将会像下图一样。 Preimage 哈希会是 <code>0xa50af1fadfca818feea213762d14cd198404d5496bca691294ec724be9d2a4c0</code> 你可以复制那个 preimage 哈希并且储存用作下一步。尽管你可以在这一步提交 Preimage，但是我们将会留在下一个部份。</p>
+<p><img src="/docs/assets/democracy/submit_preimage.png" alt="submit preimage"></p>
+<p>现在你按下 &quot;Submit proposal&quot; 并且在 &quot;preimage hash&quot; 里输入 preimage 哈希和储入<em>至少</em>数量的 &quot;locked balance&quot; 。再按下 &quot;Submit proposal&quot; 和确认交易。之后你应该看到你的议案显示在 &quot;proposals&quot; 页面上。</p>
+<p><img src="/docs/assets/democracy/submit_proposal.png" alt="submit proposal"></p>
+<p>现在任何人访问该链都可以看到您的提案，其他人可以支持你的提案或提交 preimage。但是，由于该提案只显示了其哈希值，因此很难说出该提案的确切功能。其它人将无法判断他们是否赞成，除非有人提交了该提案的实际 preimage。在下一步，您将提交 preimage。</p>
+<p><img src="/docs/assets/democracy/proposals.png" alt="proposals"></p>
+<h2><a class="anchor" aria-hidden="true" id="提交-preimage"></a><a href="#提交-preimage" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>提交 Preimage</h2>
+<p>The act of making a proposal is split from submitting the preimage for the proposal since the storage cost of submitting a large preimage could be pretty expensive. Allowing for the preimage submission to come as a separate transaction means that another account could submit the preimage for you if you don't have the funds to do so. It also means that you don't have to pay so many funds right away as you can prove the preimage hash out-of-band.</p>
+<p>但是，在提案通过之前的时候，您将需要提交 preimage，否则提案将无法生效。 现在将向您展示如何执行此操作。</p>
+<p>按下 &quot;Submit preimage&quot; 和设置成在你之前取得的 preimage 哈希。这次您将继续操作并按下 &quot;Submit preimage&quot; 并确认交易，而不是将哈希复制到另一个选项。</p>
+<p><img src="/docs/assets/democracy/submit_preimage.png" alt="submit preimage"></p>
+<p>当交易被确认后，您应该会看到包含您已提交议案的 UI 更新了信息 。</p>
+<p><img src="/docs/assets/democracy/proposals_updated.png" alt="proposals updated"></p>
+<h2><a class="anchor" aria-hidden="true" id="支持议案"></a><a href="#支持议案" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>支持议案</h2>
+<p>支持该议案意味着您同意该提案并且会存入同一样数量的币锁起来。通过支持该议案使它会排到更高的位置。背后最多币支持的议案 (不是最多人支持)将会在每个投票期间成为公投。</p>
+<p>若支持该议案，前往到该议案并按下 &quot;Second&quot;。</p>
+<p><img src="/docs/assets/democracy/second_button.png" alt="second button"></p>
+<p>系统将提示您该提案的完整详细信息 (如果 preimage 已提交!)，然后可以通过按下 &quot;Second&quot; 提交交易。</p>
+<p><img src="/docs/assets/democracy/second_confirm.png" alt="second confirm"></p>
+<p>一旦成功，您将会在下拉菜单中看到您支持该提案的详细信息。</p>
+<p><img src="/docs/assets/democracy/second_result.png" alt="second result"></p>
+<h2><a class="anchor" aria-hidden="true" id="议案投票"></a><a href="#议案投票" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>议案投票</h2>
+<p>在每个启动投票期之前时，支持最多的提案将移至全民投票。在此期间，您可以对提案投赞成票或反对票。在这个时侯您可以对该提案投赞成票或反对票。你也可以锁上你的币更长一点时间来换取投票权重更多一点。在这个时侯你的币将会是锁上，所以你也不能够转帐它。但是你仍然可以之后的投票。锁币是彼此层叠，意思是如果你在一星期后再投另一个提案，你不会变成需要锁15星期。而只是将锁延长1星期。</p>
+<p>若要参与公投，前往到 <a href="https://polkadot.js.org/apps/#/democracy/">在 Polkadot 程序的 &quot;民主权利&quot; 标签</a>。任何生效中的公投也会显示在 &quot;referenda&quot; 中。按下 &quot;Vote&quot; 为公投投票。</p>
+<p>如果您想对该提案投赞成票，请选择 &quot;Aye, I approve&quot; 选项。 如果您想对公投中的提案投反对票，您将选择 &quot;Nay, I do not approve&quot;。</p>
+<p>第二个选项是选择您对此票的信念。您愿意锁币的时间越长，投票权重就越大。不愿意锁币意味着您的投票只占您持有的代币的10％，而最多锁256天意味着您可以让您的投票占您拥有的币的600％。</p>
+<p>如果您对所做出的决定感到满意，请按下 &quot;Vote&quot; 以提交您的交易，并等待其交易被包含到区块中。</p>
+<p><img src="/docs/assets/democracy/voting.png" alt="voting"></p>
+<h2><a class="anchor" aria-hidden="true" id="委托投票"></a><a href="#委托投票" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>委托投票</h2>
+<p>如果您太忙而无法跟上即将举行的公投并投票，可以选择将您的投票委托给您信任其意见的另一个帐户。当您委托到另一个帐户，该帐户将获得您所拥有的币的附加投票权。委派的方式与正常投票的方式一样，只不过您的代币锁定时间可能比通常时间长，因为当您取消投票时锁定重置。</p>
+<p>委派的帐户在委派到后不会采取任何特殊行动。他们可以继续就他们认为合适的公投进行投票。不同的是，现在当民主权利系统统计选票时，委托代币现在被添加到授权人所做的任何投票中。</p>
+<p>您可以将投票委托给另一个帐户，甚至可以对委托附加 &quot;Conviction&quot;。 前往到Polkadot Apps上的 &quot;Extrinsics&quot; 标签，然后选择 &quot;民主权利&quot; 和 &quot;delegate&quot; 选项。 这意味着您正在访问民主权利模块并选择要发送的委托交易类型。您的委托人将计入您委托进行投票的帐户，直到您明确撤消投票为止。</p>
+<p>在第一个输入，选择要委派给的帐户，在第二个选择投票時想要的投票權重(倍數愈高即鎖幣時間愈長)。请记住，更高的倍數意味着您的投票将被锁定更长的时间。 因此請明智地选择！</p>
+<p><img src="/docs/assets/democracy/delegate.png" alt="delegate"></p>
+<p>当你提交了委托交易后，你可以在 &quot;Chain State&quot; 里选择 &quot;democracy&quot; 和 &quot;delegations&quot; 选项中核对一下。 您将看到类似于以下的信息，显示您已将投票权委派给的地址。</p>
+<p><img src="/docs/assets/democracy/delegate_state.png" alt="delegate state"></p>
+<h2><a class="anchor" aria-hidden="true" id="取消委托投票"></a><a href="#取消委托投票" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>取消委托投票</h2>
+<p>您可能在日后某个时候决定将委派删除到目标帐户。在这种情况下，根据您在委派开始时的设置，您的代币将被锁定为最长时间。例如如果选择 &quot;2x&quot; 委派进行四周的锁定时间，则代币将在发送 <code>undelegate</code> 交易后锁定 4 周。一旦你的投票被取消授权，你将可以再次用它进行投票。您可以开始直接投票，或选择其它帐户作为您的代表。</p>
+<p><code>undelegate</code>交易必须从您要清除其委托的帐户发送。例如如果 Alice 委托了 Bob, Alice 需要使用她自己的帐户提交 <code>undelegate</code>交易清除其委托。</p>
+<p>最简单的方法是从 Polkadot 程序的 &quot;Extrinsics&quot; 选项。 选择 &quot;democracy&quot; 和 &quot;undelegate&quot; 交易。 确保您是从要清除委托的帐户发送交易。 按 &quot;Submit transaction&quot; 并确认。</p>
+<p><img src="/docs/assets/democracy/undelegate.png" alt="undelegate"></p>
+<h2><a class="anchor" aria-hidden="true" id="代理"></a><a href="#代理" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>代理</h2>
+<p>代理可用于代表 Stash 帐户进行投票。与委派不同，代理是打算作为一个长期帐户，使所有投票决定持有不同账户的资金。委派是一个合乎逻辑的行动， 采取当你信任另一个帐户的判断，而代理是一个更建议的安全做法，以保护您的资金安全和使用主动低资金的帐户。</p>
+<h3><a class="anchor" aria-hidden="true" id="设置代理"></a><a href="#设置代理" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>设置代理</h3>
+<p>设置代理只涉及提交一个交易，交易类型 &quot;setProxy&quot; 来自 &quot;democracy&quot; 模块。</p>
+<p>您可以从 Polkadot Apps 通过前往到 &quot;Extrinsics&quot; 选项并选择 &quot;democracy&quot; 和 &quot;setProxy&quot; 交易类型进行此交易。将交易从 &quot;Stash&quot; 帐户发送，该账户持有您要使用的资金，目标将发送到负责投票的账户。在下面的示例中，&quot;Alice Stash&quot; 是代理 &quot;Alice&quot;，以便 Alice 可以代表 Alice Stash 投票。</p>
+<p><img src="/docs/assets/democracy/set_proxy.png" alt="set proxy"></p>
+<h3><a class="anchor" aria-hidden="true" id="代理投票"></a><a href="#代理投票" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>代理投票</h3>
+<p>代表 Stash 进行投票需要 <code>proxyVote</code> 交易。发送此交易时，您将指定正在公投投票的索引以及判决(即&quot;Aye&quot;以获得批准或&quot;Nay&quot;拒绝)。</p>
+<p><img src="/docs/assets/democracy/proxy_vote.png" alt="proxy vote"></p>
+<h3><a class="anchor" aria-hidden="true" id="移除代理"></a><a href="#移除代理" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>移除代理</h3>
+<p>在某个时候您可能想要移除代理，无法为 stash 账户投票。 这可以通过提交 <code>removeProxy</code> 交易从 stash 帐户中提交该交易，针对代理帐户。</p>
+<p><img src="/docs/assets/democracy/remove_proxy.png" alt="remove proxy"></p>
+<h3><a class="anchor" aria-hidden="true" id="移除代理-1"></a><a href="#移除代理-1" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>移除代理</h3>
+<p>如果代理帳戶想把它的代理狀態移除為不同的 stash 帳戶，這是可通過提交 <code>resignProxy</code> 交易完成。 只需调用該代理帐户來提交交易及其所有代理职责将會被删除。</p>
+<p><img src="/docs/assets/democracy/resign_proxy.png" alt="resign proxy"></p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/3/2020 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/maintain-guides-how-to-upgrade"><span class="arrow-prev">← </span><span>如何升级验证人节点</span></a><a class="docs-next button" href="/docs/zh-CN/maintain-guides-how-to-join-council"><span>加入议会</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#重要参数">重要参数</a></li><li><a href="#提出议案">提出议案</a></li><li><a href="#提交-preimage">提交 Preimage</a></li><li><a href="#支持议案">支持议案</a></li><li><a href="#议案投票">议案投票</a></li><li><a href="#委托投票">委托投票</a></li><li><a href="#取消委托投票">取消委托投票</a></li><li><a href="#代理">代理</a><ul class="toc-headings"><li><a href="#设置代理">设置代理</a></li><li><a href="#代理投票">代理投票</a></li><li><a href="#移除代理">移除代理</a></li><li><a href="#移除代理-1">移除代理</a></li></ul></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+              var cookieSettings = document.getElementById('cookie-settings');
+              cookieSettings.onclick = function() {
+                return klaro.show();
+              };
+              </script></section></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                document.addEventListener('keyup', function(e) {
+                  if (e.target !== document.body) {
+                    return;
+                  }
+                  // keyCode for '/' (slash)
+                  if (e.keyCode === 191) {
+                    const search = document.getElementById('search_input_react');
+                    search && search.focus();
+                  }
+                });
+              </script><script>
+              var search = docsearch({
+                
+                apiKey: '8bfa06b56bb8f33e5698c7f40b00b38f',
+                indexName: 'polkadot',
+                inputSelector: '#search_input_react',
+                algoliaOptions: {"facetFilters":["language:zh-CN"]}
+              });
+            </script></body></html>
