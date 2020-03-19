@@ -81,10 +81,10 @@
           </span>|
  +--------+---------+
  |<span class="hljs-string">                  </span>|
- |<span class="hljs-string">   客户端界面      </span>|
+ |<span class="hljs-string"> Client interface </span>|
  |<span class="hljs-string">                  </span>|
  |<span class="hljs-string"> +--------------+ </span>|
- |<span class="hljs-string"> </span>|<span class="hljs-string"> 客户端数据库 </span>|<span class="hljs-string"> </span>|
+ |<span class="hljs-string"> </span>|<span class="hljs-string"> Client DB    </span>|<span class="hljs-string"> </span>|
  |<span class="hljs-string"> +--------------+ </span>|
  |<span class="hljs-string">                  </span>|
  +--------+---------+
@@ -92,7 +92,7 @@
           </span>|
  +--------+---------+
  |<span class="hljs-string">                  </span>|
- |<span class="hljs-string"> 交易所后端        </span>|
+ |<span class="hljs-string">  Wallet backend  </span>|
  |<span class="hljs-string">                  </span>|
  +------------------+
 </code></pre>
@@ -186,12 +186,12 @@ struct CallArg:
 </code></pre>
 <p><code>Type</code>只是<code>String</code>，但是字符串的内容将被解释为类型的名称。</p>
 <p>Substrate 链(实际上 Substrte 链是使用 SRML 构建) 例如 Polkadot 是由不同<em>模块</em>组成。每个模块可以想象有点像智能合，有各种交易(或 Substrate 术语，<em>外部交易</em>)，数据会持续在交易和区块, 事件和常量参数之间。元数据对所有东西进行编码，允许客户端代码创建特定的交易或解释链上发生了什么，甚至在不同的 Substrate 链之间或同一链不同升级或分叉之间。</p>
-<p>交易所需要注意两个模块:  Balances 和 Indices。Balance 使您可以在不同帐户之间发送和接收资金。 Indices 样您解释用户地址。</p>
+<p>There are two modules a wallet needs to be aware of: Balances and Indices. Balances allows you to send and receive funds between different accounts. Indices allows you to interpret user addresses.</p>
 <h2><a class="anchor" aria-hidden="true" id="3-处理ss58和帐户地址"></a><a href="#3-处理ss58和帐户地址" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>3. 处理SS58和帐户地址</h2>
 <p>在 Polkadot (和大多数 Substrate 链)中，用户帐户由32字节(256位)的 AccountId 识别。这只是Substrate 使用的 x25519 加密的公钥。</p>
 <p>但是为了使地址细小，我们为Polkadot上余额大于零的帐户编制索引，并仅使用此<em>索引</em>来标识该帐户。该索引比32字节长的 <em>AccountId</em> 细小多个，通常仅用几个字节进行编码 。</p>
-<p>比特币使用 Check58 格式地址，而以太坊使用 ` 0x ... &lt;/ code&gt; 十六进制格式，Polkadot (和Substrate) 则使用 SS58 格式。这是一种广泛的 &quot;元格式(meta-format)&quot;，旨在处理不同密码学和链。它与比特币的 Check58 格式有很多共同地方点，例如版本前缀，基于哈希的校验和后缀和base-58 编码。有关更多信息，请参见 [TODO]。在许多支持的 &quot;版本代码&quot; 中，只有一种特定的子格式对交易所支持 Polkadot 特别重要。</p></p>
-<p spaces-before="0">SS58 格式是版本前缀(对于Polkadot 为一个字节，并总是为<code> 0x00 `，而 Kusama 为` 0x02 `)的base-58编码(使用与比特币相同的字母)，后跟一个或多个有效载荷字节，并以一个或多个校验字节结尾:
+<p>Where Bitcoin has the Check58 address format and Ethereum used the <code>0x...</code> hex format, Polkadot (and Substrate) use the SS58 address format. This is a broad &quot;meta-format&quot; designed to handle many different cryptographies and chains. It has much in common with Bitcoin's Check58 format such as a version prefix, a hash-based checksum suffix and base-58 encoding. Further information on it can be found here [TODO]. Of the many supported &quot;version codes&quot;, only one particular family of subformats is especially important for Polkadot support in wallets.</p>
+<p>SS58 格式是版本前缀(对于Polkadot 为一个字节，并总是为<code>0x00</code>，而 Kusama 为<code>0x02</code>)的base-58编码(使用与比特币相同的字母)，后跟一个或多个有效载荷字节，并以一个或多个校验字节结尾:</p>
 <p><code>0x00 &lt;payload bytes&gt; &lt;checksum bytes&gt;</code></p>
 <p><strong>地址的长度没有固定长度。</strong>根据长度，有效负载可能具有不同的含义，并且有效负载与校验和字节的比率可能不同。下面是一个表，用于参考如何解释特定大小的地址:</p>
 <table>
@@ -251,7 +251,7 @@ struct CallArg:
 </code></pre>
 <p>对于交易，使用可选的<code>tx</code>。<code>Address</code>类型是经过特殊编码的 SCALE 类型，允许将帐户显示为帐户索引或32字节帐户 ID，以较方便的方式显示。格式在 SCALE [TODO] 中进行了说明。假设您希望提供一个32字节的帐户 ID，则只需在<code>0xff</code>字节前面添加前缀，就可以将其表示为<code>Address</code>。</p>
 <p><code>sig</code>字段必须包含 SCALE 编码的<code>SigPayload</code>的25519系列签名。 用于对负载进行签名的密钥必须与<code>sender</code>帐户相对应。 建议使用 Schnorr / Ristretto 25519(&quot;sr25519&quot;)签名格式。</p>
-<p>纪元是一或两个字节，同样具有特殊的 SCALE 编码格式，并且它对该交易有效的时间段(一列区块的范围)进行编码。这是防范某些交易重播攻击的重要保障，通常应使用，但是没有计划在帐户变空后重用的简单交换实现应该可以安全地忽略它。 要忽略它并使交易&quot;不朽&quot;，请使用仅一个字节的已编码<code>Era</code>：<code>0x00</code>。</p>
+<p>Era is a one or two byte item, again with a special SCALE encoding format and it encodes the period (as a range of blocks) for which this transaction should be considered valid. It is an important safeguard against certain transaction replay attacks and should generally be used, however a simple wallet implementation that has no plans to reuse accounts after they become empty could ignore it. To ignore it and make the transaction &quot;immortal&quot;, use an encoded <code>Era</code> of just one byte: <code>0x00</code>. However, if an account is removed from storage and a user re-funds an address, then previous immortal transactions could be replayed. Therefore, you may want to prevent account reaping and use mortal transactions to be safe.</p>
 <p>随机数到目前为止，由发送人帐户发送的交易数量，就像在以太坊中一样。 它是<code>Nonce</code>类型，在逻辑上等效于<code>u64</code>。 为了获得正确的值，必须查询适当的存储，就像查询帐户余额时一样。 在这种情况下，它是<code>System</code>模块的<code>AccountNonce</code>。 因此所需的存储密钥是字符串<code>System AccountNonce&lt;ID&gt;</code>的 Blake2 256 哈希，其中<code>&lt;ID&gt;</code>是32字节的<code>AccountId</code>。 它将返回一个<code>Nonce</code>，可以在此处对其进行解码和使用。</p>
 <p>注意: 从存储中检索的 nonce 没考虑<em>待处理</em>交易。如果您从一个帐户发送多个交易，则需要手动递增和跟踪此值。</p>
 <p><code>tip</code>是<code>Balance</code>(在逻辑上等同于 SCALE 中的<code>u128</code>类型)，它表示在繁忙的时候，为优先包含创建区块者支付一些额外费用。通常为零。</p>
@@ -279,7 +279,7 @@ struct CallArg:
 <p>文章到此结束。在这里，您应该知道如何与 Substrate/Polkadot 节点进行交互，以便跟踪最终确定的链头、解码 SS58 地址、检查账户信息(如 balances &amp; nonces) 以及构建、提交和跟踪交易。您还了解了 SCALE 编码器、Substrate 元数据系统以及如何构建面向未来的通用 Substrate 系统。</p>
 <p>如果你有任何问题，请在 <a href="https://riot.im/app/#/room/#substrate-technical:matrix.org">Substrate Technical</a> 问。</p>
 <p><em>最初版本发布在<a href="https://hackmd.io/@gavwood/r1jTRX2Zr">此处</a>。</em></p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 11/10/2019 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/build-tools-index"><span class="arrow-prev">← </span><span>工具索引</span></a><a class="docs-next button" href="/docs/zh-CN/build-examples-index"><span>例子</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-追踪链头">1. 追踪链头</a></li><li><a href="#2-解码区块">2. 解码区块</a></li><li><a href="#3-处理ss58和帐户地址">3. 处理SS58和帐户地址</a><ul class="toc-headings"><li><a href="#查找索引">查找索引</a></li></ul></li><li><a href="#4-处理余额">4. 处理余额</a><ul class="toc-headings"><li><a href="#转移余额">转移余额</a></li><li><a href="#提交和检查交易">提交和检查交易</a></li></ul></li><li><a href="#总结">总结</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 3/19/2020 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/build-tools-index"><span class="arrow-prev">← </span><span>工具索引</span></a><a class="docs-next button" href="/docs/zh-CN/build-examples-index"><span>例子</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#1-追踪链头">1. 追踪链头</a></li><li><a href="#2-解码区块">2. 解码区块</a></li><li><a href="#3-处理ss58和帐户地址">3. 处理SS58和帐户地址</a><ul class="toc-headings"><li><a href="#查找索引">查找索引</a></li></ul></li><li><a href="#4-处理余额">4. 处理余额</a><ul class="toc-headings"><li><a href="#转移余额">转移余额</a></li><li><a href="#提交和检查交易">提交和检查交易</a></li></ul></li><li><a href="#总结">总结</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();
