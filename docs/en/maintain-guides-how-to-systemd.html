@@ -82,12 +82,12 @@ article.</p>
 <p>In this unit file you will write the commands that you want to run on server boot / restart.</p>
 <pre><code class="hljs"><span class="hljs-section">[Unit]</span>
 <span class="hljs-attr">Description</span>=Polkadot Validator
-<span class="hljs-section">
-[Service]</span>
+
+<span class="hljs-section">[Service]</span>
 <span class="hljs-attr">ExecStart</span>=PATH_TO_POLKADOT_BIN --validator --name SHOW_ON_TELEMETRY
 <span class="hljs-attr">Restart</span>=always
-<span class="hljs-section">
-[Install]</span>
+
+<span class="hljs-section">[Install]</span>
 <span class="hljs-attr">WantedBy</span>=multi-user.target
 </code></pre>
 <p>To enable this to autostart on bootup run:</p>
