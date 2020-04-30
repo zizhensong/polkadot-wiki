@@ -172,22 +172,22 @@ are three different scenarios. We can use following table for reference.</p>
 <p>Also, we need the following information and apply one of the formulas listed below to calculate the
 voting result. For example, let's use the public proposal as an example, so <code>Super-Majority Approve</code> formula will be applied. There is no strict quorum, but super-majority required increases
 as turnout lowers.</p>
-<pre><code class="hljs">approve - the number of aye votes
+<pre><code class="hljs">approve - <span class="hljs-keyword">the</span> <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> aye votes
 
-against - the number of nay votes
+against - <span class="hljs-keyword">the</span> <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> nay votes
 
-voters - the total number of voting tokens
+turnout - <span class="hljs-keyword">the</span> total <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> voting tokens (Does <span class="hljs-keyword">not</span> <span class="hljs-built_in">include</span> conviction)
 
-electorate - the total number of DOTs tokens issued <span class="hljs-keyword">in</span> the<span class="hljs-built_in"> network
-</span></code></pre>
+electorate - <span class="hljs-keyword">the</span> total <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> DOTs tokens issued <span class="hljs-keyword">in</span> <span class="hljs-keyword">the</span> network
+</code></pre>
 <h5><a class="anchor" aria-hidden="true" id="super-majority-approve"></a><a href="#super-majority-approve" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Super-Majority Approve</h5>
 <p>A <code>positive turnout bias</code>, whereby a heavy super-majority of aye votes is required to carry at low
 turnouts, but as turnout increases towards 100%, it becomes a simple-majority-carriers as below.</p>
-<p><img src="https://latex.codecogs.com/svg.latex?\large&amp;space;{against&amp;space;\over&amp;space;\sqrt{voters}}&amp;space;&lt;&amp;space;{approve&amp;space;\over&amp;space;\sqrt{electorate}}" alt=""></p>
+<p><img src="https://latex.codecogs.com/svg.latex?\large&amp;space;{against&amp;space;\over&amp;space;\sqrt{turnout}}&amp;space;&lt;&amp;space;{approve&amp;space;\over&amp;space;\sqrt{electorate}}" alt=""></p>
 <h5><a class="anchor" aria-hidden="true" id="super-majority-against"></a><a href="#super-majority-against" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Super-Majority Against</h5>
 <p>A <code>negative turnout bias</code>, whereby a heavy super-majority of nay votes is required to reject at low
 turnouts, but as turnout increases towards 100%, it becomes a simple-majority-carriers as below.</p>
-<p><img src="https://latex.codecogs.com/svg.latex?\large&amp;space;{against&amp;space;\over&amp;space;\sqrt{electorate}}&amp;space;&lt;&amp;space;{approve&amp;space;\over&amp;space;\sqrt{voters}}" alt=""></p>
+<p><img src="https://latex.codecogs.com/svg.latex?\large&amp;space;{against&amp;space;\over&amp;space;\sqrt{electorate}}&amp;space;&lt;&amp;space;{approve&amp;space;\over&amp;space;\sqrt{turnout}}" alt=""></p>
 <h5><a class="anchor" aria-hidden="true" id="simple-majority"></a><a href="#simple-majority" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Simple-Majority</h5>
 <p>Majority-carries, a simple comparison of votes, if there are more aye votes than nay, then the
 proposal is carried.</p>
@@ -196,7 +196,9 @@ proposal is carried.</p>
 <a href="https://github.com/paritytech/substrate/blob/master/frame/democracy/src/vote_threshold.rs">democracy pallet</a></em>.</p>
 <pre><code class="hljs"><span class="hljs-attr">Example:</span>
 
-<span class="hljs-string">Assume</span> <span class="hljs-string">we</span> <span class="hljs-string">only</span> <span class="hljs-string">have</span> <span class="hljs-number">1</span><span class="hljs-string">,500</span> <span class="hljs-string">DOTs</span> <span class="hljs-string">tokens</span> <span class="hljs-string">in</span> <span class="hljs-string">total.</span>
+<span class="hljs-attr">Assume:</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">We</span> <span class="hljs-string">only</span> <span class="hljs-string">have</span> <span class="hljs-number">1</span><span class="hljs-string">,500</span> <span class="hljs-string">DOTs</span> <span class="hljs-string">tokens</span> <span class="hljs-string">in</span> <span class="hljs-string">total.</span>
+<span class="hljs-bullet">-</span> <span class="hljs-string">Public</span> <span class="hljs-string">proposal</span>
 
 <span class="hljs-string">John</span>  <span class="hljs-bullet">-</span> <span class="hljs-number">500</span> <span class="hljs-string">DOTs</span>
 <span class="hljs-string">Peter</span> <span class="hljs-bullet">-</span> <span class="hljs-number">100</span> <span class="hljs-string">DOTs</span>
@@ -212,12 +214,14 @@ proposal is carried.</p>
 
 <span class="hljs-string">approve</span> <span class="hljs-string">=</span> <span class="hljs-number">600</span>
 <span class="hljs-string">against</span> <span class="hljs-string">=</span> <span class="hljs-number">450</span>
-<span class="hljs-string">voters</span> <span class="hljs-string">=</span> <span class="hljs-number">1050</span>
+<span class="hljs-string">turnout</span> <span class="hljs-string">=</span> <span class="hljs-number">750</span>
 <span class="hljs-string">electorate</span> <span class="hljs-string">=</span> <span class="hljs-number">1500</span>
 </code></pre>
-<p><img src="https://latex.codecogs.com/svg.latex?\large&amp;space;\frac{450}{\sqrt{1050}}&amp;space;&lt;&amp;space;\frac{600}{\sqrt{1500}}" alt="\Large \frac{450}{\sqrt{1050}}&amp;space;&lt;&amp;space;\frac{600}{\sqrt{1500}}"></p>
-<p><img src="https://latex.codecogs.com/svg.latex?\large&amp;space;{13.887}&amp;space;&lt;&amp;space;{15.492}" alt="\Large {13.887}&amp;space;&lt;&amp;space;{15.492}"></p>
-<p>Based on the above result, the proposal will be approved. In addition, only the winning voter's
+<p><img src="https://latex.codecogs.com/svg.latex?\large&amp;space;\frac{450}{\sqrt{750}}&amp;space;&lt;&amp;space;\frac{600}{\sqrt{1500}}" alt="\Large \frac{450}{\sqrt{750}}&amp;space;&lt;&amp;space;\frac{600}{\sqrt{1500}}"></p>
+<p><img src="https://latex.codecogs.com/svg.latex?\large&amp;space;{16.432}&amp;space;&lt;&amp;space;{15.492}" alt="\Large {16.432}&amp;space;&lt;&amp;space;{15.492}"></p>
+<p>Since the above example is a public referendum, <code>Super-Majority Approve</code> would be used to calculate the result.
+And <code>Super-Majority Approve</code> requires more <code>aye</code> votes to pass the referendum when turnout is low, therefore,
+based on the above result, the referendum will be rejected. In addition, only the winning voter's
 tokens are locked. If the voters on the losing side of the referendum believe that the outcome will
 have negative effects, their tokens are transferrable so they will not be locked in to the
 decision. Moreover, winning proposals are autonomously enacted only after some enactment period.</p>
@@ -292,7 +296,7 @@ election and increase over the course of 9 months to 24 people (roughly one extr
 on every two weeks). All members have a fixed term (1 year). Council members can be removed early
 only by a referendum.</p>
 <p>To elect a new council member, Polkadot employs the same election scheme as used
-for choosing the active set of validators, a <a href="learn-phragmen">Phragmen election</a>. The
+for choosing the active set of validators, a [Phragmen election][phragmen]. The
 election also chooses a set number of runners up (currently seven in Kusama) that
 will remain in the queue with their votes intact.</p>
 <p>As opposed to a &quot;first past the post&quot;, where voters must decide only on a single
@@ -365,7 +369,7 @@ under urgent circumstances.</p>
 <li><a href="https://github.com/paritytech/polkadot/wiki/Governance">Initial Governance Description</a></li>
 <li><a href="https://github.com/paritytech/substrate/tree/master/frame/democracy/src">Democracy Pallet</a></li>
 </ul>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/24/2020 by Bill Laboon</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/learn-consensus"><span class="arrow-prev">← </span><span>Polkadot Consensus</span></a><a class="docs-next button" href="/docs/en/learn-identity"><span>Identity</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#mechanism">Mechanism</a></li><li><a href="#referenda">Referenda</a><ul class="toc-headings"><li><a href="#proposing-a-referendum">Proposing a Referendum</a></li></ul></li><li><a href="#council">Council</a><ul class="toc-headings"><li><a href="#how-to-be-a-council-member">How to be a council member?</a></li><li><a href="#prime-members">Prime Members</a></li></ul></li><li><a href="#technical-committee">Technical Committee</a></li><li><a href="#usage-of-dotlearn-dotdots-for-governance"><a href="learn-DOT#dots-for-governance">Usage of DOT</a></a></li><li><a href="#resources">Resources</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/30/2020 by Anson Lau</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/learn-consensus"><span class="arrow-prev">← </span><span>Polkadot Consensus</span></a><a class="docs-next button" href="/docs/en/learn-identity"><span>Identity</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#mechanism">Mechanism</a></li><li><a href="#referenda">Referenda</a><ul class="toc-headings"><li><a href="#proposing-a-referendum">Proposing a Referendum</a></li></ul></li><li><a href="#council">Council</a><ul class="toc-headings"><li><a href="#how-to-be-a-council-member">How to be a council member?</a></li><li><a href="#prime-members">Prime Members</a></li></ul></li><li><a href="#technical-committee">Technical Committee</a></li><li><a href="#usage-of-dotlearn-dotdots-for-governance"><a href="learn-DOT#dots-for-governance">Usage of DOT</a></a></li><li><a href="#resources">Resources</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();
