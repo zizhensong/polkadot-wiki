@@ -73,18 +73,17 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/w3f/polkadot-wiki/edit/master/docs/mirror-learn-governance.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Governance</h1></header><article><div><span><p>Polkadot uses a sophisticated governance mechanism that allows it to evolve gracefully over time at
-the ultimate behest of its assembled stakeholders. The stated goal is to ensure that the majority
-of the stake can always command the network.</p>
+the ultimate behest of its assembled stakeholders. The stated goal is to ensure that the majority of
+the stake can always command the network.</p>
 <p>To do this, we bring together various novel mechanisms, including an amorphous state-transition
 function stored on-chain and defined in a platform-neutral intermediate language (i.e. WebAssembly)
-and several on-chain voting mechanisms such as referenda with adaptive super-majority thresholds
-and batch approval voting. All changes to the protocol must be agreed upon by stake-weighted
-referenda.</p>
+and several on-chain voting mechanisms such as referenda with adaptive super-majority thresholds and
+batch approval voting. All changes to the protocol must be agreed upon by stake-weighted referenda.</p>
 <h2><a class="anchor" aria-hidden="true" id="mechanism"></a><a href="#mechanism" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Mechanism</h2>
 <p>In order to make any changes to the network, the idea is to compose active token holders and the
 council together to administrate a network upgrade decision. No matter whether the proposal is
-proposed by the public (DOT holders) or the council, it finally will have to go through a
-referendum to let all DOT holders, weighted by stake, make the decision.</p>
+proposed by the public (DOT holders) or the council, it finally will have to go through a referendum
+to let all DOT holders, weighted by stake, make the decision.</p>
 <p>The following steps are the governance procedure in the Polkadot network:</p>
 <ul>
 <li><a href="#proposing-referenda">Proposing Referenda</a></li>
@@ -94,12 +93,12 @@ referendum to let all DOT holders, weighted by stake, make the decision.</p>
 <p>To better understand how the council is formed, please read <a href="#council">this section</a>.</p>
 <h2><a class="anchor" aria-hidden="true" id="referenda"></a><a href="#referenda" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Referenda</h2>
 <p>Referenda are simple, inclusive, stake-based voting schemes. Each referendum has a specific
-<em>proposal</em> associated with it that takes the form of a privileged function call in the runtime
-(that includes the most powerful call: <code>set_code</code>, which is able to switch out the entire code of
-the runtime, achieving what would otherwise require a &quot;hard fork&quot;). They are discrete events, have
-a fixed period where voting happens, and then are tallied and the function call is made if the vote
-is approved. Referenda are always binary; your only options in voting are &quot;aye&quot;, &quot;nay&quot;, or
-abstaining entirely.</p>
+<em>proposal</em> associated with it that takes the form of a privileged function call in the runtime (that
+includes the most powerful call: <code>set_code</code>, which is able to switch out the entire code of the
+runtime, achieving what would otherwise require a &quot;hard fork&quot;). They are discrete events, have a
+fixed period where voting happens, and then are tallied and the function call is made if the vote is
+approved. Referenda are always binary; your only options in voting are &quot;aye&quot;, &quot;nay&quot;, or abstaining
+entirely.</p>
 <p>Referenda can be started in one of several ways:</p>
 <ul>
 <li>Publicly submitted proposals;</li>
@@ -107,10 +106,10 @@ abstaining entirely.</p>
 <li>Proposals submitted as part of the enactment of a prior referendum;</li>
 <li>Emergency proposals submitted by the Technical Committee and approved by the Council.</li>
 </ul>
-<p>All referenda have an <em>enactment delay</em> associated with them. This is the period of time between
-the referendum ending and, assuming the proposal was approved, the changes being enacted. For the
-first two ways that a referendum is launched, this is a fixed time. For Kusama, it is 7 days;
-Polkadot will likely be 28 days. For the third type, it can be set as desired.</p>
+<p>All referenda have an <em>enactment delay</em> associated with them. This is the period of time between the
+referendum ending and, assuming the proposal was approved, the changes being enacted. For the first
+two ways that a referendum is launched, this is a fixed time. For Kusama, it is 7 days; Polkadot
+will likely be 28 days. For the third type, it can be set as desired.</p>
 <p>Emergency proposals deal with major problems with the network that need to be &quot;fast-tracked&quot;. These
 will have a shorter enactment time.</p>
 <h3><a class="anchor" aria-hidden="true" id="proposing-a-referendum"></a><a href="#proposing-a-referendum" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Proposing a Referendum</h3>
@@ -127,17 +126,19 @@ stake voting, the smaller the amount necessary for it to pass - see &quot;Adapti
 below).</p>
 <p>Majority Council - When agreement from only a simple majority of council members occurs, the
 referendum can also be voted upon, but it will be majority-carries.</p>
-<p>There can only be one active referendum at any given time, except when there is also an emergency referendum in progress.</p>
+<p>There can only be one active referendum at any given time, except when there is also an emergency
+referendum in progress.</p>
 <h4><a class="anchor" aria-hidden="true" id="voting-timetable"></a><a href="#voting-timetable" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Voting Timetable</h4>
-<p>Every thirty days, a new referendum will come up for a vote, assuming there is at least one proposal in one of the
-queues. There is a queue for Council-approved proposals and a queue for publicly submitted
-proposals. The referendum to be voted upon alternates between the top proposal in the two queues.<br>
-The &quot;top&quot; proposal is determined by the number of second votes behind it.  If the given queue whose turn it is
-to create a referedum has no proposals (is empty), and there are proposals waiting in the other queue, the
-top proposal in the other queue will become a referendum.</p>
-<p>Multiple referenda cannot be voted upon in the same time period, excluding emergency referenda.  An emergency
-referendum occurring at the same time as a regular referendum (either public- or council-proposed) is the
-only time that multiple referenda will be able to be voted on at once.</p>
+<p>Every thirty days, a new referendum will come up for a vote, assuming there is at least one proposal
+in one of the queues. There is a queue for Council-approved proposals and a queue for publicly
+submitted proposals. The referendum to be voted upon alternates between the top proposal in the two
+queues.<br>
+The &quot;top&quot; proposal is determined by the number of second votes behind it. If the given queue whose
+turn it is to create a referedum has no proposals (is empty), and there are proposals waiting in the
+other queue, the top proposal in the other queue will become a referendum.</p>
+<p>Multiple referenda cannot be voted upon in the same time period, excluding emergency referenda. An
+emergency referendum occurring at the same time as a regular referendum (either public- or
+council-proposed) is the only time that multiple referenda will be able to be voted on at once.</p>
 <h4><a class="anchor" aria-hidden="true" id="voting-on-a-referendum"></a><a href="#voting-on-a-referendum" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Voting on a referendum</h4>
 <p>To vote, a voter generally must lock their tokens up for at least the enactment delay period beyond
 the end of the referendum. This is in order to ensure that some minimal economic buy-in to the
@@ -157,8 +158,8 @@ result, thanks to time-locking. You can read more about this at
 <p>Even though combining both Logan and Kevin vote with more DOTs than Peter, the lock period for both
 of them is less than Peter, leading to their voting power counting as less.</p>
 <h4><a class="anchor" aria-hidden="true" id="tallying"></a><a href="#tallying" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tallying</h4>
-<p>Depending on which entity proposed the proposal and whether all council members voted yes, there
-are three different scenarios. We can use following table for reference.</p>
+<p>Depending on which entity proposed the proposal and whether all council members voted yes, there are
+three different scenarios. We can use following table for reference.</p>
 <table>
 <thead>
 <tr><th style="text-align:center"><strong>Entity</strong></th><th style="text-align:center"><strong>Metric</strong></th></tr>
@@ -170,8 +171,9 @@ are three different scenarios. We can use following table for reference.</p>
 </tbody>
 </table>
 <p>Also, we need the following information and apply one of the formulas listed below to calculate the
-voting result. For example, let's use the public proposal as an example, so <code>Super-Majority Approve</code> formula will be applied. There is no strict quorum, but super-majority required increases
-as turnout lowers.</p>
+voting result. For example, let's use the public proposal as an example, so <code>Super-Majority Approve</code>
+formula will be applied. There is no strict quorum, but super-majority required increases as turnout
+lowers.</p>
 <pre><code class="hljs">approve - <span class="hljs-keyword">the</span> <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> aye votes
 
 against - <span class="hljs-keyword">the</span> <span class="hljs-built_in">number</span> <span class="hljs-keyword">of</span> nay votes
@@ -219,16 +221,17 @@ proposal is carried.</p>
 </code></pre>
 <p><img src="https://latex.codecogs.com/svg.latex?\large&amp;space;\frac{450}{\sqrt{750}}&amp;space;&lt;&amp;space;\frac{600}{\sqrt{1500}}" alt="\Large \frac{450}{\sqrt{750}}&amp;space;&lt;&amp;space;\frac{600}{\sqrt{1500}}"></p>
 <p><img src="https://latex.codecogs.com/svg.latex?\large&amp;space;{16.432}&amp;space;&lt;&amp;space;{15.492}" alt="\Large {16.432}&amp;space;&lt;&amp;space;{15.492}"></p>
-<p>Since the above example is a public referendum, <code>Super-Majority Approve</code> would be used to calculate the result.
-And <code>Super-Majority Approve</code> requires more <code>aye</code> votes to pass the referendum when turnout is low, therefore,
-based on the above result, the referendum will be rejected. In addition, only the winning voter's
-tokens are locked. If the voters on the losing side of the referendum believe that the outcome will
-have negative effects, their tokens are transferrable so they will not be locked in to the
-decision. Moreover, winning proposals are autonomously enacted only after some enactment period.</p>
+<p>Since the above example is a public referendum, <code>Super-Majority Approve</code> would be used to calculate
+the result. And <code>Super-Majority Approve</code> requires more <code>aye</code> votes to pass the referendum when
+turnout is low, therefore, based on the above result, the referendum will be rejected. In addition,
+only the winning voter's tokens are locked. If the voters on the losing side of the referendum
+believe that the outcome will have negative effects, their tokens are transferrable so they will not
+be locked in to the decision. Moreover, winning proposals are autonomously enacted only after some
+enactment period.</p>
 <h4><a class="anchor" aria-hidden="true" id="voluntary-locking"></a><a href="#voluntary-locking" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Voluntary Locking</h4>
 <p>Polkadot utilizes an idea called <code>Voluntary Locking</code> that allows token holders to increase their
-voting power by declaring how long they are willing to lock-up their DOTs, hence, the maximum
-number of votes for each token holder will be calculated by the following formula:</p>
+voting power by declaring how long they are willing to lock-up their DOTs, hence, the maximum number
+of votes for each token holder will be calculated by the following formula:</p>
 <pre><code class="hljs"><span class="hljs-built_in">Max</span> votes = tokens * vote_multiplier
 </code></pre>
 <p>The conviction multiplier adds an extra vote every time the lock period doubles.</p>
@@ -249,33 +252,33 @@ number of votes for each token holder will be calculated by the following formul
 <p>Based on the genesis runtime, the maximum number of lock periods is set to 6 and the lock period is
 30 days on Polkadot and eight days on Kusama.</p>
 <h4><a class="anchor" aria-hidden="true" id="adaptive-quorum-biasing"></a><a href="#adaptive-quorum-biasing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Adaptive Quorum Biasing</h4>
-<p>Polkadot introduces a concept &quot;Adaptive Quorum Biasing&quot;, which functions as a lever that the
-council can use to alter the effective super-majority required to make it easier or more difficult
-for a proposal to pass in the case that there is no clear majority of voting power backing it or
-against it.</p>
+<p>Polkadot introduces a concept &quot;Adaptive Quorum Biasing&quot;, which functions as a lever that the council
+can use to alter the effective super-majority required to make it easier or more difficult for a
+proposal to pass in the case that there is no clear majority of voting power backing it or against
+it.</p>
 <p><img src="/docs/assets/governance/adaptive-quorum-biasing.png" alt=""></p>
 <p>Let's use the above image as an example.</p>
 <p>If a publicly submitted referendum only has 25% turnout, the tally of &quot;aye&quot; votes has to reach 66%
 for it to pass since we applied <code>Positive Turnout Bias</code>.</p>
 <p>In contrast, when it has 75% turnout, the tally of &quot;aye&quot; votes has to reach 54%, which means that
 the super-majority required decreases as the turnout increases.</p>
-<p>When the council proposes a new proposal through unanimous consent, the referendum would be put to
-a vote using &quot;Negative Turnout Bias&quot;. In this case it is easier to pass this proposal with low
-turnout and requires a super-majority to reject. As more token holders participate in voting, the
-bias approaches a plain majority carries.</p>
+<p>When the council proposes a new proposal through unanimous consent, the referendum would be put to a
+vote using &quot;Negative Turnout Bias&quot;. In this case it is easier to pass this proposal with low turnout
+and requires a super-majority to reject. As more token holders participate in voting, the bias
+approaches a plain majority carries.</p>
 <p>Referring to the above image, when a referendum only has 25% turnout, the tally of &quot;aye&quot; votes has
 to reach 34% for it to pass.</p>
-<p>In short, when turnout rate is low, a super-majority is required to reject the proposal, which
-means a lower threshold of &quot;aye&quot; votes have to be reached, but as turnout increases towards 100%,
-it becomes a simple-majority.</p>
+<p>In short, when turnout rate is low, a super-majority is required to reject the proposal, which means
+a lower threshold of &quot;aye&quot; votes have to be reached, but as turnout increases towards 100%, it
+becomes a simple-majority.</p>
 <p>All three tallying mechanisms - majority carries, super-majority approve, and super-majority
 against - equate to a simple majority carries system at 100% turnout.</p>
 <h2><a class="anchor" aria-hidden="true" id="council"></a><a href="#council" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Council</h2>
 <p>To represent passive stakeholders, we introduce the idea of a &quot;council&quot;. The council is an on-chain
 entity comprising a number of actors, each represented as an on-chain account. For Polkadot this
 number is likely to begin at around six people, and increase over the course of 9 months to 24
-people (roughly one extra individual coming on every two weeks). In general it has a fixed number
-of seats (envisioned to be 24 for Polkadot) and all members have a fixed term (12 months).</p>
+people (roughly one extra individual coming on every two weeks). In general it has a fixed number of
+seats (envisioned to be 24 for Polkadot) and all members have a fixed term (12 months).</p>
 <p>The council is called upon primarily for two tasks of governance: proposing sensible referenda, and
 cancelling uncontroversially dangerous or malicious referenda.</p>
 <p>For a referendum to be proposed by the council, a strict majority of members must be in favor, with
@@ -295,15 +298,13 @@ approval of any of the registered candidates. For every two weeks, one of those 
 election and increase over the course of 9 months to 24 people (roughly one extra individual coming
 on every two weeks). All members have a fixed term (1 year). Council members can be removed early
 only by a referendum.</p>
-<p>To elect a new council member, Polkadot employs the same election scheme as used
-for choosing the active set of validators, a [Phragmen election][phragmen]. The
-election also chooses a set number of runners up (currently seven in Kusama) that
-will remain in the queue with their votes intact.</p>
-<p>As opposed to a &quot;first past the post&quot;, where voters must decide only on a single
-candidate chosen from a list, a Phragmen election is a more expressive
-way to indicate voters' views. Token holders can treat it as Boolean voting to
-support as many candidates as they want. The election algorithm will find the
-fair winners.</p>
+<p>To elect a new council member, Polkadot employs the same election scheme as used for choosing the
+active set of validators, a [Phragmen election][phragmen]. The election also chooses a set number of
+runners up (currently seven in Kusama) that will remain in the queue with their votes intact.</p>
+<p>As opposed to a &quot;first past the post&quot;, where voters must decide only on a single candidate chosen
+from a list, a Phragmen election is a more expressive way to indicate voters' views. Token holders
+can treat it as Boolean voting to support as many candidates as they want. The election algorithm
+will find the fair winners.</p>
 <p>Let's take a look at the example below.</p>
 <table>
 <thead>
@@ -339,30 +340,32 @@ keep remaining on the candidates' list for the next round.</p>
 next election. After round 2, even though candidates A &amp; B get the same number of votes in this
 round, candidate A gets elected because after adding the older unused approvals, it is higher than
 B.</p>
-<p>This would be the tentative governance configuration for Polkadot in the initial genesis. It will
-be changed if any security loopholes have been found after third-party auditing.</p>
+<p>This would be the tentative governance configuration for Polkadot in the initial genesis. It will be
+changed if any security loopholes have been found after third-party auditing.</p>
 <h3><a class="anchor" aria-hidden="true" id="prime-members"></a><a href="#prime-members" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Prime Members</h3>
-<p>The council, being an instantiation of Substrate's Collective pallet, implements
-what's called a <em>prime member</em> whose vote acts as the default for other members
-that fail to vote before the timeout.</p>
+<p>The council, being an instantiation of Substrate's Collective pallet, implements what's called a
+<em>prime member</em> whose vote acts as the default for other members that fail to vote before the
+timeout.</p>
 <p>The prime member is chosen based on a <a href="https://en.wikipedia.org/wiki/Borda_count">Borda count</a>.</p>
-<p>The purpose of having a prime member of the council is to ensure a quorum, even
-when several members abstain from a vote. Council members might be tempted to vote a
-&quot;soft rejection&quot; or a &quot;soft approval&quot; by not voting and letting the others vote.
-With the existence of a prime member, it forces councillors to be explicit in their
-votes or have their vote counted for whatever is voted on by the prime.</p>
+<p>The purpose of having a prime member of the council is to ensure a quorum, even when several members
+abstain from a vote. Council members might be tempted to vote a &quot;soft rejection&quot; or a &quot;soft
+approval&quot; by not voting and letting the others vote. With the existence of a prime member, it forces
+councillors to be explicit in their votes or have their vote counted for whatever is voted on by the
+prime.</p>
 <h2><a class="anchor" aria-hidden="true" id="technical-committee"></a><a href="#technical-committee" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Technical Committee</h2>
 <p>The Technical Committee was introduced in the
-<a href="https://polkadot.network/kusama-rollout-and-governance/">Kusama rollout and governance post</a>
-as one of the three chambers of Kusama governance (along with the Council and the Referendum
-chamber). The Technical Committee is composed of the teams that have successfully implemented or
-specified either Polkadot/Kusama runtime or the Polkadot Host. Teams are added or removed from the
-Technical Committee from a simple majority vote of the council.</p>
-<p>The Technical Committee can, along with the Polkadot Council, produce emergency referenda, which
-are fast-tracked for voting and implementation. These emergency referenda are intended for use only
+<a href="https://polkadot.network/kusama-rollout-and-governance/">Kusama rollout and governance post</a> as one
+of the three chambers of Kusama governance (along with the Council and the Referendum chamber). The
+Technical Committee is composed of the teams that have successfully implemented or specified either
+Polkadot/Kusama runtime or the Polkadot Host. Teams are added or removed from the Technical
+Committee from a simple majority vote of the council.</p>
+<p>The Technical Committee can, along with the Polkadot Council, produce emergency referenda, which are
+fast-tracked for voting and implementation. These emergency referenda are intended for use only
 under urgent circumstances.</p>
-<p>Fast-tracked referenda are the only type of referenda which can be active alongside another active referendum.</p>
-<p>Thus, with fast tracked referenda it is possible to have two active referendums at the same time. Voting on one does not prevent a user from voting on the other.</p>
+<p>Fast-tracked referenda are the only type of referenda which can be active alongside another active
+referendum.</p>
+<p>Thus, with fast tracked referenda it is possible to have two active referendums at the same time.
+Voting on one does not prevent a user from voting on the other.</p>
 <h2><a class="anchor" aria-hidden="true" id="usage-of-dotlearn-dotdots-for-governance"></a><a href="#usage-of-dotlearn-dotdots-for-governance" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a><a href="learn-DOT#dots-for-governance">Usage of DOT</a></h2>
 <h2><a class="anchor" aria-hidden="true" id="resources"></a><a href="#resources" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Resources</h2>
 <ul>

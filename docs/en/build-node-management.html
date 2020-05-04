@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Node Management · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This page contains basic information about running a Parity Polkadot client. There are a lot of"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Node Management · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://wiki.polkadot.network/"/><meta property="og:description" content="This page contains basic information about running a Parity Polkadot client. There are a lot of"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli&amp;display=swap"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://wiki.polkadot.network/js/load.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.js"></script><script type="text/javascript" src="/js/custom.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="X-UA-Compatible" content="IE=edge"/><title>Node Management · Polkadot Wiki</title><meta name="viewport" content="width=device-width"/><meta name="generator" content="Docusaurus"/><meta name="description" content="This page contains basic information about running a Parity Polkadot client. There are a lot of ways"/><meta name="docsearch:language" content="en"/><meta property="og:title" content="Node Management · Polkadot Wiki"/><meta property="og:type" content="website"/><meta property="og:url" content="https://wiki.polkadot.network/"/><meta property="og:description" content="This page contains basic information about running a Parity Polkadot client. There are a lot of ways"/><meta name="twitter:card" content="summary"/><link rel="shortcut icon" href="/img/favicon.ico"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.css"/><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css"/><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"/><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Muli&amp;display=swap"/><script type="text/javascript" src="https://buttons.github.io/buttons.js"></script><script type="text/javascript" src="https://wiki.polkadot.network/js/load.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.js"></script><script type="text/javascript" src="/js/custom.js"></script><script src="https://unpkg.com/vanilla-back-to-top@7.1.14/dist/vanilla-back-to-top.min.js"></script><script>
         document.addEventListener('DOMContentLoaded', function() {
           addBackToTop(
             {"zIndex":100}
@@ -72,9 +72,9 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/w3f/polkadot-wiki/edit/master/docs/build-node-management.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Node Management</h1></header><article><div><span><p>This page contains basic information about running a Parity Polkadot client. There are a lot of
-ways to obtain/run a client, e.g. compiling from source, running in Docker, or downloading a
-binary. This guide will always refer to the executable as <code>polkadot</code>.</p>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/w3f/polkadot-wiki/edit/master/docs/build-node-management.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Node Management</h1></header><article><div><span><p>This page contains basic information about running a Parity Polkadot client. There are a lot of ways
+to obtain/run a client, e.g. compiling from source, running in Docker, or downloading a binary. This
+guide will always refer to the executable as <code>polkadot</code>.</p>
 <p><strong>Always refer to the client's help <code>polkadot --help</code> for the most up-to-date information.</strong></p>
 <blockquote>
 <p>Other client implementation teams: Feel free to make a PR to this page with instructions (or a
@@ -82,8 +82,8 @@ link to instructions) for your client.</p>
 </blockquote>
 <h2><a class="anchor" aria-hidden="true" id="basic-node-operations"></a><a href="#basic-node-operations" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Basic Node Operations</h2>
 <p><strong>Selecting a chain</strong></p>
-<p>Use the <code>--chain &lt;chainspec&gt;</code> option to select the chain. Can be <code>polkadot</code>, <code>kusama</code>, <code>westend</code>,
-or a custom chain spec.</p>
+<p>Use the <code>--chain &lt;chainspec&gt;</code> option to select the chain. Can be <code>polkadot</code>, <code>kusama</code>, <code>westend</code>, or
+a custom chain spec.</p>
 <p><strong>Archive node</strong></p>
 <p>An archive node does not prune any block or state data. Use the <code>--archive</code> flag. Certain types of
 nodes, like validators and sentries, must run in archive mode. Likewise, all
@@ -107,11 +107,11 @@ binary. Otherwise, the client will execute the Wasm runtime.</p>
 <p>Therefore, when syncing the chain, the client will execute blocks from past runtimes using their
 associated Wasm binary. This feature also allows forkless upgrades: the client can execute a new
 runtime without updating the client.</p>
-<p>Parity's Polkadot client has two Wasm execution methods, interpreted (default) and compiled. Set
-the preferred method to use when executing Wasm with <code>--wasm-execution &lt;Interpreted|Compiled&gt;</code>.
-Compiled execution will run much faster, especially when syncing the chain, but is experimental and
-may use more memory/CPU. A reasonable tradeoff would be to sync the chain with compiled execution
-and then restart the node with interpreted execution.</p>
+<p>Parity's Polkadot client has two Wasm execution methods, interpreted (default) and compiled. Set the
+preferred method to use when executing Wasm with <code>--wasm-execution &lt;Interpreted|Compiled&gt;</code>. Compiled
+execution will run much faster, especially when syncing the chain, but is experimental and may use
+more memory/CPU. A reasonable tradeoff would be to sync the chain with compiled execution and then
+restart the node with interpreted execution.</p>
 <h2><a class="anchor" aria-hidden="true" id="file-structure"></a><a href="#file-structure" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>File Structure</h2>
 <p>The node stores a number of files in: <code>/home/$USER/.local/share/polkadot/chains/&lt;chain name&gt;/</code>. You
 can set a custom path with <code>--base-path &lt;path&gt;</code>.</p>
@@ -150,7 +150,8 @@ information specific to deploying validator nodes.</p>
 <li><code>txpool</code></li>
 <li><code>usage</code></li>
 </ul>
-<p>Other targets include: <code>db, gossip, peerset, state-db, state-trace, sub-libp2p, trie, wasm-executor, wasm-heap</code>.</p>
+<p>Other targets include:
+<code>db, gossip, peerset, state-db, state-trace, sub-libp2p, trie, wasm-executor, wasm-heap</code>.</p>
 <p>The log levels, from least to most verbose, are:</p>
 <ul>
 <li><code>error</code></li>
@@ -170,10 +171,10 @@ puts your node at higher risk of attack. You can run your own, private
 <code>substrate-telemetry</code> instance to a Kubernetes cluster using
 <a href="https://github.com/w3f/substrate-telemetry-chart">this Helm chart</a>.</p>
 <p>The node also exposes a Prometheus endpoint by default (disable with <code>--no-prometheus</code>). You can
-expose metrics via Parity's <a href="https://github.com/paritytech/dotexporter">DOT exporter</a>. Substrate
-has a <a href="https://substrate.dev/docs/en/next/tutorials/visualizing-node-metrics/">vizualizing node metrics
-tutorial</a>.</p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/2/2020 by joe petrowski</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/build-protocol-info"><span class="arrow-prev">← </span><span>Polkadot Protocol</span></a><a class="docs-next button" href="/docs/en/build-node-interaction"><span>Node Interaction</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#basic-node-operations">Basic Node Operations</a></li><li><a href="#file-structure">File Structure</a></li><li><a href="#deployment-tools">Deployment Tools</a></li><li><a href="#monitoring-and-telemetry">Monitoring and Telemetry</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+expose metrics via Parity's <a href="https://github.com/paritytech/dotexporter">DOT exporter</a>. Substrate has
+a
+<a href="https://substrate.dev/docs/en/next/tutorials/visualizing-node-metrics/">vizualizing node metrics tutorial</a>.</p>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/4/2020 by joe petrowski</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/build-protocol-info"><span class="arrow-prev">← </span><span>Polkadot Protocol</span></a><a class="docs-next button" href="/docs/en/build-node-interaction"><span>Node Interaction</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#basic-node-operations">Basic Node Operations</a></li><li><a href="#file-structure">File Structure</a></li><li><a href="#deployment-tools">Deployment Tools</a></li><li><a href="#monitoring-and-telemetry">Monitoring and Telemetry</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();
