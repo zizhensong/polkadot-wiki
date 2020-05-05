@@ -103,7 +103,7 @@
 <p>Parity 提供了以下工具来帮助执行这些步骤。</p>
 <h2><a class="anchor" aria-hidden="true" id="polkadot-js-工具"></a><a href="#polkadot-js-工具" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Polkadot JS 工具</h2>
 <p><a href="https://github.com/polkadot-js/tools">Polkadot JS 工具</a> 包含一组命令行工具，用于与 Substrate 客户端交互， 包括一个叫做&quot; Signer CLI&quot;的交易，创建、签名和广播交易。</p>
-<p>此例将使用 <code>signer submit</code> 指令，该指令将创建和提交交易。 <code>signer sendOffline</code> 指令有完全相同的API，但不会广播交易。 <code>submit</code> 和 <code>sendOffline</code> 必须连接到一个节点才能获取当前元数据并构建一个有效的交易。他们的 API 格式：</p>
+<p>This example will use the <code>signer submit</code> command, which will create and submit the transaction. The <code>signer sendOffline</code> command has the exact same API, but will not broadcast the transaction. <code>submit</code> and <code>sendOffline</code> must be connected to a node to fetch the current metadata and construct a valid transaction. Their API has the format:</p>
 <pre><code class="hljs css language-bash">yarn run:signer &lt;submit|sendOffline&gt; --account &lt;from-account-ss58&gt; --ws &lt;endpoint&gt; &lt;module.method&gt; [param1] [...] [paramX]
 </code></pre>
 <p>Signing:</p>
@@ -132,23 +132,23 @@
 <span class="hljs-keyword">const</span> address = deriveAddress(publicKey);
 </code></pre>
 <p><strong>构造离线交易</strong></p>
-<pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { methods } <span class="hljs-keyword">from</span> <span class="hljs-string">'@substrate/txwrapper'</span>;
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { methods } <span class="hljs-keyword">from</span> <span class="hljs-string">"@substrate/txwrapper"</span>;
 
 <span class="hljs-keyword">const</span> unsigned = methods.balances.transferKeepAlive(
   {
-    dest: <span class="hljs-string">'15vrtLsCQFG3qRYUcaEeeEih4JwepocNJHkpsrqojqnZPc2y'</span>,
+    dest: <span class="hljs-string">"15vrtLsCQFG3qRYUcaEeeEih4JwepocNJHkpsrqojqnZPc2y"</span>,
     value: <span class="hljs-number">500000000000</span>,
   },
   {
-    address: <span class="hljs-string">'121X5bEgTZcGQx5NZjwuTjqqKoiG8B2wEAvrUFjuw24ZGZf2'</span>,
-    blockHash: <span class="hljs-string">'0x1fc7493f3c1e9ac758a183839906475f8363aafb1b1d3e910fe16fab4ae1b582'</span>,
+    address: <span class="hljs-string">"121X5bEgTZcGQx5NZjwuTjqqKoiG8B2wEAvrUFjuw24ZGZf2"</span>,
+    blockHash: <span class="hljs-string">"0x1fc7493f3c1e9ac758a183839906475f8363aafb1b1d3e910fe16fab4ae1b582"</span>,
     blockNumber: <span class="hljs-number">4302222</span>,
-    genesisHash: <span class="hljs-string">'0xe3777fa922cafbff200cadeaea1a76bd7898ad5b89f7848999058b50e715f636'</span>,
+    genesisHash: <span class="hljs-string">"0xe3777fa922cafbff200cadeaea1a76bd7898ad5b89f7848999058b50e715f636"</span>,
     metadataRpc, <span class="hljs-comment">// must import from client RPC call state_getMetadata</span>
     nonce: <span class="hljs-number">2</span>,
     specVersion: <span class="hljs-number">1019</span>,
     tip: <span class="hljs-number">0</span>,
-    validityPeriod: <span class="hljs-number">240</span> * <span class="hljs-number">60</span> <span class="hljs-comment">// seconds (240 minutes)</span>
+    validityPeriod: <span class="hljs-number">240</span> * <span class="hljs-number">60</span>, <span class="hljs-comment">// seconds (240 minutes)</span>
   }
 );
 </code></pre>
@@ -160,7 +160,7 @@
 <span class="hljs-keyword">const</span> signingPayload = createSigningPayload(unsigned);
 </code></pre>
 <p><strong>序列化已签名的交易</strong></p>
-<pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { createSignedTx } <span class="hljs-keyword">from</span> <span class="hljs-string">'@substrate/txwrapper'</span>;
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { createSignedTx } <span class="hljs-keyword">from</span> <span class="hljs-string">"@substrate/txwrapper"</span>;
 
 <span class="hljs-comment">// Example code, replace `signWithAlice` with actual remote signer.</span>
 <span class="hljs-comment">// An example is given here:</span>
@@ -170,7 +170,7 @@
 </code></pre>
 <p><strong>解码 payload 类型</strong></p>
 <p>您可能想要在提交解码 payloads 前以验证其内容。</p>
-<pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { decode } <span class="hljs-keyword">from</span> <span class="hljs-string">'@substrate/txwrapper'</span>;
+<pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { decode } <span class="hljs-keyword">from</span> <span class="hljs-string">"@substrate/txwrapper"</span>;
 
 <span class="hljs-comment">// Decode an unsigned tx</span>
 <span class="hljs-keyword">const</span> txInfo = decode(unsigned, { metadata });
@@ -208,7 +208,7 @@ Secret phrase `exercise auction soft ... obey control easily` is account:
   Account ID:       0xda04de6cd781c98acf0693dfb97c11011938ad22fcc476ed0089ac5aec3fe243
   SS58 Address:     15vrtLsCQFG3qRYUcaEeeEih4JwepocNJHkpsrqojqnZPc2y
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/3/2020 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/build-node-interaction"><span class="arrow-prev">← </span><span>Node Interaction</span></a><a class="docs-next button" href="/docs/zh-CN/build-tools-index"><span>工具索引</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#交易格式">交易格式</a></li><li><a href="#polkadot-js-工具">Polkadot JS 工具</a></li><li><a href="#tx-wrapper">Tx Wrapper</a></li><li><a href="#提交已签名的-payload">提交已签名的 Payload</a></li><li><a href="#注意">注意</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/5/2020 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/build-node-interaction"><span class="arrow-prev">← </span><span>Node Interaction</span></a><a class="docs-next button" href="/docs/zh-CN/build-tools-index"><span>工具索引</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#交易格式">交易格式</a></li><li><a href="#polkadot-js-工具">Polkadot JS 工具</a></li><li><a href="#tx-wrapper">Tx Wrapper</a></li><li><a href="#提交已签名的-payload">提交已签名的 Payload</a></li><li><a href="#注意">注意</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();
