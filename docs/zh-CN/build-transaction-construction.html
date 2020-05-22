@@ -83,8 +83,9 @@
 <li>元数据 (Metadata)：提交 runtime 的 SCALE 编码元数据。</li>
 <li>Nonce：此交易的nonce。</li>
 <li>Spec 版本：当前 runtime 的 spec 版本。</li>
-<li>小费: 可选， <a href="build-protocol-info#fees">小费</a> 以提高交易优先处理。</li>
-<li>有效期 (Validity Period)：可选，检查点之后有效处理交易的区块数量。 如果为零，交易为 <a href="build-protocol-info#transaction-mortality">immortal</a>。</li>
+<li>Transaction Version: The current version for transaction format.</li>
+<li>Tip: Optional, the <a href="build-protocol-info#fees">tip</a> to increase transaction priority.</li>
+<li>Era Period: Optional, the number of blocks after the checkpoint for which a transaction is valid. If zero, the transaction is <a href="build-protocol-info#transaction-mortality">immortal</a>.</li>
 </ul>
 <p>从系统模块中查询的 nonce 不会考虑待处理的交易。如果您想要同时提交多个有效的交易，您必须跟踪并手动递增 nonce。</p>
 <p>每个交易都有自己(与否)的参数添加。例如来自 Balances pallet 的 <code>transferKeepAlive</code>函数将需要：</p>
@@ -117,21 +118,20 @@
 </code></pre>
 <p>保存输出并将其带到您要广播的电脑，输入 <code>submit</code>'s 签名字段并发送交易(或如果使用 <code>sendOffline</code>，则只是退回 serialized 的交易)。</p>
 <h2><a class="anchor" aria-hidden="true" id="tx-wrapper"></a><a href="#tx-wrapper" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Tx Wrapper</h2>
-<p>如果您不想使用 CLI 来签名操作，Parity 提供了一个名为 <a href="https://github.com/paritytech/txwrapper">txwrapper</a> 的SDK来生成和离线签名交易。 请参阅 <a href="https://github.com/paritytech/txwrapper/tree/master/examples">示例</a></p>
-<p>注意：Tx Wrapper 默认为Kusama的 SS58 编码。请阅读文档以确保您的 编码(encode)并正确解码(decode)地址。</p>
-<p><strong>导入私钥</strong></p>
+<p>If you do not want to use the CLI for signing operations, Parity provides an SDK called <a href="https://github.com/paritytech/txwrapper">TxWrapper</a> to generate and sign transactions offline. See the <a href="https://github.com/paritytech/txwrapper/tree/master/examples">examples</a> for a guide.</p>
+<p><strong>Import a private key</strong></p>
 <pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { importPrivateKey } <span class="hljs-keyword">from</span> <span class="hljs-string">'@substrate/txwrapper'</span>;
 
 <span class="hljs-keyword">const</span> keypair = importPrivateKey(“pulp gaze fuel ... mercy inherit equal”);
 </code></pre>
-<p><strong>从公钥生成地址</strong></p>
+<p><strong>Derive an address from a public key</strong></p>
 <pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { deriveAddress } <span class="hljs-keyword">from</span> <span class="hljs-string">'@substrate/txwrapper'</span>;
 
 <span class="hljs-comment">// Public key, can be either hex string, or Uint8Array</span>
 <span class="hljs-keyword">const</span> publicKey = “<span class="hljs-number">0x2ca17d26ca376087dc30ed52deb74bf0f64aca96fe78b05ec3e720a72adb1235</span>”;
 <span class="hljs-keyword">const</span> address = deriveAddress(publicKey);
 </code></pre>
-<p><strong>构造离线交易</strong></p>
+<p><strong>Construct a transaction offline</strong></p>
 <pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { methods } <span class="hljs-keyword">from</span> <span class="hljs-string">"@substrate/txwrapper"</span>;
 
 <span class="hljs-keyword">const</span> unsigned = methods.balances.transferKeepAlive(
@@ -148,8 +148,8 @@
     nonce: <span class="hljs-number">2</span>,
     specVersion: <span class="hljs-number">1019</span>,
     tip: <span class="hljs-number">0</span>,
-    validityPeriod: <span class="hljs-number">240</span> * <span class="hljs-number">60</span>, <span class="hljs-comment">// seconds (240 minutes)</span>
-    transactionVersion,
+    eraPeriod: <span class="hljs-number">64</span>, <span class="hljs-comment">// number of blocks from checkpoint that transaction is valid</span>
+    transactionVersion: <span class="hljs-number">1</span>,
   },
   {
     metadataRpc,
@@ -157,14 +157,14 @@
   }
 );
 </code></pre>
-<p><strong>创建签名的 payload。</strong></p>
+<p><strong>Construct a signing payload</strong></p>
 <pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { methods, createSigningPayload } <span class="hljs-keyword">from</span> <span class="hljs-string">'@substrate/txwrapper'</span>;
 
 <span class="hljs-comment">// See "Construct a transaction offline" for "{...}"</span>
 <span class="hljs-keyword">const</span> unsigned = methods.balances.transferKeepAlive({...}, {...}, {...});
 <span class="hljs-keyword">const</span> signingPayload = createSigningPayload(unsigned, { registry });
 </code></pre>
-<p><strong>序列化已签名的交易</strong></p>
+<p><strong>Serialize a signed transaction</strong></p>
 <pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { createSignedTx } <span class="hljs-keyword">from</span> <span class="hljs-string">"@substrate/txwrapper"</span>;
 
 <span class="hljs-comment">// Example code, replace `signWithAlice` with actual remote signer.</span>
@@ -173,8 +173,8 @@
 <span class="hljs-keyword">const</span> signature = <span class="hljs-keyword">await</span> signWithAlice(signingPayload);
 <span class="hljs-keyword">const</span> signedTx = createSignedTx(unsigned, signature, { metadataRpc, registry });
 </code></pre>
-<p><strong>解码 payload 类型</strong></p>
-<p>您可能想要在提交解码 payloads 前以验证其内容。</p>
+<p><strong>Decode payload types</strong></p>
+<p>You may want to decode payloads to verify their contents prior to submission.</p>
 <pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { decode } <span class="hljs-keyword">from</span> <span class="hljs-string">"@substrate/txwrapper"</span>;
 
 <span class="hljs-comment">// Decode an unsigned tx</span>
@@ -186,12 +186,12 @@
 <span class="hljs-comment">// Decode a signed tx</span>
 <span class="hljs-keyword">const</span> txInfo = decode(signedTx, { metadataRpc, registry });
 </code></pre>
-<p><strong>检查交易哈希</strong></p>
+<p><strong>Check a transaction's hash</strong></p>
 <pre><code class="hljs css language-ts"><span class="hljs-keyword">import</span> { getTxHash } <span class="hljs-keyword">from</span> ‘<span class="hljs-meta">@substrate</span>/txwrapper’;
 <span class="hljs-keyword">const</span> txHash = getTxHash(signedTx);
 </code></pre>
 <h2><a class="anchor" aria-hidden="true" id="提交已签名的-payload"></a><a href="#提交已签名的-payload" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>提交已签名的 Payload</h2>
-<p>有几种方法提交已经签名的 payload：</p>
+<p>There are several ways to submit a signed payload:</p>
 <ol>
 <li>Signer CLI (<code>yarn run:signer submit --tx &lt;signed-transaction&gt; --ws &lt;endpoint&gt;</code>)</li>
 <li><a href="build-node-interaction#substrate-api-sidecar">Substrate API Sidecar</a></li>
@@ -213,7 +213,7 @@ Secret phrase `exercise auction soft ... obey control easily` is account:
   Account ID:       0xda04de6cd781c98acf0693dfb97c11011938ad22fcc476ed0089ac5aec3fe243
   SS58 Address:     15vrtLsCQFG3qRYUcaEeeEih4JwepocNJHkpsrqojqnZPc2y
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/20/2020 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/build-node-interaction"><span class="arrow-prev">← </span><span>节点互动</span></a><a class="docs-next button" href="/docs/zh-CN/build-tools-index"><span>工具索引</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#交易格式">交易格式</a></li><li><a href="#polkadot-js-工具">Polkadot JS 工具</a></li><li><a href="#tx-wrapper">Tx Wrapper</a></li><li><a href="#提交已签名的-payload">提交已签名的 Payload</a></li><li><a href="#注意">注意</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/22/2020 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/build-node-interaction"><span class="arrow-prev">← </span><span>节点互动</span></a><a class="docs-next button" href="/docs/zh-CN/build-tools-index"><span>工具索引</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#交易格式">交易格式</a></li><li><a href="#polkadot-js-工具">Polkadot JS 工具</a></li><li><a href="#tx-wrapper">Tx Wrapper</a></li><li><a href="#提交已签名的-payload">提交已签名的 Payload</a></li><li><a href="#注意">注意</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();
