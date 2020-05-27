@@ -117,7 +117,7 @@ claim rewards from staking.</p>
 estimate your earnings and this is where it's good to start picking favorites.</p>
 <p>The &quot;Waiting&quot; subsection (<a href="https://polkadot.js.org/apps/#/staking/waiting">link</a>) lists all pending
 validators that are awaiting more nominations to enter the active validator set. Validators will
-stay in the waiting queue until they have enough KSM backing them (as allocated through the
+stay in the waiting queue until they have enough DOT backing them (as allocated through the
 <a href="https://wiki.polkadot.network/docs/en/learn-phragmen">Phragmen election mechanism</a>). It is possible
 validator can remain in the queue for a very long time if they never get enough backing.</p>
 <p>The &quot;Validator Stat's subsection (<a href="https://polkadot.js.org/apps/#/staking/query">link</a>) allows you
@@ -166,16 +166,18 @@ Polkado-JS Apps dashboard.</p>
 install the <code>@polkadot/api-cli</code> globally:</p>
 <pre><code class="hljs css language-bash">npm install -g @polkadot/api-cli
 </code></pre>
-<h3><a class="anchor" aria-hidden="true" id="step-2-bond-your-ksm"></a><a href="#step-2-bond-your-ksm" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 2. Bond your KSM</h3>
+<h3><a class="anchor" aria-hidden="true" id="step-2-bond-your-dot"></a><a href="#step-2-bond-your-dot" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Step 2. Bond your DOT</h3>
 <p>Executing the following command:</p>
 <pre><code class="hljs css language-bash">polkadot-js-api --seed <span class="hljs-string">"MNEMONIC_PHRASE"</span> tx.staking.bond CONTROLLER_ADDRESS NUMBER_OF_TOKENS REWARD_DESTINATION --ws WEBSOCKET_ENDPOINT
 </code></pre>
 <p><code>CONTROLLER_ADDRESS</code>: An address you would like to bond to the stash account. Stash and Controller
 can be the same address but it is not recommended since it defeats the security of the two-account
 staking model.</p>
-<p><code>NUMBER_OF_TOKENS</code>: The number of KSM / DOT you would like to stake to the network. <strong>Note</strong>: KSM
-has twelve decimal places and is always represented as an integer with zeroes at the end. So 1 KSM =
-1,000,000,000,000 units.</p>
+<p><code>NUMBER_OF_TOKENS</code>: The number of DOT you would like to stake to the network.</p>
+<blockquote>
+<p><strong>Note</strong>: DOT has twelve decimal places and is always represented as an integer with zeroes at the
+end. So 1 DOT = 1,000,000,000,000 units.</p>
+</blockquote>
 <p><code>REWARD_DESTINATION</code>:</p>
 <ul>
 <li><code>Staked</code> - Pay into the stash account, increasing the amount at stake accordingly.</li>
@@ -203,7 +205,7 @@ has twelve decimal places and is always represented as an integer with zeroes at
 </code></pre>
 <p>After a few seconds, you should see the hash of the transaction and if you would like to verify the
 nomination status, you can check that on the PolkadotJS UI as well.</p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/27/2020 by Logan Saether</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/maintain-nominator"><span class="arrow-prev">← </span><span>Nominator</span></a><a class="docs-next button" href="/docs/en/maintain-guides-how-to-unbond"><span>Stop Being a Nominator</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/27/2020 by Anson Lau</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/maintain-nominator"><span class="arrow-prev">← </span><span>Nominator</span></a><a class="docs-next button" href="/docs/en/maintain-guides-how-to-unbond"><span>Stop Being a Nominator</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();
