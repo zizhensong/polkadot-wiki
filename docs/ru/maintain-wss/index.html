@@ -103,7 +103,7 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 <ul>
 <li><code>SERVER_ADDRESS</code> should be replaced by your domain name if you have it, or your server's IP address if not.</li>
 <li><code>CERT_LOCATION</code> should be <code>/etc/letsencrypt/live/YOUR_DOMAIN/fullchain.pem</code> if you used Certbot, or <code>/etc/ssl/certs/nginx-selfsigned.crt</code> if self-signed.</li>
-<li><code>CERT_LOCATION_KEY</code> should be <code>/etc/letsencrypt/live/YOUR_DOMAIN/privkey.pem;</code> if you used Certbot, or <code>/etc/ssl/private/nginx-selfsigned.key</code> if self-signed.</li>
+<li><code>CERT_LOCATION_KEY</code> should be <code>/etc/letsencrypt/live/YOUR_DOMAIN/privkey.pem</code> if you used Certbot, or <code>/etc/ssl/private/nginx-selfsigned.key</code> if self-signed.</li>
 <li><code>CERT_DHPARAM</code> should be <code>/etc/letsencrypt/ssl-dhparams.pem</code> if you used Certbot, and <code>/etc/ssl/certs/dhparam.pem</code> if self-signed.</li>
 </ul>
 <p><em>Note that if you used Certbot, it should have made the path insertions below for you if you followed the <a href="https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx.html">official instructions</a></em></p>
@@ -111,7 +111,7 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
         <span class="hljs-attribute">server_name</span> SERVER_ADDRESS;
 
-        <span class="hljs-attribute">root</span> /var/www/node;
+        <span class="hljs-attribute">root</span> /var/www/html;
         <span class="hljs-attribute">index</span> index.html;
 
         <span class="hljs-attribute">location</span> / {

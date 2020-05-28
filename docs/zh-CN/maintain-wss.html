@@ -103,7 +103,7 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 <ul>
 <li><code>SERVER_ADDRESS</code> 如果你有域名，应该替换成你的域名，或者你的服务器的 IP 地址。</li>
 <li><code>CERT_LOCATION</code> 如果您使用 Certbot，应该是 <code>/etc/letsensencrypt/live/YOUR_DOMAIN/fullchain.pem</code> 或者 <code>/etc/ssl/certs/nginx-selfsigned.crt</code> 如果是自签名。</li>
-<li><code>CERT_LOCATION_KEY</code> 如果您使用 Certbot，应该是 <code>/etc/letsencrypt/live/YOUR_DOMAIN/privkey.pem;</code> 或 <code>/etc/ssl/private/nginx-selfsigned.key</code> 如果您是自签名的话。</li>
+<li><code>CERT_LOCATION_KEY</code> should be <code>/etc/letsencrypt/live/YOUR_DOMAIN/privkey.pem</code> if you used Certbot, or <code>/etc/ssl/private/nginx-selfsigned.key</code> if self-signed.</li>
 <li><code>CERT_DHPARAM</code> 如果您使用 Certbot， 应该是 <code>/etc/letsencrypt/ssl-dhparams.pem</code> ，如果您是自签名，应该是 <code>/etc/ssl/certs/dhparam.pem</code> 。</li>
 </ul>
 <p><em>请注意如果您使用 Certbot ，它应该在下面为您插入路径，如果您遵循 <a href="https://certbot.eff.org/lets-encrypt/ubuntubionic-nginx.html">官方指示</a></em></p>
@@ -111,7 +111,7 @@ sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 2048
 
         <span class="hljs-attribute">server_name</span> SERVER_ADDRESS;
 
-        <span class="hljs-attribute">root</span> /var/www/node;
+        <span class="hljs-attribute">root</span> /var/www/html;
         <span class="hljs-attribute">index</span> index.html;
 
         <span class="hljs-attribute">location</span> / {
