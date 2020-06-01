@@ -121,15 +121,15 @@ to build on Polkadot.</p>
 parachain, as your own parachain, or as a parathread. There are trade-offs when working with each of
 these and reading this section will help you understand them.</p>
 <p>Parachains are individual chains containing their own runtime logic that benefit from the shared
-security and the cross-chain messaging provided by the Polkadot relay chain. Parachains permit a
+security and the cross-chain messaging provided by the Polkadot Relay Chain. Parachains permit a
 high degree of flexibility and customization but will require more effort to create and maintain.</p>
 <p>Parathreads are like parachains and enable the developer to have lower-level control of the logic of
 their application. The main difference between the two is economic, since parathreads will be much
 less expensive to secure than a parachain. The lower costs of parathreads are due to the fact that
-parathreads will only produce a block when they need to, unlike parachains which have secured a slot
-to produce a block at every block of the relay chain. When building a parathread, you will use the
-same tools (like PDKs) and you get all of the benefits of building a parachain, without the drawback
-of the cost.</p>
+parathreads will only produce a block when they need to, unlike parachains, which have secured a
+slot to produce a block at every block of the Relay Chain. When building a parathread, you will use
+the same tools (like PDKs) and you get all of the benefits of building a parachain, without the
+drawback of the cost.</p>
 <p>On the Polkadot mainnet, there will be parachains that act as smart contract platforms. Smart
 contracts are executable programs that exist on only a single chain and are limited in complexity.
 Because they exist on a single chain, they can have smooth interoperability with other smart
@@ -216,8 +216,8 @@ to also be nodes of your chain.</p>
 performs the critical action of producing new block candidates for your chain and passing them to
 Polkadot validators for inclusion in the Relaychain.</p>
 <p>Substrate comes with its own networking layer built-in but unfortunately only supports solo chains
-(that is, chains which do not connect to the relay chain). However, there is the Cumulus extension
-which does include a collator node and allows for your Substrate-built logic to be compatible with
+(that is, chains that do not connect to the Relay Chain). However, there is the Cumulus extension
+that includes a collator node and allows for your Substrate-built logic to be compatible with
 Polkadot as either a parachain or parathread.</p>
 <h4><a class="anchor" aria-hidden="true" id="cumulus"></a><a href="#cumulus" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Cumulus</h4>
 <p>The goal of <a href="build-cumulus">Cumulus</a> is to be an extension of Substrate that will make any Substrate
@@ -227,7 +227,7 @@ connected to Polkadot. This includes:</p>
 <ul>
 <li>Cross-chain message passing.</li>
 <li>Out-of-the-box Collator node setup.</li>
-<li>An embedded light client of the relay chain.</li>
+<li>An embedded light client of the Relay Chain.</li>
 <li>Polkadot block authorship compatibility.</li>
 <li>Integrating Cumulus with your Substrate chain will port it into a parachain capable of working on
 Polkadot with minimal modification, possibly as little work as importing a crate and adding a
@@ -251,7 +251,7 @@ transition into the Relaychain.</p>
 <p>For more information on how parathread per-block auctions work, see the more detailed
 <a href="learn-parathreads">parathread</a> page.</p>
 <h2><a class="anchor" aria-hidden="true" id="so-you-want-to-build-a-smart-contract"></a><a href="#so-you-want-to-build-a-smart-contract" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>So you want to build a smart contract...</h2>
-<p>The Polkadot relay chain itself will not support smart contracts. However, since the parachains that
+<p>The Polkadot Relay Chain itself will not support smart contracts. However, since the parachains that
 connect to Polkadot can support arbitrary state transitions, they can support smart contracts.
 Builders of smart contracts can use these options when they become available. Today, it's possible
 to start development using a local development chain and later deploy to a live environment when the
@@ -294,12 +294,12 @@ Polkadot ecosystem through <a href="learn-crosschain">XCMP</a>.</p>
 <p><a href="https://github.com/paritytech/ink">ink!</a> is a domain specific language for writing smart contracts
 in Rust and compiles to Wasm code. As it states in its README, it is still in an experimental phase
 so brave developers should be aware that they might have a bumpy - but workable - development
-experience. There are some projects which have built projects in ink! with a decent level of
+experience. There are some projects that have built projects in ink! with a decent level of
 complexity such as Plasm's <a href="https://github.com/staketechnologies/Plasm">Plasma contracts</a>, so it is mature enough to start
 building interesting things.</p>
 <p>For interested developers, they can get started writing smart contracts using ink! by studying the
 <a href="https://github.com/paritytech/ink/tree/master/examples">examples</a> that were already written. These
-can be used as guideposts to writing more complex logic which will be deployable on smart contract
+can be used as guideposts to writing more complex logic that will be deployable on smart contract
 parachains.</p>
 <p>ink! has laid much of the groundwork for a new smart contract stack that is based on a Wasm virtual
 machine and compatible with Substrate chains.</p>
@@ -351,7 +351,7 @@ about them. Developers may be interested in joining the
 <a href="https://riot.im/app/#/room/#substrate-technical:matrix.org">Substrate Technical</a> to ask their
 questions. As always, keep up to date with Polkadot by following the <a href="community">social channels</a>.</p>
 <p>Good luck!</p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/6/2020 by Logan Saether</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/build-index"><span class="arrow-prev">← </span><span>Builder&#x27;s Portal</span></a><a class="docs-next button" href="/docs/en/build-dev-roadmap"><span>Roadmap For Developers</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#where-are-we-now">Where are we now?</a></li><li><a href="#what-you-need-to-know">What you need to know</a></li><li><a href="#what-is-the-difference-between-building-a-parachain-a-parathread-or-a-smart-contract">What is the difference between building a parachain, a parathread, or a smart contract?</a></li><li><a href="#so-you-want-to-build-a-parachain-or-parathread">So you want to build a parachain or parathread...</a><ul class="toc-headings"><li><a href="#get-started-with-substrate">Get started with Substrate</a></li><li><a href="#how-to-set-up-your-parachain">How to set up your parachain</a></li><li><a href="#how-to-deploy-your-parachain-or-parathread-in-polkadot">How to deploy your parachain or parathread in Polkadot</a></li></ul></li><li><a href="#so-you-want-to-build-a-smart-contract">So you want to build a smart contract...</a><ul class="toc-headings"><li><a href="#edgeware">Edgeware</a></li><li><a href="#ink">Ink</a></li></ul></li><li><a href="#deploying-your-smart-contract">Deploying your smart contract</a></li><li><a href="#paying-for-your-smart-contract">Paying for your smart contract</a><ul class="toc-headings"><li><a href="#its-still-early">It's still early</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 6/1/2020 by joe petrowski</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/build-index"><span class="arrow-prev">← </span><span>Builder&#x27;s Portal</span></a><a class="docs-next button" href="/docs/en/build-dev-roadmap"><span>Roadmap For Developers</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#where-are-we-now">Where are we now?</a></li><li><a href="#what-you-need-to-know">What you need to know</a></li><li><a href="#what-is-the-difference-between-building-a-parachain-a-parathread-or-a-smart-contract">What is the difference between building a parachain, a parathread, or a smart contract?</a></li><li><a href="#so-you-want-to-build-a-parachain-or-parathread">So you want to build a parachain or parathread...</a><ul class="toc-headings"><li><a href="#get-started-with-substrate">Get started with Substrate</a></li><li><a href="#how-to-set-up-your-parachain">How to set up your parachain</a></li><li><a href="#how-to-deploy-your-parachain-or-parathread-in-polkadot">How to deploy your parachain or parathread in Polkadot</a></li></ul></li><li><a href="#so-you-want-to-build-a-smart-contract">So you want to build a smart contract...</a><ul class="toc-headings"><li><a href="#edgeware">Edgeware</a></li><li><a href="#ink">Ink</a></li></ul></li><li><a href="#deploying-your-smart-contract">Deploying your smart contract</a></li><li><a href="#paying-for-your-smart-contract">Paying for your smart contract</a><ul class="toc-headings"><li><a href="#its-still-early">It's still early</a></li></ul></li><li><a href="#conclusion">Conclusion</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();

@@ -78,7 +78,7 @@ on-chain. For a more in-depth explanation of the cryptography behind them, pleas
 <h2><a class="anchor" aria-hidden="true" id="address-format"></a><a href="#address-format" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Address Format</h2>
 <p>The address format used in Substrate-based chains is SS58. SS58 is a modification of Base-58-check
 from Bitcoin with some minor modifications. Notably, the format contains an <em>address type</em> prefix
-which identifies an address as belonging to a specific network.</p>
+that identifies an address as belonging to a specific network.</p>
 <p>For example:</p>
 <ul>
 <li>Polkadot addresses always start with the number 1.</li>
@@ -148,7 +148,7 @@ supports Kusama addresses, not Polkadot or generic Substrate.</p>
 and not officially affiliated with Web3 Foundation or the Polkadot project unless otherwise stated.</p>
 <p>Hardware wallet integration from <a href="https://ledger.com">Ledger</a> is coming soon.</p>
 <h2><a class="anchor" aria-hidden="true" id="existential-deposit-and-reaping"></a><a href="#existential-deposit-and-reaping" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Existential Deposit and Reaping</h2>
-<p>When you generate an account (address), you only generate a <em>key</em> which lets you access it. The
+<p>When you generate an account (address), you only generate a <em>key</em> that lets you access it. The
 account does not exist yet on-chain. For that, it needs the existential deposit - 0.01 KSM / DOT.
 This deposit is paid by the account sending you tokens. The one &quot;creating&quot; you pays for your
 creation.</p>
@@ -192,7 +192,7 @@ the call to be successful.</p>
 <p>For example, Alice, Bob, and Charlie set up a multi-sig with a threshold of 2. This means Alice and
 Bob can execute any call even if Charlie disagrees with it. Likewise, Charlie and Bob can execute
 any call without Alice. A threshold is typically a number smaller than the total number of members
-but can also be equal to it which means they all have to be in agreement.</p>
+but can also be equal to it, which means they all have to be in agreement.</p>
 <p>Multi-signature accounts have several uses:</p>
 <ul>
 <li>securing your own stash: use additional signatories as a 2FA mechanism to secure your funds. One
@@ -208,7 +208,7 @@ members could vote as one entity.</li>
 altering the threshold is not possible and instead requires the dissolution of the current multi-sig
 and creation of a new one. As such, multi-sig account addresses are <strong>deterministic</strong>, i.e. you can
 always calculate the address of a multi-sig just by knowing the members and the threshold, without
-the account existing yet. This means one can send tokens to an address which does not exist yet, and
+the account existing yet. This means one can send tokens to an address that does not exist yet, and
 if the entities designated as the recipients come together in a new multi-sig under a matching
 threshold, they will immediately have access to these tokens. Calculating the address of a multi-sig
 deterministically can be done in TypeScript like so:</p>
@@ -237,7 +237,7 @@ address(addresses: string[], <span class="hljs-attr">threshold</span>: number, s
 <p>The Polkadot JS Apps UI also supports multi-sig accounts, as documented in the
 <a href="learn-account-generation#multi-signature-accounts">Account Generation page</a>. This is easier than
 generating them manually.</p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 5/4/2020 by joe petrowski</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/learn-launch"><span class="arrow-prev">← </span><span>Polkadot Launch Phases</span></a><a class="docs-next button" href="/docs/en/learn-architecture"><span>Architecture</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#address-format">Address Format</a><ul class="toc-headings"><li><a href="#for-the-curious-how-prefixes-work">For the Curious: How Prefixes Work</a></li></ul></li><li><a href="#obtaining-and-managing-an-address">Obtaining and Managing an Address</a></li><li><a href="#existential-deposit-and-reaping">Existential Deposit and Reaping</a></li><li><a href="#indices">Indices</a></li><li><a href="#identities">Identities</a></li><li><a href="#multi-signature-accounts">Multi-signature Accounts</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 6/1/2020 by joe petrowski</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/learn-launch"><span class="arrow-prev">← </span><span>Polkadot Launch Phases</span></a><a class="docs-next button" href="/docs/en/learn-architecture"><span>Architecture</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#address-format">Address Format</a><ul class="toc-headings"><li><a href="#for-the-curious-how-prefixes-work">For the Curious: How Prefixes Work</a></li></ul></li><li><a href="#obtaining-and-managing-an-address">Obtaining and Managing an Address</a></li><li><a href="#existential-deposit-and-reaping">Existential Deposit and Reaping</a></li><li><a href="#indices">Indices</a></li><li><a href="#identities">Identities</a></li><li><a href="#multi-signature-accounts">Multi-signature Accounts</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();

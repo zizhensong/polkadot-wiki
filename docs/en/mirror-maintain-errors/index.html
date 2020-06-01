@@ -98,7 +98,7 @@ table below.</p>
 <tr><th>Error</th><th>Description</th><th>Solution</th></tr>
 </thead>
 <tbody>
-<tr><td>BadOrigin</td><td>You are not allowed to do this operation, e.g. trying to create a council motion with a non-council account.</td><td>Either switch to an account which has the necessary permissions, or check if the operation you're trying to execute is permitted at all (e.g. calling <code>system.setCode</code> to do a runtime upgrade directly, without voting).</td></tr>
+<tr><td>BadOrigin</td><td>You are not allowed to do this operation, e.g. trying to create a council motion with a non-council account.</td><td>Either switch to an account that has the necessary permissions, or check if the operation you're trying to execute is permitted at all (e.g. calling <code>system.setCode</code> to do a runtime upgrade directly, without voting).</td></tr>
 <tr><td>BadProof</td><td>The transaction's signature seems invalid.</td><td>It's possible that the node you're connected to is following an obsolete fork - trying again after it catches up usually resolves the issue. To check for bigger problems, inspect the last finalized and current best block of the node you're connected to and compare the values to chain stats exposed by other nodes - are they in sync? If not, try connecting to a different node.</td></tr>
 <tr><td>Future</td><td>Transaction nonce too high, i.e. it's &quot;from the future&quot;.</td><td>Reduce the nonce to +1 of current nonce. Check current nonce by inspecting the address you're using to send the transaction.</td></tr>
 <tr><td>Stale</td><td>Transaction nonce too low.</td><td>Increase the nonce to +1 of current nonce. Check current nonce by inspecting the address you're using to send the transaction.</td></tr>
