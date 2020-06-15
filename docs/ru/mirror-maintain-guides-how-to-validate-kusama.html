@@ -117,14 +117,14 @@
 </code></pre>
 <h3><a class="anchor" aria-hidden="true" id="building-and-installing-the-polkadot-binary"></a><a href="#building-and-installing-the-polkadot-binary" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Building and Installing the <code>polkadot</code> Binary</h3>
 <p>You will need to build the <code>polkadot</code> binary from the <a href="https://github.com/paritytech/polkadot">paritytech/polkadot</a> repository on GitHub using the source code available in the <strong>v0.8</strong> branch.</p>
-<p>You should generally use the latest <strong>0.8.x</strong> tag. At the time of writing, this was <strong>0.8.2</strong>, but you should review the output from the &quot;git tag&quot; command (<code>git tag | grep &quot;$v\0\.8&quot;</code>) to see a list of all the potential 0.8 releases. You should replace <code>v0.8.2</code> with the latest build (i.e., the highest number). You can also find the latest Kusama version on the <a href="https://github.com/paritytech/polkadot/releases">release</a> tab.</p>
+<p>You should generally use the latest <strong>0.8.x</strong> tag. At the time of writing, this was <strong>0.8.3</strong>, but you should review the output from the &quot;git tag&quot; command (<code>git tag | grep &quot;$v\0\.8&quot;</code>) to see a list of all the potential 0.8 releases. You should replace <code>v0.8.8</code> with the latest build (i.e., the highest number). You can also find the latest Kusama version on the <a href="https://github.com/paritytech/polkadot/releases">release</a> tab.</p>
 <blockquote>
 <p>Note: If you prefer to use SSH rather than HTTPS, you can replace the first line of the below with <code>git clone git@github.com:paritytech/polkadot.git</code>.</p>
 </blockquote>
 <pre><code class="hljs css language-sh">git <span class="hljs-built_in">clone</span> https://github.com/paritytech/polkadot.git
 <span class="hljs-built_in">cd</span> polkadot
 git tag | grep <span class="hljs-string">"<span class="hljs-variable">$v</span>\0\.8"</span>
-git checkout v0.8.2
+git checkout v0.8.8
 ./scripts/init.sh
 cargo build --release
 </code></pre>
