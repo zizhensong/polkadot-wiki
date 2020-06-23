@@ -97,6 +97,9 @@
 <p>输入** 少于 **您拥有 DOTs 的总量到 &quot;value bonded&quot;，这样您就剩下一些代币来支付交易费用。交易费用目前大约为 0.01 DOTs，但是交易费用是动态根据包括最近区块的负载在内的多种因素。</p>
 <p>还要注意帐号回收阈值— 帐号必须保留在最低金额，以免帐号被销毁。 这个金额在 Polkadot 中为 0.01 DOT，所以建议在您的帐号中至少保留 0.1 DOT 以便保持账号安全。</p>
 <p>选择适合您的付款目的地。 如果不确定，则可以选择 &quot;Stash 帐号 (increase amount at stake)&quot;，将奖励累积到抵押中的帐号。</p>
+<blockquote>
+<p>These concepts have been further explained in Polkadot's <a href="https://www.youtube.com/watch?v=mNStMPZjiHM&amp;list=PLOyWqupZ-WGuAuS00rK-pebTMAOxW41W8">UI Walkthrough Video</a></p>
+</blockquote>
 <h3><a class="anchor" aria-hidden="true" id="第二步-提名验证人"></a><a href="#第二步-提名验证人" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>第二步: 提名验证人</h3>
 <p>您现在已经完成了绑定。完成绑定表示您的代币已被锁定，如果您提名的验证人有过失行为，该绑定的代币有可能被<a href="learn-staking#slashing">惩罚(削减)</a> 。所有绑定资金现在可以分配给最多16个验证人。如果你提名的验证人恶意攻击网络，你也会被惩罚，所以请谨慎选择验证人。</p>
 <p>在已绑定的帐号上点击 &quot;Nominate&quot;，您将看到另一个弹出窗口，要求您选择最多16个验证人。 尽管您最多可以选择16个验证人，但是由于 [Phragmen] [] 选举算法的缘故，您参与抵押的代币可能会以不同的比例分散到部份或全部 您选择的任何验证人中。</p>
@@ -118,7 +121,7 @@
 <p><code>CONTROLLER_ADDRESS</code>: 您要绑定到 stash 帐号的地址。 Stash 和 Controller 可以是相同的地址，但是不建议这样设定，因为它破坏了两个帐号抵押模型的安全性。</p>
 <p><code>NUMBER_OF_TOKENS</code>:: 您想抵押到网络的 DOT 数量。</p>
 <blockquote>
-<p><strong>注意</strong>：DOT 具有十二个小数位，并且始终以结尾为零的整数表示。 因此 1 DOT = 1,000,000,000,000 单位</p>
+<p><strong>Note</strong>: DOT has twelve decimal places and is always represented as an integer with zeroes at the end. So 1 DOT = 1,000,000,000,000 units.</p>
 </blockquote>
 <p><code>REWARD_DESTINATION</code>:</p>
 <ul>
@@ -144,7 +147,7 @@
 <pre><code class="hljs css language-bash">polkadot-js-api --seed <span class="hljs-string">"xxxx xxxxx xxxx xxxxx"</span> tx.staking.nominate <span class="hljs-string">'["CmD9vaMYoiKe7HiFnfkftwvhKbxN9bhyjcDrfFRGbifJEG8","E457XaKbj2yTB2URy8N4UuzmyuFRkcdxYs67UvSgVr7HyFb"]'</span> --ws wss://rpc.polkadot.io
 </code></pre>
 <p>几秒钟后，您应该看到交易的哈希值，并且如果您想验证提名状态，也可以在 PolkadotJS UI 上进行检查。</p>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 6/2/2020 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/maintain-nominator"><span class="arrow-prev">← </span><span>提名人</span></a><a class="docs-next button" href="/docs/zh-CN/maintain-guides-how-to-unbond"><span>停止作为提名人</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 6/23/2020 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/zh-CN/maintain-nominator"><span class="arrow-prev">← </span><span>提名人</span></a><a class="docs-next button" href="/docs/zh-CN/maintain-guides-how-to-unbond"><span>停止作为提名人</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();
