@@ -86,95 +86,95 @@
 <p>Независимо от того, сколько стейка стоит за валидатором, все валидаторы делят выплату за создание блока поровну. Общая сумма выплат, однако, может отличаться в зависимости от того, сколько получено [era points](# era-points), как описано выше.</p>
 <p>Валидаторы также могут получать &quot;чаевые&quot; от отправителей в качестве стимула для включения транзакций в создаваемые ими блоки.</p>
 <p>Для простоты в приведенных ниже примерах предполагается, что все валидаторы имеют одинаковое количество era points.</p>
-<pre><code class="hljs">Количество валидаторов (v): <span class="hljs-number">4</span>
-Стейк <span class="hljs-number">1</span> валидатора (v1): <span class="hljs-number">18</span> DOT
-Стейк <span class="hljs-number">2</span> валидатора (v2): <span class="hljs-number">9</span> DOT
-Стейк <span class="hljs-number">3</span> валидатора (v3): <span class="hljs-number">8</span> DOT
-Стейк <span class="hljs-number">1</span> валидатора (v4): <span class="hljs-number">7</span> DOT
-Выплата (p): <span class="hljs-number">8</span> DOT
+<pre><code class="hljs">Validator Set Size (v): <span class="hljs-number">4</span>
+Validator <span class="hljs-number">1</span> Stake (v1): <span class="hljs-number">18</span> DOT
+Validator <span class="hljs-number">2</span> Stake (v2):  <span class="hljs-number">9</span> DOT
+Validator <span class="hljs-number">3</span> Stake (v3):  <span class="hljs-number">8</span> DOT
+Validator <span class="hljs-number">4</span> Stake (v4):  <span class="hljs-number">7</span> DOT
+Payout (p): <span class="hljs-number">8</span> DOT
 
-Выплаты для каждого валидатора (v1 - v4):
+Payout <span class="hljs-keyword">for</span> each validator (v1 - v4):
 p / v = <span class="hljs-number">8</span> / <span class="hljs-number">4</span> = <span class="hljs-number">2</span> DOT
 </code></pre>
-<p>Обратите внимание, что это отличается от большинства других Proof-of-Stake систем, таких как Cosmos. Пока валидатор находится в наборе валидаторов, он будет получать такое же вознаграждение за блок, как и любой другой валидатор. Валидатор <code>v1</code>, у которого было в стейке 18 DOT, получил ту же награду (2 DOT) в эту эпоху, что и <code>v4</code>, у которого было  в стейке только 7 DOT.</p>
+<p>Note that this is different than most other Proof-of-Stake systems such as Cosmos. As long as a validator is in the validator set, it will receive the same block reward as every other validator. Validator <code>v1</code>, who had 18 DOT staked, received the same reward (2 DOT) in this era as <code>v4</code> who had only 7 DOT staked.</p>
 <h2><a class="anchor" aria-hidden="true" id="запуск-нескольких-валидаторов"></a><a href="#запуск-нескольких-валидаторов" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Запуск нескольких валидаторов</h2>
-<p>Одна сущность может запустить несколько валидаторов. Запуск нескольких валидаторов может обеспечить лучшее соотношение риска и вознаграждения. Если предположить, что у вас достаточно DOT или достаточно стейка, номинирующих Ваш валидатор, чтобы гарантировать, что Ваши валидаторы останутся в наборе валидаторов, запуск нескольких валидаторов приведет к более высокой отдаче, чем запуск одного валидатора.</p>
-<p>В следующем примере предполагаем, что у вас есть 18 DOT для стейка. Для простоты мы проигнорируем номинаторов. Запуск одного валидатора, как и в предыдущем примере, позволит Вам получить 2 DOT в эту эпоху.</p>
-<pre><code class="hljs">Количество валидаторов (v): <span class="hljs-number">4</span>
-Стейк <span class="hljs-number">1</span> валидатора (v1): <span class="hljs-number">18</span> DOT &lt;- Ваш валидатор
-Стейк <span class="hljs-number">2</span> валидатора (v2): <span class="hljs-number">9</span> DOT
-Стейк <span class="hljs-number">3</span> валидатора (v3): <span class="hljs-number">8</span> DOT
-Стейк <span class="hljs-number">4</span> валидатора (v4): <span class="hljs-number">7</span> DOT
-Выплаты (p): <span class="hljs-number">8</span> DOT
+<p>It is possible for a single entity to run multiple validators. Running multiple validators may provide a better risk/reward ratio. Assuming you have enough DOT, or enough stake nominates your validator, to ensure that your validators remain in the validator set, running multiple validators will result in a higher return than running a single validator.</p>
+<p>For the following example, assume you have 18 DOT to stake. For simplicity's sake, we will ignore nominators. Running a single validator, as in the example above, would net you 2 DOT in this era.</p>
+<pre><code class="hljs">Validator Set Size (v): <span class="hljs-number">4</span>
+Validator <span class="hljs-number">1</span> Stake (v1): <span class="hljs-number">18</span> DOT &lt;- Your validator
+Validator <span class="hljs-number">2</span> Stake (v2):  <span class="hljs-number">9</span> DOT
+Validator <span class="hljs-number">3</span> Stake (v3):  <span class="hljs-number">8</span> DOT
+Validator <span class="hljs-number">4</span> Stake (v4):  <span class="hljs-number">7</span> DOT
+Payout (p): <span class="hljs-number">8</span> DOT
 
-Ваша выплата = (p / v) * <span class="hljs-number">1</span> = (<span class="hljs-number">8</span> / <span class="hljs-number">4</span>) * <span class="hljs-number">1</span> = <span class="hljs-number">2</span>
+Your payout = (p / v) * <span class="hljs-number">1</span> = (<span class="hljs-number">8</span> / <span class="hljs-number">4</span>) * <span class="hljs-number">1</span> = <span class="hljs-number">2</span>
 </code></pre>
 <p>Запуск двух валидаторов и разделение стейка поровну приведет к тому, что исходный валидатор <code>v4</code> будет выгнан из набора валидаторов, поскольку только верхние валидаторы <code>v</code> (измеренные по стейку) будут выбраны для включения в набор валидаторов. Что ещё более важно, это также удвоит вознаграждение, которое Вы получаете от каждой эпохи.</p>
-<pre><code class="hljs">Количество валидаторов (v): <span class="hljs-number">4</span>
-Стейк <span class="hljs-number">1</span> валидатора (v1): <span class="hljs-number">9</span> DOT &lt;- Ваш первый валидатор
-Стейк <span class="hljs-number">2</span> валидатора (v2): <span class="hljs-number">9</span> DOT &lt;- Ваш второй валидатор
-Стейк <span class="hljs-number">3</span> валидатора (v3): <span class="hljs-number">9</span> DOT
-Стейк <span class="hljs-number">4</span> валидатора (v4): <span class="hljs-number">8</span> DOT
-Выплата (p): <span class="hljs-number">8</span> DOT
+<pre><code class="hljs">Validator Set Size (v): <span class="hljs-number">4</span>
+Validator <span class="hljs-number">1</span> Stake (v1): <span class="hljs-number">9</span> DOT &lt;- Your first validator
+Validator <span class="hljs-number">2</span> Stake (v2): <span class="hljs-number">9</span> DOT &lt;- Your second validator
+Validator <span class="hljs-number">3</span> Stake (v3): <span class="hljs-number">9</span> DOT
+Validator <span class="hljs-number">4</span> Stake (v4): <span class="hljs-number">8</span> DOT
+Payout (p): <span class="hljs-number">8</span> DOT
 
-Ваша выплата = (p / v) * <span class="hljs-number">1</span> = (<span class="hljs-number">8</span> / <span class="hljs-number">4</span>) * <span class="hljs-number">2</span> = <span class="hljs-number">4</span>
+Your payout = (p / v) * <span class="hljs-number">1</span> = (<span class="hljs-number">8</span> / <span class="hljs-number">4</span>) * <span class="hljs-number">2</span> = <span class="hljs-number">4</span>
 </code></pre>
 <p>При достаточном количестве стейка Вы можете запустить более двух валидаторов. Тем не менее, каждый валидатор должен иметь достаточный стейк в запасе, чтобы быть в наборе валидатора.</p>
 <p>Стимулы системы благоприятствуют валидаторам с равными ставками. Скорее всего, это будет динамическое, а не статическое равновесие. Потенциальные валидаторы будут запускать разное количество валидаторов и применять к ним разные суммы стейка с течением времени и в ответ на действия других валидаторов в сети.</p>
 <h2><a class="anchor" aria-hidden="true" id="слэшингslashing"></a><a href="#слэшингslashing" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Слэшинг/Slashing</h2>
-<p>Хотя вознаграждение выплачивается в равной степени, слэши (сокращения) относятся к стейку валидаторов. Поэтому, если у Вас есть достаточно DOT для запуска нескольких валидаторов, это в Ваших же интересах. Слэш в 30%, конечно же, будет больше DOT для валидатора с 18 DOT в стейке, чем для одного с 9 DOT в стейке.</p>
+<p>Although rewards are paid equally, slashes are relative to a validator's stake. Therefore, if you do have enough DOT to run multiple validators, it is in your best interest to do so. A slash of 30% will, of course, be more DOT for a validator with 18 DOT staked than one with 9 DOT staked.</p>
 <p>Запуск нескольких валидаторов не освобождает Вас от последствий неправильного поведения. Polkadot наказывает атаки, которые кажутся скоординированными более строго, чем отдельные атаки. Например, не следует запускать несколько валидаторов, размещенных в одной инфраструктуре. Правильная конфигурация мульти-валидатора гарантирует, что они не выходят из строя одновременно.</p>
 <p>У номинаторов есть стимул выдвигать валидатора с самой низкой ставкой, так как это приведет к самому низкому риску и самому высокому вознаграждению.</p>
 <h2><a class="anchor" aria-hidden="true" id="номинаторы-и-платежи-валидатора"></a><a href="#номинаторы-и-платежи-валидатора" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Номинаторы и платежи валидатора</h2>
 <p>Номинированный стейк позволяет вам &quot;голосовать&quot; за валидаторов и делиться вознаграждениями (и слэшингом), не запуская узел валидатора самостоятельно. Валидаторы могут оставить себе процент от вознаграждения, причитающегося их валидатору, чтобы &quot;возместить&quot; себе затраты на запуск узла валидатора. Кроме того, все вознаграждения делятся на основе стейка, стоящим за каждым валидатором. Это включает в себя стейк самого валидатора, а также любой стейк, с бондингом от номинаторов.</p>
 <blockquote>
-<p><strong>Примечание:</strong> валидаторы устанавливают свои предпочтения в процентах от вознаграждения блока, <em>не</em> абсолютное число DOT. Блочное вознаграждение Polkadot основано на&lt;emx-id=&quot;4&quot;&gt;общей</em> сумме в стейке, причем вознаграждение достигает пика, когда сумма стейка составляет 50% от общего предложения. В периоды, когда ставится меньшая сумма и, следовательно, более низкие вознаграждения, предпочтение выплат валидатору может означать, что для номинаторов остается ноль.</p>
+<p><strong>NOTE:</strong> Validators set their preference as a percentage of the block reward, <em>not</em> an absolute number of DOT. Polkadot's block reward is based on the <em>total</em> amount at stake, with the reward peaking when the amount staked is at 50% of the total supply. In periods when there is a lower amount staked, and therefore lower rewards, the validator's payout preference could mean that there is zero left over for nominators.</p>
 </blockquote>
-<p>В следующих примерах мы можем увидеть результаты нескольких различных схем оплаты валидатора и разделения стейка между номинатором и валидатором. Мы будем считать, что для каждого валидатора существует один номинатор. Однако для каждого валидатора может существовать множество номинаторов. Награды по прежнему распределяются пропорционально - например, если общее количество наград, которые будут даны номинаторам, составляет 2 DOT, и есть четыре номинатора с равными стейками, каждый получит по 0,5 DOT. Обратите также внимание, что один номинатор может распределять стейк на разных валидаторов.</p>
-<p>Каждый валидатор в этом примере выбрал разные платежи валидатора (то есть процент от вознаграждения, назначенного непосредственно валидатору перед разделением со всеми бондированными стейками). Процент оплаты валидатора (в DOT) указан в скобках (<code>[]</code>) рядом с каждым валидатором. Обратите внимание, что поскольку платеж валидатора является общеизвестным, наличие низкого или несуществующего платежа валидатора может привлечь больше ставок от номинантов, поскольку они знают, что получат более крупное вознаграждение.</p>
-<pre><code class="hljs">Количество валидаторов (v): <span class="hljs-number">4</span>
-Стейк <span class="hljs-number">1</span> валидатора (v1) [<span class="hljs-number">0.2</span>]: <span class="hljs-number">18</span> DOT (<span class="hljs-number">9</span> валидатор, <span class="hljs-number">9</span> номинатор)
-Стейк <span class="hljs-number">2</span> валидатора (v2) [<span class="hljs-number">0.4</span>]:  <span class="hljs-number">9</span> DOT (<span class="hljs-number">3</span> валидатор, <span class="hljs-number">6</span> номинатор)
-Стейк <span class="hljs-number">3</span> валидатора (v3) [<span class="hljs-number">0.1</span>]:  <span class="hljs-number">8</span> DOT (<span class="hljs-number">4</span> валидатор, <span class="hljs-number">4</span> номинатор)
-Стейк <span class="hljs-number">4</span> валидатора (v4) [<span class="hljs-number">0.0</span>]:  <span class="hljs-number">6</span> DOT (<span class="hljs-number">1</span> валидатор, <span class="hljs-number">5</span> номинатор)
+<p>In the following examples, we can see the results of several different validator payment schemes and split between nominator and validator stake. We will assume a single nominator for each validator. However, there can be numerous nominators for each validator. Rewards are still distributed proportionally - for example, if the total rewards to be given to nominators is 2 DOT, and there are four nominators with equal stake bonded, each will receive 0.5 DOT. Note also that a single nominator may stake different validators.</p>
+<p>Each validator in the example has selected a different validator payment (that is, a percentage of the reward set aside directly for the validator before sharing with all bonded stake). The validator's payment percentage (in DOT) is listed in brackets (<code>[]</code>) next to each validator. Note that since the validator payment is public knowledge, having a low or non-existent validator payment may attract more stake from nominators, since they know they will receive a larger reward.</p>
+<pre><code class="hljs">Validator Set Size (v): <span class="hljs-number">4</span>
+Validator <span class="hljs-number">1</span> Stake (v1) [<span class="hljs-number">0.2</span>]: <span class="hljs-number">18</span> DOT (<span class="hljs-number">9</span> validator, <span class="hljs-number">9</span> nominator)
+Validator <span class="hljs-number">2</span> Stake (v2) [<span class="hljs-number">0.4</span>]:  <span class="hljs-number">9</span> DOT (<span class="hljs-number">3</span> validator, <span class="hljs-number">6</span> nominator)
+Validator <span class="hljs-number">3</span> Stake (v3) [<span class="hljs-number">0.1</span>]:  <span class="hljs-number">8</span> DOT (<span class="hljs-number">4</span> validator, <span class="hljs-number">4</span> nominator)
+Validator <span class="hljs-number">4</span> Stake (v4) [<span class="hljs-number">0.0</span>]:  <span class="hljs-number">6</span> DOT (<span class="hljs-number">1</span> validator, <span class="hljs-number">5</span> nominator)
 Payout (p): <span class="hljs-number">8</span> DOT
 
-Payout <span class="hljs-keyword">for</span> each валидатор (v1 - v4):
+Payout <span class="hljs-keyword">for</span> each validator (v1 - v4):
 p / v = <span class="hljs-number">8</span> / <span class="hljs-number">4</span> = <span class="hljs-number">2</span> DOT
 
 v1:
-(<span class="hljs-number">0.2</span> * <span class="hljs-number">2</span>) = <span class="hljs-number">0.4</span> DOT -&gt; выплата валидатору
-(<span class="hljs-number">2</span> - <span class="hljs-number">0.4</span>) = <span class="hljs-number">1.6</span> -&gt; распределяется между всеми стейками
-(<span class="hljs-number">9</span> / <span class="hljs-number">18</span>) * <span class="hljs-number">1.6</span> = <span class="hljs-number">0.8</span> -&gt; доля валидатора в стейке
-(<span class="hljs-number">9</span> / <span class="hljs-number">18</span>) * <span class="hljs-number">1.6</span> = <span class="hljs-number">0.8</span> -&gt; доля номинатора в стейке
-v1 Итого ваплата валидатору: <span class="hljs-number">0.4</span> + <span class="hljs-number">0.8</span> = <span class="hljs-number">1.2</span> DOT
-v1 Итого ваплата номинатору: <span class="hljs-number">0.8</span> DOT
+(<span class="hljs-number">0.2</span> * <span class="hljs-number">2</span>) = <span class="hljs-number">0.4</span> DOT -&gt; validator payment
+(<span class="hljs-number">2</span> - <span class="hljs-number">0.4</span>) = <span class="hljs-number">1.6</span> -&gt; <span class="hljs-keyword">shared</span> between all stake
+(<span class="hljs-number">9</span> / <span class="hljs-number">18</span>) * <span class="hljs-number">1.6</span> = <span class="hljs-number">0.8</span> -&gt; validator stake share
+(<span class="hljs-number">9</span> / <span class="hljs-number">18</span>) * <span class="hljs-number">1.6</span> = <span class="hljs-number">0.8</span> -&gt; nominator stake share
+v1 validator total reward: <span class="hljs-number">0.4</span> + <span class="hljs-number">0.8</span> = <span class="hljs-number">1.2</span> DOT
+v1 nominator reward: <span class="hljs-number">0.8</span> DOT
 
 v2:
-(<span class="hljs-number">0.4</span> * <span class="hljs-number">2</span>) = <span class="hljs-number">0.8</span> DOT -&gt; выплата валидатору
-(<span class="hljs-number">2</span> - <span class="hljs-number">0.8</span>) = <span class="hljs-number">1.2</span> -&gt; распределяется между всеми стейками
-(<span class="hljs-number">3</span> / <span class="hljs-number">9</span>) * <span class="hljs-number">1.2</span> = <span class="hljs-number">0.4</span> -&gt; доля валидатора в стейке
-(<span class="hljs-number">6</span> / <span class="hljs-number">9</span>) * <span class="hljs-number">1.2</span> = <span class="hljs-number">0.8</span> -&gt; доля номинатора в стейке
-v2 Итого ваплата валидатору: <span class="hljs-number">0.8</span> + <span class="hljs-number">0.4</span> = <span class="hljs-number">1.2</span> DOT
-v2 Итого ваплата номинатору: <span class="hljs-number">0.8</span> DOT
+(<span class="hljs-number">0.4</span> * <span class="hljs-number">2</span>) = <span class="hljs-number">0.8</span> DOT -&gt; validator payment
+(<span class="hljs-number">2</span> - <span class="hljs-number">0.8</span>) = <span class="hljs-number">1.2</span> -&gt; <span class="hljs-keyword">shared</span> between all stake
+(<span class="hljs-number">3</span> / <span class="hljs-number">9</span>) * <span class="hljs-number">1.2</span> = <span class="hljs-number">0.4</span> -&gt; validator stake share
+(<span class="hljs-number">6</span> / <span class="hljs-number">9</span>) * <span class="hljs-number">1.2</span> = <span class="hljs-number">0.8</span> -&gt; nominator stake share
+v2 validator total reward: <span class="hljs-number">0.8</span> + <span class="hljs-number">0.4</span> = <span class="hljs-number">1.2</span> DOT
+v2 nominator reward: <span class="hljs-number">0.8</span> DOT
 
 v3:
-(<span class="hljs-number">0.1</span> * <span class="hljs-number">2</span>) = <span class="hljs-number">0.2</span> DOT -&gt; выплата валидатору
-(<span class="hljs-number">2</span> - <span class="hljs-number">0.2</span>) = <span class="hljs-number">1.8</span> -&gt; распределяется между всеми стейками
-(<span class="hljs-number">4</span> / <span class="hljs-number">8</span>) * <span class="hljs-number">1.8</span> = <span class="hljs-number">0.9</span> -&gt; доля валидатора в стейке
-(<span class="hljs-number">4</span> / <span class="hljs-number">8</span>) * <span class="hljs-number">1.8</span> = <span class="hljs-number">0.9</span> -&gt; доля номинатора в стейке
-v3 Итого ваплата валидатору: <span class="hljs-number">0.2</span> + <span class="hljs-number">0.9</span> DOT = <span class="hljs-number">1.1</span> DOT
-v3 Итого ваплата номинатору: <span class="hljs-number">0.9</span> DOT
+(<span class="hljs-number">0.1</span> * <span class="hljs-number">2</span>) = <span class="hljs-number">0.2</span> DOT -&gt; validator payment
+(<span class="hljs-number">2</span> - <span class="hljs-number">0.2</span>) = <span class="hljs-number">1.8</span> -&gt; <span class="hljs-keyword">shared</span> between all stake
+(<span class="hljs-number">4</span> / <span class="hljs-number">8</span>) * <span class="hljs-number">1.8</span> = <span class="hljs-number">0.9</span> -&gt; validator stake share
+(<span class="hljs-number">4</span> / <span class="hljs-number">8</span>) * <span class="hljs-number">1.8</span> = <span class="hljs-number">0.9</span> -&gt; nominator stake share
+v3 validator total reward: <span class="hljs-number">0.2</span> + <span class="hljs-number">0.9</span> DOT = <span class="hljs-number">1.1</span> DOT
+v3 nominator reward: <span class="hljs-number">0.9</span> DOT
 
 v4:
-(<span class="hljs-number">0</span> * <span class="hljs-number">2</span>) = <span class="hljs-number">0</span> DOT -&gt; выплата валидатору
-(<span class="hljs-number">2</span> - <span class="hljs-number">0</span>) = <span class="hljs-number">2.0</span> -&gt; распределяется между всеми стейками
-(<span class="hljs-number">1</span> / <span class="hljs-number">6</span>) * <span class="hljs-number">2</span> = <span class="hljs-number">0.33</span> -&gt; доля валидатора в стейке
-(<span class="hljs-number">5</span> / <span class="hljs-number">6</span>) * <span class="hljs-number">2</span> = <span class="hljs-number">1.67</span> -&gt; доля номинатора в стейке
-v4 Итого ваплата валидатору: <span class="hljs-number">0</span> + <span class="hljs-number">0.33</span> DOT = <span class="hljs-number">0.33</span> DOT
-v4 Итого ваплата номинатору: <span class="hljs-number">1.67</span> DOT
+(<span class="hljs-number">0</span> * <span class="hljs-number">2</span>) = <span class="hljs-number">0</span> DOT -&gt; validator payment
+(<span class="hljs-number">2</span> - <span class="hljs-number">0</span>) = <span class="hljs-number">2.0</span> -&gt; <span class="hljs-keyword">shared</span> between all stake
+(<span class="hljs-number">1</span> / <span class="hljs-number">6</span>) * <span class="hljs-number">2</span> = <span class="hljs-number">0.33</span> -&gt; validator stake share
+(<span class="hljs-number">5</span> / <span class="hljs-number">6</span>) * <span class="hljs-number">2</span> = <span class="hljs-number">1.67</span> -&gt; nominator stake share
+v4 validator total reward: <span class="hljs-number">0</span> + <span class="hljs-number">0.33</span> DOT = <span class="hljs-number">0.33</span> DOT
+v4 nominator reward: <span class="hljs-number">1.67</span> DOT
 </code></pre>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 6/2/2020 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ru/maintain-guides-how-to-validate-polkadot"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/ru/maintain-guides-how-to-systemd"><span>How to run your node as a `systemd` process</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#очки-эры">Очки эры</a></li><li><a href="#схема-выплат">Схема выплат</a></li><li><a href="#запуск-нескольких-валидаторов">Запуск нескольких валидаторов</a></li><li><a href="#слэшингslashing">Слэшинг/Slashing</a></li><li><a href="#номинаторы-и-платежи-валидатора">Номинаторы и платежи валидатора</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 8/25/2020 by w3fbot</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/ru/maintain-guides-how-to-validate-polkadot"><span class="arrow-prev">← </span><span>Previous</span></a><a class="docs-next button" href="/docs/ru/maintain-guides-how-to-systemd"><span>How to run your node as a `systemd` process</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#очки-эры">Очки эры</a></li><li><a href="#схема-выплат">Схема выплат</a></li><li><a href="#запуск-нескольких-валидаторов">Запуск нескольких валидаторов</a></li><li><a href="#слэшингslashing">Слэшинг/Slashing</a></li><li><a href="#номинаторы-и-платежи-валидатора">Номинаторы и платежи валидатора</a></li></ul></nav></div><footer class="nav-footer" id="footer"><section class="sitemap"><a href="/" class="nav-home"><img src="/img/favicon.ico" alt="Polkadot Wiki" width="66" height="58"/></a><div><a href="https://stackoverflow.com/questions/tagged/polkadot" target="_blank" rel="noreferrer noopener">Stack Overflow</a><a href="https://riot.w3f.tech/#/room/#polkadot-watercooler:matrix.org">Polkadot Watercooler (Riot Chat)</a><a href="https://twitter.com/polkadotnetwork" target="_blank" rel="noreferrer noopener">Twitter</a></div><a class="github-button" href="https://github.com/paritytech/polkadot" data-icon="octicon-star" data-count-href="/paritytech/polkadot/stargazers" data-show-count="true" data-count-aria-label="# stargazers on GitHub" aria-label="Star this project on GitHub">Star</a></section><section class="row"><div class="copyright">Copyright © 2020 Web3 Foundation</div><a class="item" href="https://polkadot.network/privacy/">Privacy Policy</a><a class="item" href="#" id="cookie-settings">Cookie Settings</a><script>
               var cookieSettings = document.getElementById('cookie-settings');
               cookieSettings.onclick = function() {
                 return klaro.show();
