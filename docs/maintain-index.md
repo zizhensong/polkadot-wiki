@@ -46,6 +46,8 @@ guides to set up a node and run the network.
 - [How to upgrade a Validator Node](maintain-guides-how-to-upgrade) - Guide on upgrading your
   validator node.
 - [How to Chill](maintain-guides-how-to-chill) - Walkthrough on how to chill as a validator.
+- [How to Attract Nominations](maintain-guides-how-to-validate-community.md) - How to attract
+  nominations and build a nominator community.
 
 ## Governance
 
