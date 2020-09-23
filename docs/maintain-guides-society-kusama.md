@@ -52,18 +52,10 @@ any questions if anything is unclear.
 
 ### 1. Bid Phase
 
-> Note: If you want to bid to join the society, you will need to be on the Extrinsics page for the
-> following functions. The page is found under "Developer" > "Extrinsics" in Polkadot-JS UI
-> navigation. Ensure that you are on the Kusama network by clicking on the network in the top-left
-> corner
+![Society Dashboard](assets/society/dashboard_submit_bid.jpg)
 
-Anyone can submit a bid to join the society by reserving a deposit or finding an existing member to
-create a bid on their behalf by vouching for them. At every rotation period, as many bids the
-society pot can support will be selected. The selected bids will be moved to the candidate phase,
-whereas bids that were not selected will stay in the bidder pool until they are selected or a user
+Anyone can submit a bid to join the society by reserving a deposit by clicking the "Submit Bid" button highlighted in red. You can also find an existing member to create a bid on their behalf by vouching for them. At every rotation period, as many bids the society pot can support will be selected. The selected bids will be moved to the candidate phase, whereas bids that were not selected will stay in the bidder pool until they are selected or a user
 chooses to unbid.
-
-![Society Dashboard](assets/society/submit_bid.jpg)
 
 Anyone who wants to join the society is required to deposit 10 KSM for reserve on Kusama and place
 the bid amount (1 KSM in this case) that they want to get when joining the society.
@@ -73,6 +65,10 @@ the bid amount (1 KSM in this case) that they want to get when joining the socie
 Once you have submitted the transaction, your bid will be shown on the
 [Society page](https://polkadot.js.org/apps/#/society) under the bids section. You can cancel the
 bidding if you changed your mind about joining the society by calling `unbid`.
+
+> Note: For the rest of steps, you will need to be on the Extrinsics page for the
+> following functions. The page is found under ["Developer" > "Extrinsics"](https://polkadot.js.org/apps/?rpc=wss://kusama-rpc.polkadot.io#/extrinsics) in Polkadot-JS UI
+> navigation.
 
 > unbid(pos)
 >
