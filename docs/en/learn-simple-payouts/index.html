@@ -89,10 +89,10 @@ inflationary rewards, and nomination exposures. Rewards will not be claimable mo
 after they were earned. This means that all rewards must be claimed within 84 eras.</p>
 <p>Anyone can trigger a payout for any validator, as long as they are willing to pay the transaction
 fee. Someone must submit a transaction with a validator ID and an era index. Polkadot will
-automatically calculate that validator's reward, find the top 128
+automatically calculate that validator's reward, find the top {{ polkadot_max_nominators }}
 nominators for that era, and distribute the rewards pro rata.</p>
 <blockquote>
-<p>Note: The Staking system only applies the highest 128 nominations to
+<p>Note: The Staking system only applies the highest {{ polkadot_max_nominators }} nominations to
 each validator to reduce the complexity of the staking set.</p>
 </blockquote>
 <p>These details are handled for you automatically if you use the
@@ -125,7 +125,7 @@ take place. See <a href="learn-phragmen#off-chain-phragmen">Off-chain Phragmén<
                         cookieSettings.onclick = function() {
                           return klaro.show();
                         };
-                        </script></li><li><a href="https://ipfs.io/ipfs/undefined?filename=polkadot-wiki.pdf" class="text-white text-small" target="_blank" rel="noopener noreferrer">PDF version</a></li></ul></div></div></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                        </script></li><li><a href="{{ dot_ipfs_pdf_url }}" class="text-white text-small" target="_blank" rel="noopener noreferrer">PDF version</a></li></ul></div></div></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

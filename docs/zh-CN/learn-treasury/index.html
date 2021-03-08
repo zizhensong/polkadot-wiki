@@ -73,9 +73,9 @@
               }
             });
         </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://crowdin.com/project/polkadot-wiki/zh-CN" target="_blank" rel="noreferrer noopener">Translate</a><h1 id="__docusaurus" class="postHeaderTitle">财政库</h1></header><article><div><span><p>The Treasury is a pot of funds collected through transaction fees, slashing, <a href="learn-staking#inflation">staking inefficiencies</a>, etc. The funds held in the Treasury can be spent by making a spending proposal that, if approved by the <a href="learn-governance#Council">Council</a>, will enter a waiting period before distribution. This waiting period is known as the budget period, and its duration is subject to <a href="learn-governance">governance</a>, with the current default set to
-24 days. The Treasury attempts to spend as many proposals in the queue as it can without running out of funds.</p>
+{{ spend_period }} days. The Treasury attempts to spend as many proposals in the queue as it can without running out of funds.</p>
 <p>If the Treasury ends a budget period without spending all of its funds, it suffers a burn of a percentage of its funds -- thereby causing deflationary pressure.
-This percentage is currently at 1% on Polkadot. </p>
+{{ polkadot: This percentage is currently at 1% on Polkadot. :polkadot }} {{ kusama: This percentage is currently 0.2% on Kusama, with the amount currently going to <a href="https://guide.kusama.network/docs/en/maintain-guides-society-kusama">Society</a> rather than being burned. :kusama }}</p>
 <p>When a stakeholder wishes to propose a spend from the Treasury, they must reserve a deposit totaling 5% of the proposed spend (see below for variations). This deposit will be slashed if the proposal is rejected, and returned if it is accepted.</p>
 <p>Proposals may consist of (but are not limited to):</p>
 <ul>
@@ -96,19 +96,19 @@ This percentage is currently at 1% on Polkadot. </p>
 <li>Parathreads: <a href="learn-parathreads">Parathreads</a> participate in a per-block auction for block inclusion. Part of this bid goes to the validator that accepts the block and the remainder goes to the Treasury.</li>
 </ol>
 <h2><a class="anchor" aria-hidden="true" id="creating-a-treasury-proposal"></a><a href="#creating-a-treasury-proposal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating a Treasury Proposal</h2>
-<p>The proposer has to deposit 5% of the requested amount or 100.000 DOT (whichever is higher) as an anti-spam measure. This amount is burned if the proposal is rejected, or refunded otherwise. These values are subject to <a href="learn-governance">governance</a> so they may change in the future.</p>
+<p>The proposer has to deposit 5% of the requested amount or {{ proposal_min_bond }} (whichever is higher) as an anti-spam measure. This amount is burned if the proposal is rejected, or refunded otherwise. These values are subject to <a href="learn-governance">governance</a> so they may change in the future.</p>
 <p>Please note that there is no way for a user to revoke a treasury proposal after it has been submitted. The Council will either accept or reject the proposal, and if the proposal is rejected, the bonded funds are burned.</p>
 <h3><a class="anchor" aria-hidden="true" id="announcing-the-proposal"></a><a href="#announcing-the-proposal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Announcing the Proposal</h3>
 <p>To minimize storage on chain, proposals don't contain contextual information. When a user submits a proposal, they will probably need to find an off-chain way to explain the proposal. Most discussion takes place on the following platforms:</p>
 <ul>
 <li>Many community members participate in discussion in the <a href="https://riot.w3f.tech/#/room/#kusama:matrix.parity.io">Kusama Element (previously Riot)</a> chat.</li>
 <li>The <a href="https://kusama.polkassembly.io">Polkassembly</a> discussion platform that allows users to log in with their KSM address and automatically reads proposals from the chain, turning them into discussion threads. It also offers a sentiment gauge poll to get a feel for a proposal before committing to a vote.</li>
-<li>The <a href="https://forum.polkadot.network">Polkadot forum</a>
- can be used for proposal explanations.</li>
-<li><a href="https://commonwealth.im">Commonwealth.im</a> is a community site that allows users to log in with their Polkadot  address and automatically reads proposals from the chain, turning them into discussion threads.</li>
+<li>The {{ polkadot: <a href="https://forum.polkadot.network">Polkadot forum</a> :polkadot }}
+{{ kusama: <a href="https://forum.kusama.network">Kusama forum</a> :kusama }} can be used for proposal explanations.</li>
+<li><a href="https://commonwealth.im">Commonwealth.im</a> is a community site that allows users to log in with their {{ polkadot: Polkadot :polkadot }} {{ kusama: Kusama :kusama }} address and automatically reads proposals from the chain, turning them into discussion threads.</li>
 </ul>
-<p>Spreading the word about the proposal's explanation is ultimately up to the proposer - the recommended way is using official Element channels like the <a href="https://app.element.io/#/room/#polkadot-watercooler:web3.foundation">Polkadot Watercooler</a> and <a href="https://app.element.io/#/room/#polkadot-direction:matrix.parity.io">Polkadot Direction room</a>
-.</p>
+<p>Spreading the word about the proposal's explanation is ultimately up to the proposer - the recommended way is using official Element channels like {{ polkadot: the <a href="https://app.element.io/#/room/#polkadot-watercooler:web3.foundation">Polkadot Watercooler</a> and <a href="https://app.element.io/#/room/#polkadot-direction:matrix.parity.io">Polkadot Direction room</a> :polkadot }}
+{{ kusama: the <a href="https://app.element.io/#/room/#kusama:matrix.parity.io">Kusama Direction room</a> or the <a href="https://app.element.io/#/room/#kusamawatercooler:polkadot.builders">Kusama Watercooler</a> :kusama }}.</p>
 <h3><a class="anchor" aria-hidden="true" id="creating-the-proposal"></a><a href="#creating-the-proposal" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Creating the Proposal</h3>
 <p>One way to create the proposal is to use the Polkadot-JS Apps <a href="https://polkadot.js.org/apps">website</a>. From the website, use either the <a href="https://polkadot.js.org/apps/#/extrinsics">extrinsics tab</a> and select the Treasury pallet, then <code>proposeSpend</code> and enter the desired amount and recipient, or use the <a href="https://polkadot.js.org/apps/#/treasury">Treasury tab</a> and its dedicated Submit Proposal button:</p>
 <p><img src="/docs/assets/treasury/submit-new.png" alt="A proposal being created"></p>
@@ -123,24 +123,24 @@ This percentage is currently at 1% on Polkadot. </p>
 <p>Next to the proposals process, a separate system for making tips exists for the Treasury. Tips can be suggested by anyone and are supported by members of the Council. Tips do not have any definite value; the final value of the tip is decided based on the median of all tips issued by the tippers.</p>
 <p>Currently, the tippers are the same as the members of the Council. However, being a tipper is not the direct responsibility of the Council, and at some point the Council and the tippers may be different groups of accounts.</p>
 <p>A tip will enter a closing phase when more than a half plus one of the tipping group have endorsed a tip. During that timeframe, the other members of the tipping group can still issue their tips, but do not have to. Once the window closes, anyone can call the <code>close_tip</code> extrinsic, and the tip will be paid out.</p>
-<p>There are two types of tips: public and tipper-initiated. With public tips, a small bond is required to place them. This bond depends on the tip message length, and a fixed bond constant defined on chain, currently 1. Public tips carry a finder's fee of
-20% which is paid out from the total amount. Tipper-initiated tips, i.e. tips that a Council member published, do not have a finder's fee or a bond.</p>
+<p>There are two types of tips: public and tipper-initiated. With public tips, a small bond is required to place them. This bond depends on the tip message length, and a fixed bond constant defined on chain, currently {{ tip_deposit_amount }}. Public tips carry a finder's fee of
+{{ tip_finders_fee }}% which is paid out from the total amount. Tipper-initiated tips, i.e. tips that a Council member published, do not have a finder's fee or a bond.</p>
 <p>To better understand the process a tip goes through until it is paid out, let's consider an example.</p>
 <h3><a class="anchor" aria-hidden="true" id="example"></a><a href="#example" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Example</h3>
-<p>Bob has done something great for Polkadot . Alice has noticed this and decides to report Bob as deserving a tip from the Treasury. The Council is composed of three members Charlie, Dave, and Eve.</p>
+<p>Bob has done something great for {{ polkadot: Polkadot :polkadot }} {{ kusama: Kusama :kusama }}. Alice has noticed this and decides to report Bob as deserving a tip from the Treasury. The Council is composed of three members Charlie, Dave, and Eve.</p>
 <p>Alice begins the process by issuing the <code>report_awesome</code> extrinsic. This extrinsic requires two arguments, a reason and the address to tip. Alice submits Bob's address with the reason being a UTF-8 encoded URL to a post on
-<a href="https://polkadot.polkassembly.io">polkassembly</a>
- that explains her reasoning for why Bob deserves the tip.</p>
+{{ polkadot: <a href="https://polkadot.polkassembly.io">polkassembly</a> :polkadot }}
+{{ kusama: <a href="https://kusama.polkassembly.io">polkassembly</a> :kusama }} that explains her reasoning for why Bob deserves the tip.</p>
 <p>As mentioned above, Alice must also lock up a deposit for making this report. The deposit is the base deposit as set in the chain's parameter list plus the additional deposit per byte contained in the reason. This is why Alice submitted a URL as the reason instead of the explanation directly, it was cheaper for her to do so.</p>
 <p>For her trouble, Alice is able to claim the eventual finder's fee if the tip is approved by the tippers.</p>
 <p>Since the tipper group is the same as the Council on Kusama, the Council must now collectively (but also independently) decide on the value of the tip that Bob deserves.</p>
 <p>Charlie, Dave, and Eve all review the report and make tips according to their personal valuation of the benefit Bob has provided to Kusama.</p>
-<p>Charlie tips 10 DOT . Dave tips
-30 DOT . Eve tips
-100 DOT .</p>
+<p>Charlie tips {{ polkadot: 10 DOT :polkadot }} {{ kusama: 1 KSM :kusama }}. Dave tips
+{{ polkadot: 30 DOT :polkadot }} {{ kusama: 3 KSM :kusama }}. Eve tips
+{{ polkadot: 100 DOT :polkadot }} {{ kusama: 10 KSM :kusama }}.</p>
 <p>The tip could have been closed out with only two of the three tippers. Once more than half of the tippers group have issued tip valuations, the countdown to close the tip will begin. In this case, the third tipper issued their tip before the end of the closing period, so all three were able to make their tip valuations known.</p>
 <p>Now the actual tip that will be paid out to Bob is the median of these tips, so Bob will be paid out
-30 DOT  from the Treasury.</p>
+{{ polkadot: 30 DOT :polkadot }} {{ kusama: 3 KSM :kusama }} from the Treasury.</p>
 <p>In order for Bob to be paid his tip, some account must call the <code>close_tip</code> extrinsic at the end of the closing period for the tip. This extrinsic may be called by anyone.</p>
 <h2><a class="anchor" aria-hidden="true" id="bounties-spending"></a><a href="#bounties-spending" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Bounties Spending</h2>
 <p>There are practical limits to Council Members curation capabilities when it comes to treasury proposals: Council members likely do not have the expertise to make a proper assessment of the activities described in all proposals. Even if individual Councillors have that expertise, it is highly unlikely that a majority of members are capable in such diverse topics.</p>
@@ -175,7 +175,7 @@ This percentage is currently at 1% on Polkadot. </p>
                         cookieSettings.onclick = function() {
                           return klaro.show();
                         };
-                        </script></li><li><a href="https://ipfs.io/ipfs/undefined?filename=polkadot-wiki.pdf" class="text-white text-small" target="_blank" rel="noopener noreferrer">PDF version</a></li></ul></div></div></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                        </script></li><li><a href="{{ dot_ipfs_pdf_url }}" class="text-white text-small" target="_blank" rel="noopener noreferrer">PDF version</a></li></ul></div></div></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;

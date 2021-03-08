@@ -547,7 +547,7 @@ significant amount of time to calculate the new active validator set and allocat
 an optimal manner.</p>
 <p>There are several further restrictions put in place to limit the complexity of the election and
 payout. As already mentioned, any given nominator can only select up to 16 validators to nominate.
-Conversely, a single validator can have only 128 nominators. A drawback to
+Conversely, a single validator can have only {{ polkadot_max_nominators }} nominators. A drawback to
 this is that it is possible, if the number of nominators is very high or the number of validators is
 very low, that all available validators may be &quot;oversubscribed&quot; and unable to accept more
 nominations. In this case, one may need a larger amount of stake to participate in staking, since
@@ -573,7 +573,7 @@ Phragmén validator election outcome before the start of an era.</li>
                         cookieSettings.onclick = function() {
                           return klaro.show();
                         };
-                        </script></li><li><a href="https://ipfs.io/ipfs/undefined?filename=polkadot-wiki.pdf" class="text-white text-small" target="_blank" rel="noopener noreferrer">PDF version</a></li></ul></div></div></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                        </script></li><li><a href="{{ dot_ipfs_pdf_url }}" class="text-white text-small" target="_blank" rel="noopener noreferrer">PDF version</a></li></ul></div></div></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
