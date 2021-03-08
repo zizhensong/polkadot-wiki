@@ -77,9 +77,9 @@
 <p>Simple payouts requires one transaction per validator per era to claim rewards. The reason Polkadot requires this is to avoid an attack where someone has several thousand accounts nominating a single validator. The major cost in reward distribution is mutating the accounts in storage, and Polkadot cannot pay out several thousand accounts in a single transaction.</p>
 <h2><a class="anchor" aria-hidden="true" id="claiming-rewards"></a><a href="#claiming-rewards" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Claiming Rewards</h2>
 <p>Polkadot stores up to 84 eras of reward info like maps of era number to validator points, inflationary rewards, and nomination exposures. Rewards will not be claimable more than 84 eras after they were earned. This means that all rewards must be claimed within 84 eras.</p>
-<p>Anyone can trigger a payout for any validator, as long as they are willing to pay the transaction fee. Someone must submit a transaction with a validator ID and an era index. Polkadot will automatically calculate that validator's reward, find the top {{ polkadot_max_nominators }} nominators for that era, and distribute the rewards pro rata.</p>
+<p>Anyone can trigger a payout for any validator, as long as they are willing to pay the transaction fee. Someone must submit a transaction with a validator ID and an era index. Polkadot will automatically calculate that validator's reward, find the top 128 nominators for that era, and distribute the rewards pro rata.</p>
 <blockquote>
-<p>Note: The Staking system only applies the highest {{ polkadot_max_nominators }} nominations to each validator to reduce the complexity of the staking set.</p>
+<p>Note: The Staking system only applies the highest 128 nominations to each validator to reduce the complexity of the staking set.</p>
 </blockquote>
 <p>These details are handled for you automatically if you use the <a href="https://polkadot.js.org/apps/#/staking/payout">Polkadot-JS UI</a>, which also allows you to submit batches of eras at once.</p>
 <p>To claim rewards on Polkadot-JS UI, you will need to be in the &quot;Payouts&quot; tab underneath &quot;Staking&quot;, which will list all the pending payouts for your stashes.</p>
@@ -100,7 +100,7 @@
                         cookieSettings.onclick = function() {
                           return klaro.show();
                         };
-                        </script></li><li><a href="{{ dot_ipfs_pdf_url }}" class="text-white text-small" target="_blank" rel="noopener noreferrer">PDF version</a></li></ul></div></div></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
+                        </script></li><li><a href="https://ipfs.io/ipfs/undefined?filename=polkadot-wiki.pdf" class="text-white text-small" target="_blank" rel="noopener noreferrer">PDF version</a></li></ul></div></div></div></footer></div><script type="text/javascript" src="https://cdn.jsdelivr.net/docsearch.js/1/docsearch.min.js"></script><script>
                 document.addEventListener('keyup', function(e) {
                   if (e.target !== document.body) {
                     return;
