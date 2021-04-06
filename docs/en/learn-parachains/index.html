@@ -72,80 +72,98 @@
                 };
               }
             });
-        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/w3f/polkadot-wiki/edit/master/docs/learn-parachains.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Parachains</h1></header><article><div><span><p><img src="/docs/assets/network/one_parachain.png" alt="One parachain"></p>
+        </script></nav></div><div class="container mainContainer docsContainer"><div class="wrapper"><div class="post"><header class="postHeader"><a class="edit-page-link button" href="https://github.com/w3f/polkadot-wiki/edit/master/docs/learn-parachains.md" target="_blank" rel="noreferrer noopener">Edit</a><h1 id="__docusaurus" class="postHeaderTitle">Parachains</h1></header><article><div><span><blockquote>
+<p>Note: For information on how to participate in the crowdloan and parachain auction testing on
+Rococo, please see the <a href="build-parachains-rococo">Rococo page</a> &gt;
+.</p>
+</blockquote>
+<p><img src="/docs/assets/network/one_parachain.png" alt="One parachain"></p>
 <p>A parachain is an application-specific data structure that is globally coherent and validatable by
-the validators of the Polkadot Relay Chain. Most commonly a parachain will take the form of a
-blockchain, but there is no specific need for them to be actual blockchains. They take their name
-from the concept of parallelized chains that run parallel to the Relay Chain. Due to their parallel
-nature, they are able to parallelize transaction processing and achieve scalability of the Polkadot
-system. They <a href="learn-security">share in the security</a> of the entire Polkadot network and can
-communicate with other parachains through <a href="learn-crosschain">XCMP</a>.</p>
-<p>Parachains are maintained by a network maintainer known as a <a href="learn-collator">collator</a>. The role of
-the collator node is to maintain a full-node of the parachain, retain all necessary information of
-the parachain, and produce new block candidates to pass to the Relay Chain validators for
-verification and inclusion in the shared state of Polkadot. The incentivization of a collator node
-is an implementation detail of the parachain. They are not required to be staked on the Relay Chain
-or own DOT tokens unless stipulated to do so by the parachain implementation.</p>
+the validators of the Relay Chain. Most commonly a parachain will take the form of a blockchain, but
+there is no specific need for them to be actual blockchains. They take their name from the concept
+of parallelized chains that run parallel to the Relay Chain. Due to their parallel nature, they are
+able to parallelize transaction processing and achieve scalability of the
+Polkadot  system. They
+<a href="https://wiki.polkadot.network/docs/en/learn-security">share in the security</a> of the entire network
+and can communicate with other parachains through
+<a href="https://wiki.polkadot.network/docs/en/learn-crosschain">XCMP</a>.</p>
+<p>Parachains are maintained by a network maintainer known as a
+<a href="https://wiki.polkadot.network/docs/en/learn-collator">collator</a>. The role of the collator node is
+to maintain a full-node of the parachain, retain all necessary information of the parachain, and
+produce new block candidates to pass to the Relay Chain validators for verification and inclusion in
+the shared state of Polkadot. The incentivization of a collator node is an implementation detail of
+the parachain. They are not required to be staked on the Relay Chain or own DOT tokens unless
+stipulated to do so by the parachain implementation.</p>
 <p>The Polkadot Host (PH) requires that the state transitions performed on parachains to be specified
 as a Wasm executable. Proofs of new state transitions that occur on a parachain must be validated
 against the registered state transition function (STF) that is stored on the Relay Chain by the
-validators before Polkadot acknowledges a state transition has occurred on a parachain. The only
-constraint to the logic that a parachain is allowed to implement is that it must be verifiable by
-the Relay Chain validators. Verification most commonly takes the form of a bundled proof of a state
-transition known as a Proof-of-Verification (PoV) block, which is submitted to the validators from
-one or more of the parachain collators to be checked.</p>
+validators before Polkadot  acknowledges a
+state transition has occurred on a parachain. The key constraint regarding the logic of a parachain is
+that it must be verifiable by the Relay Chain validators. Verification most
+commonly takes the form of a bundled proof of a state transition known as a Proof-of-Verification
+(PoV) block, which is submitted to the validators from one or more of the parachain collators to be
+checked.</p>
 <h2><a class="anchor" aria-hidden="true" id="parachain-economies"></a><a href="#parachain-economies" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parachain Economies</h2>
 <p>Parachains may have their own economies with their own native tokens. Schemes such as Proof-of-Stake
 are usually used to select the validator set in order to handle validation and finalization;
-parachains will not be required to do either of those things. However, since Polkadot is general
-over what the parachain can implement, it may be the choice of the parachain to implement a staking
-token, but it's not generally necessary.</p>
+parachains will not be required to do either of those things. However, since
+Polkadot  is not overly particular about what the parachain
+can implement, it may be the choice of the parachain to implement a staking token, but it's not
+generally necessary.</p>
 <p>Collators may be incentivized through inflation of a native parachain token. There may be other ways
 to incentivize the collator nodes that do not involve inflating the native parachain token.</p>
 <p>Transaction fees in a native parachain token can also be an implementation choice of parachains.
-Polkadot makes no hard and fast rules for how the parachains decide on original validity of
-transactions. For example, a parachain may be implemented so that transactions must pay a minimum
-fee to collators to be valid. The Relay Chain will enforce this validity. Similarly, a parachain
-could not include that in their implementation and Polkadot would still enforce its validity.</p>
+Polkadot  makes no hard and fast rules for how
+the parachains decide on original validity of transactions. For example, a parachain may be
+implemented so that transactions must pay a minimum fee to collators to be valid. The Relay Chain
+will enforce this validity. Similarly, a parachain could not include that in their implementation
+and Polkadot would still enforce its validity.</p>
 <p>Parachains are not required to have their own token. If they do, is up to the parachain to make the
-economic case for their token, not Polkadot.</p>
+economic case for their token, not Polkadot .</p>
 <h2><a class="anchor" aria-hidden="true" id="parachain-slot-acquisition"></a><a href="#parachain-slot-acquisition" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Parachain Slot Acquisition</h2>
-<p>Polkadot supports a limited number of parachains, currently estimated to be about 100. As the number
-of slots is limited, Polkadot has several ways to allocate the slots:</p>
+<p>Polkadot  supports a limited number of
+parachains, currently estimated to be about 100. As the number of slots is limited, there are
+several ways to allocate them:</p>
 <ul>
-<li>Polkadot governance granted parachains, or &quot;common good&quot; parachains</li>
+<li>Governance granted parachains, or &quot;common good&quot; parachains</li>
 <li>Auction granted parachains</li>
 <li>Parathreads</li>
 </ul>
-<p><a href="learn-parachains#common-good-parachains">&quot;Common Good&quot; parachains</a> are allocated by Polkadot's
-on-chain governance system, and are deemed as a &quot;common good&quot; for the network, such as bridges to
-other networks or chains. They are usually considered system level chains or public utility chains.
-These typically do not have an economic model of their own and help remove transactions from the
-Relay Chain, allowing for more efficient parachain processing.</p>
-<p><a href="learn-auction">Auction granted parachains</a> are granted in a permissionless auction. Parachain teams
-can either bid with their own DOT tokens, or source them from the community using the
-<a href="learn-crowdloan">crowdloan functionality</a>.</p>
-<p><a href="learn-parathreads">Parathreads</a> have the same API as parachains, but are scheduled for execution on
-a pay-as-you-go basis with an auction for each block.</p>
+<p><a href="#common-good-parachains">&quot;Common Good&quot; parachains</a> are allocated by Polkadot's on-chain
+<a href="learn-governance">governance</a>
+ system, and are deemed as a &quot;common
+good&quot; for the network, such as bridges to other networks or chains. They are usually considered
+system level chains or public utility chains. These typically do not have an economic model of their
+own and help remove transactions from the Relay Chain, allowing for more efficient parachain
+processing.</p>
+<p><a href="learn-auction">Auction granted parachains</a>
+ are granted in a
+permissionless auction. Parachain teams can either bid with their own DOT tokens, or source them
+from the community using the <a href="learn-crowdloans">crowdloan functionality</a>
+.</p>
+<p><a href="learn-parathreads">Parathreads</a>
+ have the same API as parachains, but
+are scheduled for execution on a pay-as-you-go basis with an auction for each block.</p>
 <h3><a class="anchor" aria-hidden="true" id="slot-expiration"></a><a href="#slot-expiration" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Slot Expiration</h3>
-<p>When a parachain wins an auction, the DOT that it bid gets reserved until the end of the lease.
+<p>When a parachain wins an auction, the tokens that it bid gets reserved until the end of the lease.
 Reserved balances are non-transferrable and cannot be used for staking. At the end of the lease, the
-DOT is unreserved. Parachains that have not secured a new lease to extend their slot will
+tokens are unreserved. Parachains that have not secured a new lease to extend their slot will
 automatically become parathreads.</p>
 <h2><a class="anchor" aria-hidden="true" id="common-good-parachains"></a><a href="#common-good-parachains" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>Common Good Parachains</h2>
 <p>&quot;Common Good&quot; parachains are parachain slots reserved for functionality that benefits the the
-Polkadot ecosystem as a whole. By allocating a subset of parachain slots to common good chains, the
-entire network can realize the benefit of valuable parachains that would otherwise be underfunded
-due to the free-rider problem. They are not allocated via the parachain auction process, but by
-Polkadot's on-chain governance system.</p>
+ecosystem as a whole. By allocating a subset of parachain slots to common good chains, the entire
+network can realize the benefit of valuable parachains that would otherwise be underfunded due to
+the free-rider problem. They are not allocated via the parachain auction process, but by the
+on-chain <a href="learn-governance">governance</a>
+ system.</p>
 <p>The purpose of these parachains will probably fall into one of two categories: system level chains
 or public utility chains.</p>
 <h3><a class="anchor" aria-hidden="true" id="system-level-chains"></a><a href="#system-level-chains" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>System Level Chains</h3>
 <p>System level chains move functionality from the Relay Chain into parachains, minimizing the
 administrative use of the Relay Chain. For example, a governance parachain could move all the
-Polkadot governance processes from the Relay Chain into a parachain. Adding a system level chain is
-generally uncontroversial, because they merely move functionality that the stakeholders already
-agreed was useful from one place (the Relay Chain) to another (a parachain).</p>
+governance processes from the Relay Chain into a parachain. Adding a system level chain is generally
+uncontroversial, because they merely move functionality that the stakeholders already agreed was
+useful from one place (the Relay Chain) to another (a parachain).</p>
 <p>Moving the logic from the Relay Chain to a parachain is an optimization that makes the entire
 network more efficient. All validators need to process all Relay Chain transactions, but split into
 small groups to validate parachains in parallel. By moving system level logic to a parachain, and
@@ -168,15 +186,15 @@ the value of the parachain slot and distribute it across all members of the netw
 <p>Public utility chains will always be fully aligned with their Relay Chain stakeholder base. This
 means that they will adopt the Relay Chain's native token (i.e. DOT or KSM) as their native token
 and respect any messages incoming from the Relay Chain and system level parachains at face value.</p>
-<p>Some examples of potential public utility chains are bridges, DOT-denominated smart contract
+<p>Some examples of potential public utility chains are bridges, DOT/KSM-denominated smart contract
 platforms, and generic asset chains. All of these could operate without a new token:</p>
 <ul>
 <li>A bridge could add its own native token to charge as a toll, but in many cases that would be
-arbitrary value capture, when it could just as well use DOT and/or the bridged chain’s assets in
-its fee mechanism.</li>
-<li>A DOT-denominated smart contract layer-one blockchain would allow Wasm smart contract execution
-using DOT as the native asset with which to pay gas.</li>
-<li>A generic assets chain would allow anyone to place a deposit in DOT to deploy their asset
+arbitrary value capture, when it could just as well use DOT/KSM and/or the bridged chain’s assets
+in its fee mechanism.</li>
+<li>A DOT/KSM-denominated smart contract layer-one blockchain would allow Wasm smart contract
+execution using DOT/KSM as the native asset with which to pay gas.</li>
+<li>A generic assets chain would allow anyone to place a deposit in DOT/KSM to deploy their asset
 on-chain. Assets on this chain could be backed by physical goods like artwork, real estate, or
 gold; or by paper goods like shares in a company or fiat currency held by a trusted party,
 providing a stable, permanent launchpad for stablecoins and Central Bank Digital Currencies.</li>
@@ -207,16 +225,19 @@ use other consensus algorithms that provide their own finality. Only sovereign c
 bridge to the Relay Chain via a parachain) can control their own consensus. Parachains have control
 over how blocks are authored and by whom.</p>
 <h3><a class="anchor" aria-hidden="true" id="how-will-parachain-slots-be-distributed"></a><a href="#how-will-parachain-slots-be-distributed" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>How will parachain slots be distributed?</h3>
-<p>Parachain slots will be acquirable through auction, please see the <a href="learn-auction">parachain slots</a>
-article. Additionally, some parachain slots will be set aside to run
-<a href="learn-parathreads">parathreads</a> — chains that bid on a per-block basis to be included in the
-Relay Chain.</p>
+<p>Parachain slots will be acquirable through auction, please see the
+<a href="learn-auction">parachain slots</a>
+ article. Additionally, some parachain
+slots will be set aside to run <a href="learn-parathreads">parathreads</a>
+ — chains that bid on a per-block
+basis to be included in the Relay Chain.</p>
 <h3><a class="anchor" aria-hidden="true" id="what-happens-to-parachains-when-the-number-of-validators-drops-below-a-certain-threshold"></a><a href="#what-happens-to-parachains-when-the-number-of-validators-drops-below-a-certain-threshold" aria-hidden="true" class="hash-link"><svg class="hash-link-icon" aria-hidden="true" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path></svg></a>What happens to parachains when the number of validators drops below a certain threshold?</h3>
 <p>The minimal safe ratio of validator per parachain is 5:1. With a sufficiently large set of
 validators, the randomness of their distribution along with
-<a href="learn-availability">availability and validity</a> will make sure security is on-par. However, should
-there be a big outage of a popular cloud provider or another network connectivity catastrophe, it is
-reasonable to expect that the number of validators per chain will drop.</p>
+<a href="https://wiki.polkadot.network/docs/en/learn-availability">availability and validity</a> will make sure
+security is on-par. However, should there be a big outage of a popular cloud provider or another
+network connectivity catastrophe, it is reasonable to expect that the number of validators per chain
+will drop.</p>
 <p>Depending on how many validators went offline, the outcome differs.</p>
 <p>If a few validators went offline, the parachains whose validator groups will be too small to
 validate a block will skip those blocks. Their block production speed will slow down to any
@@ -248,7 +269,7 @@ of secure message-passing between them.&quot;</li>
 <li><a href="https://polkadot.network/the-path-of-a-parachain-block/">The Path of a Parachain Block</a> - A
 technical walkthrough of how parachains interact with the Relay Chain.</li>
 </ul>
-</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/6/2021 by dependabot-preview[bot]</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/learn-registrar"><span class="arrow-prev">← </span><span>How to use W3F Registrar</span></a><a class="docs-next button" href="/docs/en/learn-parathreads"><span>Parathreads</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#parachain-economies">Parachain Economies</a></li><li><a href="#parachain-slot-acquisition">Parachain Slot Acquisition</a><ul class="toc-headings"><li><a href="#slot-expiration">Slot Expiration</a></li></ul></li><li><a href="#common-good-parachains">Common Good Parachains</a><ul class="toc-headings"><li><a href="#system-level-chains">System Level Chains</a></li><li><a href="#public-utility-chains">Public Utility Chains</a></li></ul></li><li><a href="#examples">Examples</a></li><li><a href="#faq">FAQ</a><ul class="toc-headings"><li><a href="#what-is-parachain-consensus">What is &quot;parachain consensus&quot;?</a></li><li><a href="#how-will-parachain-slots-be-distributed">How will parachain slots be distributed?</a></li><li><a href="#what-happens-to-parachains-when-the-number-of-validators-drops-below-a-certain-threshold">What happens to parachains when the number of validators drops below a certain threshold?</a></li><li><a href="#parachain-development-kits-pdks">Parachain Development Kits (PDKs)</a></li><li><a href="#deploying-parachains">Deploying parachains</a></li></ul></li><li><a href="#resources">Resources</a></li></ul></nav></div><footer class="nav-footer spacer-y-4 pb-4" id="footer"><div class="container"><div class="justify-content-start row"><div class="mb-3 mb-md-0 col-md-3 col-6"><h5 class="text-white">General</h5><ul class="list-unstyled"><li class="py-0 py-md-1"><a href="https://polkadot.network/about" class="text-white" target="_blank" rel="noopener noreferrer">About</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/faq" class="text-white" target="_blank" rel="noopener noreferrer">FAQ</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/contact" class="text-white" target="_blank" rel="noopener noreferrer">Contact</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/build" class="text-white" target="_blank" rel="noopener noreferrer">Build</a></li><li class="py-0 py-md-1"><a href="https://github.com/w3f/General-Grants-Program" class="text-white" target="_blank" rel="noopener noreferrer">Grants and Bounties</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/jobs" class="text-white" target="_blank" rel="noopener noreferrer">Careers</a></li></ul></div><div class="mb-3 mb-md-0 col-md-3 col-6"><h5 class="text-white">Technology</h5><ul class="list-unstyled"><li class="py-0 py-md-1"><a href="https://polkadot.network/technology" class="text-white" target="_blank" rel="noopener noreferrer">Technology</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/dot-token" class="text-white" target="_blank" rel="noopener noreferrer">Token</a></li><li class="py-0 py-md-1"><a href="https://telemetry.polkadot.io/" class="text-white" target="_blank" rel="noopener noreferrer">Telemetry</a></li><li class="py-0 py-md-1"><a href="https://www.parity.io/substrate" class="text-white" target="_blank" rel="noopener noreferrer">Substrate</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/PolkaDotPaper.pdf" class="text-white" target="_blank" rel="noopener noreferrer">Whitepaper</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/Polkadot-lightpaper.pdf" class="text-white" target="_blank" rel="noopener noreferrer">Lightpaper</a></li></ul></div><div class="mb-3 mb-md-0 col-md-3 col-6"><h5 class="text-white">Community</h5><ul class="list-unstyled"><li class="py-0 py-md-1"><a href="https://polkadot.network/community" class="text-white" target="_blank" rel="noopener noreferrer">Community</a></li><li class="py-0 py-md-1"><a href="http://wiki.polkadot.network/en/latest/" class="text-white" target="_blank" rel="noopener noreferrer">Documentation</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/brand-assets" class="text-white" target="_blank" rel="noopener noreferrer">Brand Assets</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/blog" class="text-white" target="_blank" rel="noopener noreferrer">Blog</a></li><li class="py-0 py-md-1"><a href="https://app.element.io/#/room/!FdCojkeGzZLSEoiecf:web3.foundation?via=matrix.parity.io&amp;via=matrix.org&amp;via=web3.foundation" class="text-white" target="_blank" rel="noopener noreferrer">Element Chat</a></li><li class="py-0 py-md-1"><a href="https://medium.com/polkadot-network" class="text-white" target="_blank" rel="noopener noreferrer">Medium</a></li></ul></div><div class="px-lg-0 col-md-3"><ul class="list-social-links justify-content-around"><li class="text-white"><a href="https://twitter.com/Polkadot" target="_blank" rel="noopener noreferrer"><i class="socicon-twitter"></i></a></li><li class="text-white"><a href="https://www.reddit.com/r/dot" target="_blank" rel="noopener noreferrer"><i class="socicon-reddit"></i></a></li><li class="text-white"><a href="https://github.com/paritytech/polkadot" target="_blank" rel="noopener noreferrer"><i class="socicon-github"></i></a></li><li class="text-white"><a href="https://www.youtube.com/channel/UCB7PbjuZLEba_znc7mEGNgw" target="_blank" rel="noopener noreferrer"><i class="socicon-youtube"></i></a></li><li class="text-white"><a href="https://discord.gg/wGUDt2p" target="_blank" rel="noopener noreferrer"><i class="socicon-discord"></i></a></li></ul><p class="d-block text-white">Subscribe to the newsletter to hear about Polkadot updates and events.</p><button type="button" class="btn btn-primary"><a href="https://info.polkadot.network/subscribe" target="_blank" style="color:white">Subscribe</a></button></div></div><div class="footer-legal align-items-end mt-5 pt-4 row"><div class="mb-2 mb-lg-0 col-lg-2"><a class="navbar-brand" href="https://polkadot.network/" target="_blank" rel="noopener noreferrer"><img src="/img/logo-polkadot-light.svg" alt="Polkadot Network"/></a></div><div class="col-lg-10"><ul class="list-unstyled d-flex flex-wrap list-pipe-separator"><li><a href="https://web3.foundation" class="text-white text-small" target="_blank" rel="noopener noreferrer">© 2021 Web3 Foundation</a></li><li><a href="https://polkadot.network/impressum" class="text-white text-small" target="_blank" rel="noopener noreferrer">Impressum</a></li><li><a href="https://polkadot.network/disclaimer" class="text-white text-small" target="_blank" rel="noopener noreferrer">Disclaimer</a></li><li><a href="https://polkadot.network/privacy" class="text-white text-small" target="_blank" rel="noopener noreferrer">Privacy</a></li><li><a class="text-white text-small" href="#" id="cookie-settings">Cookie Settings</a><script>
+</span></div></article></div><div class="docLastUpdate"><em>Last updated on 4/6/2021 by Bruno Škvorc</em></div><div class="docs-prevnext"><a class="docs-prev button" href="/docs/en/learn-registrar"><span class="arrow-prev">← </span><span>How to use W3F Registrar</span></a><a class="docs-next button" href="/docs/en/learn-parathreads"><span>Parathreads</span><span class="arrow-next"> →</span></a></div></div></div><nav class="onPageNav"><ul class="toc-headings"><li><a href="#parachain-economies">Parachain Economies</a></li><li><a href="#parachain-slot-acquisition">Parachain Slot Acquisition</a><ul class="toc-headings"><li><a href="#slot-expiration">Slot Expiration</a></li></ul></li><li><a href="#common-good-parachains">Common Good Parachains</a><ul class="toc-headings"><li><a href="#system-level-chains">System Level Chains</a></li><li><a href="#public-utility-chains">Public Utility Chains</a></li></ul></li><li><a href="#examples">Examples</a></li><li><a href="#faq">FAQ</a><ul class="toc-headings"><li><a href="#what-is-parachain-consensus">What is &quot;parachain consensus&quot;?</a></li><li><a href="#how-will-parachain-slots-be-distributed">How will parachain slots be distributed?</a></li><li><a href="#what-happens-to-parachains-when-the-number-of-validators-drops-below-a-certain-threshold">What happens to parachains when the number of validators drops below a certain threshold?</a></li><li><a href="#parachain-development-kits-pdks">Parachain Development Kits (PDKs)</a></li><li><a href="#deploying-parachains">Deploying parachains</a></li></ul></li><li><a href="#resources">Resources</a></li></ul></nav></div><footer class="nav-footer spacer-y-4 pb-4" id="footer"><div class="container"><div class="justify-content-start row"><div class="mb-3 mb-md-0 col-md-3 col-6"><h5 class="text-white">General</h5><ul class="list-unstyled"><li class="py-0 py-md-1"><a href="https://polkadot.network/about" class="text-white" target="_blank" rel="noopener noreferrer">About</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/faq" class="text-white" target="_blank" rel="noopener noreferrer">FAQ</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/contact" class="text-white" target="_blank" rel="noopener noreferrer">Contact</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/build" class="text-white" target="_blank" rel="noopener noreferrer">Build</a></li><li class="py-0 py-md-1"><a href="https://github.com/w3f/General-Grants-Program" class="text-white" target="_blank" rel="noopener noreferrer">Grants and Bounties</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/jobs" class="text-white" target="_blank" rel="noopener noreferrer">Careers</a></li></ul></div><div class="mb-3 mb-md-0 col-md-3 col-6"><h5 class="text-white">Technology</h5><ul class="list-unstyled"><li class="py-0 py-md-1"><a href="https://polkadot.network/technology" class="text-white" target="_blank" rel="noopener noreferrer">Technology</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/dot-token" class="text-white" target="_blank" rel="noopener noreferrer">Token</a></li><li class="py-0 py-md-1"><a href="https://telemetry.polkadot.io/" class="text-white" target="_blank" rel="noopener noreferrer">Telemetry</a></li><li class="py-0 py-md-1"><a href="https://www.parity.io/substrate" class="text-white" target="_blank" rel="noopener noreferrer">Substrate</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/PolkaDotPaper.pdf" class="text-white" target="_blank" rel="noopener noreferrer">Whitepaper</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/Polkadot-lightpaper.pdf" class="text-white" target="_blank" rel="noopener noreferrer">Lightpaper</a></li></ul></div><div class="mb-3 mb-md-0 col-md-3 col-6"><h5 class="text-white">Community</h5><ul class="list-unstyled"><li class="py-0 py-md-1"><a href="https://polkadot.network/community" class="text-white" target="_blank" rel="noopener noreferrer">Community</a></li><li class="py-0 py-md-1"><a href="http://wiki.polkadot.network/en/latest/" class="text-white" target="_blank" rel="noopener noreferrer">Documentation</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/brand-assets" class="text-white" target="_blank" rel="noopener noreferrer">Brand Assets</a></li><li class="py-0 py-md-1"><a href="https://polkadot.network/blog" class="text-white" target="_blank" rel="noopener noreferrer">Blog</a></li><li class="py-0 py-md-1"><a href="https://app.element.io/#/room/!FdCojkeGzZLSEoiecf:web3.foundation?via=matrix.parity.io&amp;via=matrix.org&amp;via=web3.foundation" class="text-white" target="_blank" rel="noopener noreferrer">Element Chat</a></li><li class="py-0 py-md-1"><a href="https://medium.com/polkadot-network" class="text-white" target="_blank" rel="noopener noreferrer">Medium</a></li></ul></div><div class="px-lg-0 col-md-3"><ul class="list-social-links justify-content-around"><li class="text-white"><a href="https://twitter.com/Polkadot" target="_blank" rel="noopener noreferrer"><i class="socicon-twitter"></i></a></li><li class="text-white"><a href="https://www.reddit.com/r/dot" target="_blank" rel="noopener noreferrer"><i class="socicon-reddit"></i></a></li><li class="text-white"><a href="https://github.com/paritytech/polkadot" target="_blank" rel="noopener noreferrer"><i class="socicon-github"></i></a></li><li class="text-white"><a href="https://www.youtube.com/channel/UCB7PbjuZLEba_znc7mEGNgw" target="_blank" rel="noopener noreferrer"><i class="socicon-youtube"></i></a></li><li class="text-white"><a href="https://discord.gg/wGUDt2p" target="_blank" rel="noopener noreferrer"><i class="socicon-discord"></i></a></li></ul><p class="d-block text-white">Subscribe to the newsletter to hear about Polkadot updates and events.</p><button type="button" class="btn btn-primary"><a href="https://info.polkadot.network/subscribe" target="_blank" style="color:white">Subscribe</a></button></div></div><div class="footer-legal align-items-end mt-5 pt-4 row"><div class="mb-2 mb-lg-0 col-lg-2"><a class="navbar-brand" href="https://polkadot.network/" target="_blank" rel="noopener noreferrer"><img src="/img/logo-polkadot-light.svg" alt="Polkadot Network"/></a></div><div class="col-lg-10"><ul class="list-unstyled d-flex flex-wrap list-pipe-separator"><li><a href="https://web3.foundation" class="text-white text-small" target="_blank" rel="noopener noreferrer">© 2021 Web3 Foundation</a></li><li><a href="https://polkadot.network/impressum" class="text-white text-small" target="_blank" rel="noopener noreferrer">Impressum</a></li><li><a href="https://polkadot.network/disclaimer" class="text-white text-small" target="_blank" rel="noopener noreferrer">Disclaimer</a></li><li><a href="https://polkadot.network/privacy" class="text-white text-small" target="_blank" rel="noopener noreferrer">Privacy</a></li><li><a class="text-white text-small" href="#" id="cookie-settings">Cookie Settings</a><script>
                         var cookieSettings = document.getElementById('cookie-settings');
                         cookieSettings.onclick = function() {
                           return klaro.show();
